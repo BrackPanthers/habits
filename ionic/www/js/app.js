@@ -19,11 +19,13 @@ habitApp.run(function($ionicPlatform) {
   });
 })
 
+// tab based navigation/ routing
 habitApp.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
   .state('login', {
     url: '/login',
-    templateUrl: './../views/login.html'
+    templateUrl: './../views/login.html',
+    controller: 'loginCtrl'
   })
   .state('tabs', {
     url: '/tabs',
@@ -34,7 +36,17 @@ habitApp.config(function($stateProvider, $urlRouterProvider) {
     url: '/profile',
     views: {
       'profile-tab': {
-        templateUrl: './../views/profile.html'
+        templateUrl: './../views/profile.html',
+        controller: 'profileCtrl'
+      }
+    }
+  })
+  .state('tabs.habitDetail', {
+    url: '/habit/:habitId',
+    views: {
+      'profile-tab': {
+        templateUrl: './../views/habit-detail.html',
+        controller: 'habitDetailCtrl'
       }
     }
   })
@@ -42,7 +54,8 @@ habitApp.config(function($stateProvider, $urlRouterProvider) {
     url: '/logger',
     views: {
       'logger-tab': {
-        templateUrl: './../views/logger.html'
+        templateUrl: './../views/logger.html',
+        controller: 'loggerCtrl'
       }
     }
   })
@@ -50,10 +63,12 @@ habitApp.config(function($stateProvider, $urlRouterProvider) {
     url: '/newhabit',
     views: {
       'new-tab': {
-        templateUrl: './../views/new-habit.html'
+        templateUrl: './../views/new-habit.html',
+        controller: 'newHabitCtrl'
       }
     }
   });
+
 
   $urlRouterProvider
   .otherwise('/tabs/profile');

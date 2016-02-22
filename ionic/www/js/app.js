@@ -24,7 +24,7 @@ habitApp.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
   .state('login', {
     url: '/login',
-    templateUrl: './../views/login.html',
+    templateUrl: './views/login.html',
     controller: 'loginCtrl'
   })
   .state('tabs', {

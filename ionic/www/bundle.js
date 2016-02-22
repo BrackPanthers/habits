@@ -24,7 +24,7 @@ habitApp.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
   .state('login', {
     url: '/login',
-    templateUrl: './../views/login.html',
+    templateUrl: './views/login.html',
     controller: 'loginCtrl'
   })
   .state('tabs', {
@@ -101,7 +101,7 @@ habitApp.constant('constants', function() {
   }
 });
 
-angular.module('habitApp', [])
+habitApp
 .service('loginService', function() {
   // For the purpose of this example I will store user data on ionic local storage but you should save it on a database
   var setUser = function(user_data) {

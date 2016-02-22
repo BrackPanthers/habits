@@ -1,0 +1,11 @@
+@import './../_globalvars.scss';
+
+$profile-page-color: #d6d6d6;
+
+.main-content {
+  background-color: $profile-page-color;
+
+  .top-content {
+    color: $profile-page-color;
+  }
+}

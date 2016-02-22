@@ -18,3 +18,43 @@ habitApp.run(function($ionicPlatform) {
     }
   });
 })
+
+habitApp.config(function($stateProvider, $urlRouterProvider) {
+  $stateProvider
+  .state('login', {
+    url: '/login',
+    templateUrl: './../views/login.html'
+  })
+  .state('tabs', {
+    url: '/tabs',
+    abstract: true,
+    templateUrl: './../views/tabnav.html'
+  })
+  .state('tabs.profile', {
+    url: '/profile',
+    views: {
+      'profile-tab': {
+        templateUrl: './../views/profile.html'
+      }
+    }
+  })
+  .state('tabs.logger', {
+    url: '/logger',
+    views: {
+      'logger-tab': {
+        templateUrl: './../views/logger.html'
+      }
+    }
+  })
+  .state('tabs.newHabit', {
+    url: '/newhabit',
+    views: {
+      'new-tab': {
+        templateUrl: './../views/new-habit.html'
+      }
+    }
+  });
+
+  $urlRouterProvider
+  .otherwise('/tabs/profile');
+});

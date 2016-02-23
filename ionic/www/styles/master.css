@@ -2,3 +2,11 @@ h1.title {
   color: green;
 }
 
+
+.main-content {
+  background-color: #d6d6d6;
+}
+
+.main-content .top-content {
+  color: #d6d6d6;
+}

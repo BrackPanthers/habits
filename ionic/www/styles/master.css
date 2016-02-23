@@ -2,6 +2,13 @@
   background-color: #d6d6d6;
 }
 
+.main-content {
+  background-color: #d6d6d6;
+}
+
+.main-content .top-content {
+  color: #d6d6d6;
+}
 
 .profile-content .profile-top-content {
   height: 200px;
@@ -51,4 +58,5 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
 }

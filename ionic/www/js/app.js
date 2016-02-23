@@ -18,3 +18,58 @@ habitApp.run(function($ionicPlatform) {
     }
   });
 })
+
+// tab based navigation/ routing
+habitApp.config(function($stateProvider, $urlRouterProvider) {
+  $stateProvider
+  .state('login', {
+    url: '/login',
+    templateUrl: './views/login.html',
+    controller: 'loginCtrl'
+  })
+  .state('tabs', {
+    url: '/tabs',
+    abstract: true,
+    templateUrl: './../views/tabnav.html'
+  })
+  .state('tabs.profile', {
+    url: '/profile',
+    views: {
+      'profile-tab': {
+        templateUrl: './../views/profile.html',
+        controller: 'profileCtrl'
+      }
+    }
+  })
+  .state('tabs.habitDetail', {
+    url: '/habit/:habitId',
+    views: {
+      'profile-tab': {
+        templateUrl: './../views/habit-detail.html',
+        controller: 'habitDetailCtrl'
+      }
+    }
+  })
+  .state('tabs.logger', {
+    url: '/logger',
+    views: {
+      'logger-tab': {
+        templateUrl: './../views/logger.html',
+        controller: 'loggerCtrl'
+      }
+    }
+  })
+  .state('tabs.newHabit', {
+    url: '/newhabit',
+    views: {
+      'new-tab': {
+        templateUrl: './../views/new-habit.html',
+        controller: 'newHabitCtrl'
+      }
+    }
+  });
+
+
+  $urlRouterProvider
+  .otherwise('/tabs/profile');
+});

@@ -3,3 +3,10 @@
 .custom-tabs > .tabs {
   background-color: #d6d6d6;
 };
+
+.tabs-icon-top > .tabs .tab-item, .tabs-icon-top.tabs .tab-item,
+.tabs-icon-bottom > .tabs .tab-item, .tabs-icon-bottom.tabs .tab-item {
+  line-height: 23px;
+  letter-spacing: 0.05em;
+  margin-top: 7px;
+}

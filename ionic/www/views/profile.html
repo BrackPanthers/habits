@@ -1,12 +1,39 @@
 <ion-view>
-  <ion-content class="padding">
-    <h3>User Profile</h3>
-    <h5>{{test}}</h5>
-    <div class="">
-      <a ui-sref="tabs.habitDetail({habitId: '12345'})">Go To Habit Detail View</a>
+  <ion-content>
+    <div class="profile-content">
+      <div class="profile-top-content">
+        <div class="settings-link">
+          <i class="ion-gear-a"></i>
+        </div>
+        <div class="user-info-wrapper">
+          <div class="user-photo-wrapper">
+            <img src="{{userData.photo_url}}" alt="" class="profile-photo"/>
+          </div>
+          <div class="user-name">
+            {{userData.first_name}} {{userData.last_name}}
+          </div>
+        </div>
+      </div>
+      <div class="profile-tabs">
+        <div class="profile-tab">
+          Habits
+        </div>
+        <div class="profile-tab">
+          Badges
+        </div>
+      </div>
+      <div class="profile-main-content">
+
+      </div>
+      <h3>User Profile</h3>
+      <h5>{{test}}</h5>
+      <div class="">
+        <a ui-sref="tabs.habitDetail({habitId: '12345'})">Go To Habit Detail View</a>
+      </div>
+      <div class="">
+        <a ui-sref="login">Logout</a>
+      </div>
     </div>
-    <div class="">
-      <a ui-sref="login">Logout</a>
-    </div>
+
   </ion-content>
 </ion-view>

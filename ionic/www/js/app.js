@@ -20,7 +20,9 @@ habitApp.run(function($ionicPlatform) {
 })
 
 // tab based navigation/ routing
-habitApp.config(function($stateProvider, $urlRouterProvider) {
+habitApp.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+  $ionicConfigProvider.tabs.position('bottom');
+
   $stateProvider
   .state('login', {
     url: '/login',
@@ -30,13 +32,13 @@ habitApp.config(function($stateProvider, $urlRouterProvider) {
   .state('tabs', {
     url: '/tabs',
     abstract: true,
-    templateUrl: './../views/tabnav.html'
+    templateUrl: './views/tabnav.html'
   })
   .state('tabs.profile', {
     url: '/profile',
     views: {
       'profile-tab': {
-        templateUrl: './../views/profile.html',
+        templateUrl: './views/profile.html',
         controller: 'profileCtrl'
       }
     }
@@ -45,7 +47,7 @@ habitApp.config(function($stateProvider, $urlRouterProvider) {
     url: '/habit/:habitId',
     views: {
       'profile-tab': {
-        templateUrl: './../views/habit-detail.html',
+        templateUrl: './views/habit-detail.html',
         controller: 'habitDetailCtrl'
       }
     }
@@ -54,7 +56,7 @@ habitApp.config(function($stateProvider, $urlRouterProvider) {
     url: '/logger',
     views: {
       'logger-tab': {
-        templateUrl: './../views/logger.html',
+        templateUrl: './views/logger.html',
         controller: 'loggerCtrl'
       }
     }
@@ -63,7 +65,7 @@ habitApp.config(function($stateProvider, $urlRouterProvider) {
     url: '/newhabit',
     views: {
       'new-tab': {
-        templateUrl: './../views/new-habit.html',
+        templateUrl: './views/new-habit.html',
         controller: 'newHabitCtrl'
       }
     }

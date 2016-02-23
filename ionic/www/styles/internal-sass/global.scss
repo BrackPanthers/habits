@@ -1,3 +1,5 @@
-h1.title {
-  color: green;
-}
+@import './_globalvars.scss';
+
+.custom-tabs > .tabs {
+  background-color: #d6d6d6;
+};

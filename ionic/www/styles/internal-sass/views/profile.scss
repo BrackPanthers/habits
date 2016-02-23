@@ -1,11 +1,59 @@
 @import './../_globalvars.scss';
 
-$profile-page-color: #d6d6d6;
+.profile-content {
 
-.main-content {
-  background-color: $profile-page-color;
+  .profile-top-content {
+    height: 200px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:
+      linear-gradient(
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+      ),
+      url(http://icons.wunderground.com/data/wximagenew/d/dsfoto/545-800.jpg) no-repeat;
+    background-position: center;
+    background-size: cover;
 
-  .top-content {
-    color: $profile-page-color;
+    .settings-link {
+      position: absolute;
+      top: 15px; right: 15px;
+      font-size: 22px;
+      color: white;
+    }
+
+    .user-info-wrapper {
+      text-align: center;
+
+      .profile-photo {
+        width: 75px;
+        border-radius: 50%;
+      }
+
+      .user-name, .settings-link {
+        color: white;
+        font-size: 16px;
+      }
+    }
+
+  }
+
+  .profile-tabs {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+
+    .profile-tab {
+      background-color: teal;
+      color: white;
+      text-transform: uppercase;
+      width: 50%;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 }

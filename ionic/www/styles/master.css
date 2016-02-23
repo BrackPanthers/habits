@@ -1,4 +1,54 @@
-h1.title {
-  color: green;
+.custom-tabs > .tabs {
+  background-color: #d6d6d6;
 }
 
+
+.profile-content .profile-top-content {
+  height: 200px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(http://icons.wunderground.com/data/wximagenew/d/dsfoto/545-800.jpg) no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.profile-content .profile-top-content .settings-link {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 22px;
+  color: white;
+}
+
+.profile-content .profile-top-content .user-info-wrapper {
+  text-align: center;
+}
+
+.profile-content .profile-top-content .user-info-wrapper .profile-photo {
+  width: 75px;
+  border-radius: 50%;
+}
+
+.profile-content .profile-top-content .user-info-wrapper .user-name, .profile-content .profile-top-content .user-info-wrapper .settings-link {
+  color: white;
+  font-size: 16px;
+}
+
+.profile-content .profile-tabs {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.profile-content .profile-tabs .profile-tab {
+  background-color: teal;
+  color: white;
+  text-transform: uppercase;
+  width: 50%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

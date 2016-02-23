@@ -20,7 +20,9 @@ habitApp.run(function($ionicPlatform) {
 })
 
 // tab based navigation/ routing
-habitApp.config(function($stateProvider, $urlRouterProvider) {
+habitApp.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+  $ionicConfigProvider.tabs.position('bottom');
+
   $stateProvider
   .state('login', {
     url: '/login',
@@ -30,13 +32,13 @@ habitApp.config(function($stateProvider, $urlRouterProvider) {
   .state('tabs', {
     url: '/tabs',
     abstract: true,
-    templateUrl: './../views/tabnav.html'
+    templateUrl: './views/tabnav.html'
   })
   .state('tabs.profile', {
     url: '/profile',
     views: {
       'profile-tab': {
-        templateUrl: './../views/profile.html',
+        templateUrl: './views/profile.html',
         controller: 'profileCtrl'
       }
     }
@@ -45,7 +47,7 @@ habitApp.config(function($stateProvider, $urlRouterProvider) {
     url: '/habit/:habitId',
     views: {
       'profile-tab': {
-        templateUrl: './../views/habit-detail.html',
+        templateUrl: './views/habit-detail.html',
         controller: 'habitDetailCtrl'
       }
     }
@@ -54,7 +56,7 @@ habitApp.config(function($stateProvider, $urlRouterProvider) {
     url: '/logger',
     views: {
       'logger-tab': {
-        templateUrl: './../views/logger.html',
+        templateUrl: './views/logger.html',
         controller: 'loggerCtrl'
       }
     }
@@ -63,7 +65,7 @@ habitApp.config(function($stateProvider, $urlRouterProvider) {
     url: '/newhabit',
     views: {
       'new-tab': {
-        templateUrl: './../views/new-habit.html',
+        templateUrl: './views/new-habit.html',
         controller: 'newHabitCtrl'
       }
     }
@@ -93,6 +95,35 @@ habitApp.controller('newHabitCtrl', function($scope) {
 
 habitApp.controller('profileCtrl', function($scope) {
   $scope.test = 'PROFILE CTRL CONNECTED';
+  $scope.userData = {
+    first_name: 'Mark',
+    last_name: 'Zuckerberg',
+    photo_url: 'http://a4.files.biography.com/image/upload/c_fill,cs_srgb,dpr_1.0,g_face,h_300,q_80,w_300/MTIwNjA4NjMzNjg3ODAzNDA0.jpg', // from facebook
+    habits: [
+      {
+        kind: 'more',
+        private: false,
+        category: 'exercise',
+        text: 'Go to gym',
+        goal: {
+          timeframe: 'week',
+          frequency: 4
+        },
+        logs: ['2016-02-07', '2016-02-08', '2016-02-10', '2016-02-12', '2016-02-14', '2016-02-15', '2016-02-16', '2016-02-17', '2016-02-19', '2016-02-21']
+      },
+      {
+        kind: 'less',
+        private: false,
+        category: 'diet',
+        text: 'Eat red meat',
+        goal: {
+          timeframe: 'week',
+          frequency: 2
+        },
+        logs: ['2016-02-07', '2016-02-10', '2016-02-17']
+      }
+    ]
+  };
 });
 
 habitApp.constant('constants', function() {

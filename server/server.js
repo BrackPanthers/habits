@@ -11,6 +11,9 @@ var express = require('express'),
 var app = express();
 var port = process.env.SERVER_PORT;
 
+// set up middleware
+app.use(bodyParser.json()); // parses any body into json
+
 // set up and connect to mongolab db
 var dbUri = process.env.PROD_DB_URI;
 mongoose.connect(dbUri);

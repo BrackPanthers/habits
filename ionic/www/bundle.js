@@ -76,57 +76,6 @@ habitApp.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvide
   .otherwise('/tabs/profile');
 });
 
-habitApp.constant('constants', function() {
-  return {
-    baseServerUrl: 'http://localhost:3000'
-  }
-});
-
-angular.module('habitApp').service('googleAuth', function(){
-    var setUser = function(user_data) {
-        window.localStorage.starter_google_user = JSON.stringify(user_data);
-    };
-    var getUser = function() {
-        return JSON
-    };
-    
-    return {
-        getUser: getUser,
-        setUser: setUser
-    }
-})
-habitApp
-    .service('loginService', function () {
-        // For the purpose of this example I will store user data on ionic local storage but you should save it on a database
-        var setUser = function (user_data) {
-            window.localStorage.starter_facebook_user = JSON.stringify(user_data);
-        };
-
-        var getUser = function () {
-            return JSON.parse(window.localStorage.starter_facebook_user || '{}');
-        };
-
-        return {
-            getUser: getUser,
-            setUser: setUser
-        };
-        var setNewUser = function (user_data) {
-            window.localStorage.starter_google_user = JSON.stringify(user_data);
-        };
-        var getNewUser = function () {
-            return JSON
-        };
-
-        return {
-            getNewUser: getNewUser,
-            setNewUser: setNewUser
-        }
-
-
-
-
-    });
-
 
 angular.module('habitApp').controller('WelcomeCtrl', function($scope, $state, googleAuthService, $ionicLoading) {
   // This method is executed when the user press the "Sign in with Google" button
@@ -165,7 +114,7 @@ habitApp.controller('loggerCtrl', function($scope) {
   $scope.test = 'LOGGER CTRL CONNECTED';
 });
 
-habitApp.controller('loginCtrl', function($scope, $state, $q, loginService, $ionicLoading) {
+habitApp.controller('loginCtrl', function($scope, $state, $q, loginService, $ionicLoading, $http, $location) {
   // This is the success callback from the login method
   var fbLoginSuccess = function(response) {
     if (!response.authResponse){
@@ -266,7 +215,46 @@ habitApp.controller('loginCtrl', function($scope, $state, $q, loginService, $ion
       }
     });
   };
+  
+    // This method is executed when the user press the "Sign in with Google" button
+var requestToken = "";
+var accessToken = "";
+var clientId = "915572384930-5hb0d30kjgc5v38rc5aokkj6subb0u7a.apps.googleusercontent.com";
+var clientSecret = "f5dQGt4hTEN25a7BpKUJ3xIl";
+
+ 
+    $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+ 
+    $scope.login = function() {
+        console.log('logging in');
+        var ref = window.open('https://accounts.google.com/o/oauth2/auth?client_id=' + clientId + '&redirect_uri=http://localhost/callback&scope=https://www.googleapis.com/auth/urlshortener&approval_prompt=force&response_type=code&access_type=offline', '_blank', 'location=no');
+        ref.addEventListener('loadstart', function(event) { 
+            if((event.url).startsWith("http://localhost/callback")) {
+                requestToken = (event.url).split("code=")[1];
+                $http({method: "post", url: "https://accounts.google.com/o/oauth2/token", data: "client_id=" + clientId + "&client_secret=" + clientSecret + "&redirect_uri=http://localhost/callback" + "&grant_type=authorization_code" + "&code=" + requestToken })
+                    .success(function(data) {
+                        accessToken = data.access_token;
+                        alert("Success: " + data.toString());
+                        $location.path("/tabs/profile");
+                    })
+                    .error(function(data, status) {
+                        alert("ERROR: " + data);
+                    });
+                ref.close();
+            }
+        });
+    }
+    console.log('logged in')
+    if (typeof String.prototype.startsWith != 'function') {
+        String.prototype.startsWith = function (str){
+            return this.indexOf(str) == 0;
+            
+        };
+        
+    }
+    console.log('loggs in')
 });
+
 habitApp.controller('newHabitCtrl', function($scope) {
   $scope.test = 'NEW HABIT CTRL CONNECTED';
 });
@@ -303,3 +291,54 @@ habitApp.controller('profileCtrl', function($scope) {
     ]
   };
 });
+
+habitApp.constant('constants', function() {
+  return {
+    baseServerUrl: 'http://localhost:3000'
+  }
+});
+
+angular.module('habitApp').service('googleAuth', function(){
+    var setUser = function(user_data) {
+        window.localStorage.starter_google_user = JSON.stringify(user_data);
+    };
+    var getUser = function() {
+        return JSON
+    };
+    
+    return {
+        getUser: getUser,
+        setUser: setUser
+    }
+})
+habitApp
+    .service('loginService', function () {
+        // For the purpose of this example I will store user data on ionic local storage but you should save it on a database
+        var setUser = function (user_data) {
+            window.localStorage.starter_facebook_user = JSON.stringify(user_data);
+        };
+
+        var getUser = function () {
+            return JSON.parse(window.localStorage.starter_facebook_user || '{}');
+        };
+
+        return {
+            getUser: getUser,
+            setUser: setUser
+        };
+        var setNewUser = function (user_data) {
+            window.localStorage.starter_google_user = JSON.stringify(user_data);
+        };
+        var getNewUser = function () {
+            return JSON
+        };
+
+        return {
+            getNewUser: getNewUser,
+            setNewUser: setNewUser
+        }
+
+
+
+
+    });

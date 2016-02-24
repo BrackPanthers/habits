@@ -1,4 +1,4 @@
-habitApp.controller('loginCtrl', function($scope, $state, $q, loginService, $ionicLoading) {
+habitApp.controller('loginCtrl', function($scope, $state, $q, loginService, $ionicLoading, $http, $location) {
   // This is the success callback from the login method
   var fbLoginSuccess = function(response) {
     if (!response.authResponse){
@@ -99,4 +99,42 @@ habitApp.controller('loginCtrl', function($scope, $state, $q, loginService, $ion
       }
     });
   };
+  
+    // This method is executed when the user press the "Sign in with Google" button
+var requestToken = "";
+var accessToken = "";
+var clientId = "915572384930-5hb0d30kjgc5v38rc5aokkj6subb0u7a.apps.googleusercontent.com";
+var clientSecret = "f5dQGt4hTEN25a7BpKUJ3xIl";
+
+ 
+    $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+ 
+    $scope.login = function() {
+        console.log('logging in');
+        var ref = window.open('https://accounts.google.com/o/oauth2/auth?client_id=' + clientId + '&redirect_uri=http://localhost/callback&scope=https://www.googleapis.com/auth/urlshortener&approval_prompt=force&response_type=code&access_type=offline', '_blank', 'location=no');
+        ref.addEventListener('loadstart', function(event) { 
+            if((event.url).startsWith("http://localhost/callback")) {
+                requestToken = (event.url).split("code=")[1];
+                $http({method: "post", url: "https://accounts.google.com/o/oauth2/token", data: "client_id=" + clientId + "&client_secret=" + clientSecret + "&redirect_uri=http://localhost/callback" + "&grant_type=authorization_code" + "&code=" + requestToken })
+                    .success(function(data) {
+                        accessToken = data.access_token;
+                        alert("Success: " + data.toString());
+                        $location.path("/tabs/profile");
+                    })
+                    .error(function(data, status) {
+                        alert("ERROR: " + data);
+                    });
+                ref.close();
+            }
+        });
+    }
+    console.log('logged in')
+    if (typeof String.prototype.startsWith != 'function') {
+        String.prototype.startsWith = function (str){
+            return this.indexOf(str) == 0;
+            
+        };
+        
+    }
+    console.log('loggs in')
 });

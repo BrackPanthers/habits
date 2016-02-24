@@ -1,5 +1,9 @@
 @import './_globalvars.scss';
 
+* {
+  box-sizing: border-box;
+}
+
 .custom-tabs > .tabs {
   background-color: #d6d6d6;
 };

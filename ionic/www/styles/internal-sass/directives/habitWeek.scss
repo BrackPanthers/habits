@@ -1,0 +1,33 @@
+@import './../_globalvars.scss';
+
+habit-week {
+  display: flex;
+  flex-flow: column nowrap;
+
+  .habit-week-info {
+    padding: 8px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    .habit-week-text {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .habit-week-details {
+      padding-top: 3px;
+    }
+  }
+
+  .habit-week-squares {
+    display: flex;
+    flex-flow: row nowrap;
+
+    .habit-week-square {
+      flex-grow: 1;
+      border: 1px solid gray;
+      height: 14vw;
+    }
+  }
+}

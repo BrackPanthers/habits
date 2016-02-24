@@ -1,5 +1,15 @@
 habitApp.controller('profileCtrl', function($scope) {
   $scope.test = 'PROFILE CTRL CONNECTED';
+
+  $scope.toggleContent = function(targetView) {
+    if (targetView === 'mainContent') {
+      $scope.showAccomps = false;
+    } else if (targetView === 'accomps') {
+      $scope.showAccomps = true;
+    }
+  }
+
+  // dummy data. remove when connected to back end
   $scope.userData = {
     first_name: 'Mark',
     last_name: 'Zuckerberg',
@@ -29,4 +39,14 @@ habitApp.controller('profileCtrl', function($scope) {
       }
     ]
   };
+
+  // accomplishment data
+  $scope.accompData = {
+    longest_daily_streak: 27,
+    goals_reached: 5,
+    one_week_badges: 12,
+    challenges_won: 7
+  }
+
+
 });

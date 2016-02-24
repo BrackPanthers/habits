@@ -1,1 +1,35 @@
+.padding {
+  background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+      ),
+      url(http://i.imgur.com/YSDO3Vo.jpg) no-repeat;
+      background-position: center;
+      background-size: cover;
+      height: 100vh;
+      position: relative;
+      width: 100%;
+}
+
+.loginWrapper {
+  width: 100%;
+  position: absolute;
+  bottom: 15px;
+  padding-right: 20px;
+}
+
+.habitLogo {
+  height: 200px;
+	background-image: url(http://i.imgur.com/G0d2zas.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 100%;
+  background-position: center; 
+  position: absolute;
+  top: 200px;
+}
+
+
+
 

@@ -110,25 +110,35 @@ var clientSecret = "f5dQGt4hTEN25a7BpKUJ3xIl";
     $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
  
     $scope.login = function() {
-        console.log('logging in');
+        console.log('running login code...');
         var ref = window.open('https://accounts.google.com/o/oauth2/auth?client_id=' + clientId + '&redirect_uri=http://localhost/callback&scope=https://www.googleapis.com/auth/urlshortener&approval_prompt=force&response_type=code&access_type=offline', '_blank', 'location=no');
         ref.addEventListener('loadstart', function(event) { 
+            console.log('Window Event: ', event);
             if((event.url).startsWith("http://localhost/callback")) {
                 requestToken = (event.url).split("code=")[1];
+                console.log('callback returned.')
                 $http({method: "post", url: "https://accounts.google.com/o/oauth2/token", data: "client_id=" + clientId + "&client_secret=" + clientSecret + "&redirect_uri=http://localhost/callback" + "&grant_type=authorization_code" + "&code=" + requestToken })
                     .success(function(data) {
                         accessToken = data.access_token;
                         alert("Success: " + data.toString());
                         $location.path("/tabs/profile");
+                        ref.close();
                     })
                     .error(function(data, status) {
                         alert("ERROR: " + data);
+                        ref.close();
                     });
-                ref.close();
             }
         });
+        ref.addEventListener('loaderror', function(err) {
+            console.error('load error: ', err);
+        });
+        ref.addEventListener('exit', function(event){
+            console.log('Window was closed');
+        });
+        console.log('window opened', ref);
     }
-    console.log('logged in')
+    
     if (typeof String.prototype.startsWith != 'function') {
         String.prototype.startsWith = function (str){
             return this.indexOf(str) == 0;

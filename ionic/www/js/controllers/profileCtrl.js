@@ -1,4 +1,4 @@
-habitApp.controller('profileCtrl', function($scope) {
+habitApp.controller('profileCtrl', function($scope, ngFB) {
   $scope.test = 'PROFILE CTRL CONNECTED';
 
   $scope.toggleContent = function(targetView) {
@@ -8,6 +8,19 @@ habitApp.controller('profileCtrl', function($scope) {
       $scope.showAccomps = true;
     }
   }
+
+    ngFB.api({
+        path: '/me',
+        params: {fields: 'id,name,email,gender,location'}
+    }).then(
+        function (user) {
+          console.log(user);
+            $scope.user = user;
+        },
+        function (error) {
+            alert('Facebook error: ' + error.error_description);
+        });
+  
 
   // dummy data. remove when connected to back end
   $scope.userData = {

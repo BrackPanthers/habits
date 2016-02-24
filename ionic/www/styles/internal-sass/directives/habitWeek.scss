@@ -1,0 +1,58 @@
+@import './../_globalvars.scss';
+
+habit-week {
+  display: flex;
+  flex-flow: column nowrap;
+
+  .habit-week-info {
+    padding: 8px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    .habit-week-text {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .habit-week-details {
+      padding-top: 3px;
+    }
+  }
+
+  .habit-week-squares {
+    display: flex;
+    flex-flow: row nowrap;
+
+    .habit-week-square {
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-right:: 1px solid white;
+      background-color: #d6d6d6;
+      color: #d6d6d6;
+      font-size: 24px;
+      height: 14vw;
+      i.ion-close {
+        display: none;
+      }
+    }
+
+    .habit-week-square.log-day-square {
+      background-color: teal;
+    }
+
+    .habit-week-square.log-day-square.bad-habit-square {
+      background-color: red;
+
+      i.ion-checkmark {
+        display: none;
+      }
+
+      i.ion-close {
+        display: inline;
+      }
+    }
+  }
+}

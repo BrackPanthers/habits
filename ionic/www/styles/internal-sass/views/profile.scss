@@ -3,7 +3,7 @@
 .profile-content {
 
   .profile-top-content {
-    height: 200px;
+    height: 25vh;
     position: relative;
     display: flex;
     align-items: center;
@@ -44,6 +44,7 @@
     width: 100%;
     display: flex;
     flex-flow: row nowrap;
+    justify-content: space-between;
 
     .profile-tab {
       background-color: teal;
@@ -54,6 +55,29 @@
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+
+    .profile-tab:first-of-type {
+      border-right: 1px solid white;
+    }
+  }
+
+  .day-of-week-bar {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #d6d6d6;
+    padding: 5px 0px;
+
+    .day-of-week-letter {
+      padding: 0px 5px;
+    }
+
+    .current-day {
+      background-color: gray;
+      border-radius: 50%;
+      color: white;
     }
   }
 }

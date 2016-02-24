@@ -26,8 +26,33 @@ habit-week {
 
     .habit-week-square {
       flex-grow: 1;
-      border: 1px solid gray;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-right:: 1px solid white;
+      background-color: #d6d6d6;
+      color: #d6d6d6;
+      font-size: 24px;
       height: 14vw;
+      i.ion-close {
+        display: none;
+      }
+    }
+
+    .habit-week-square.log-day-square {
+      background-color: teal;
+    }
+
+    .habit-week-square.log-day-square.bad-habit-square {
+      background-color: red;
+
+      i.ion-checkmark {
+        display: none;
+      }
+
+      i.ion-close {
+        display: inline;
+      }
     }
   }
 }

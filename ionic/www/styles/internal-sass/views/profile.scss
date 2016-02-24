@@ -13,7 +13,7 @@
         rgba(0, 0, 0, 0.5),
         rgba(0, 0, 0, 0.5)
       ),
-      url(http://icons.wunderground.com/data/wximagenew/d/dsfoto/545-800.jpg) no-repeat;
+      url(https://scontent-dfw1-1.xx.fbcdn.net/hphotos-xpt1/v/t1.0-9/12717383_10207650602799381_5565313457721542865_n.jpg?oh=decb23dc9e5a7d8446fdb64783c6071b&oe=576F78EF) no-repeat;
     background-position: center;
     background-size: cover;
 
@@ -35,6 +35,7 @@
       .user-name, .settings-link {
         color: white;
         font-size: 16px;
+        letter-spacing: 0.05em;
       }
     }
 
@@ -46,8 +47,9 @@
     flex-flow: row nowrap;
 
     .profile-tab {
-      background-color: teal;
+      background-color: #457ed0;
       color: white;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
       width: 50%;
       height: 50px;

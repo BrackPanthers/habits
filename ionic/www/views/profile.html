@@ -3,14 +3,14 @@
     <div class="profile-content">
       <div class="profile-top-content">
         <div class="settings-link">
-          <i class="ion-gear-a"></i>
+          <i class="ion-gear-a" ng-click="logoutUser()"></i>
         </div>
         <div class="user-info-wrapper">
           <div class="user-photo-wrapper">
-            <img src="{{userData.photo_url}}" alt="" class="profile-photo"/>
+            <img src="http://graph.facebook.com/{{user.id}}/picture?width=270&height=270" alt="" class="profile-photo"/>
           </div>
           <div class="user-name">
-            {{userData.first_name}} {{userData.last_name}}
+            {{user.name}}
           </div>
         </div>
       </div>

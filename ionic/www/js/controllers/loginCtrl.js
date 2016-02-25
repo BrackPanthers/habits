@@ -1,4 +1,4 @@
-habitApp.controller('loginCtrl', function ($scope, $state, $q, loginService, $ionicLoading) {
+habitApp.controller('loginCtrl', function ($scope, $state, $q, loginService, $ionicLoading, $location) {
     $scope.loginGoogle = function () {
         console.log('logging in');
         var ref = window.open($scope.serverIp + '/auth/google');
@@ -23,4 +23,23 @@ habitApp.controller('loginCtrl', function ($scope, $state, $q, loginService, $io
             }
         });
     }
+
+
+
+
+$scope.fbLogin = function () {
+    ngFB.login({scope: 'email, public_profile'}).then(
+        function (response) {
+            if (response.status === 'connected') {
+                console.log('Facebook login succeeded');
+                // $scope.closeLogin();
+                $location.path( "/tabs/profile" );
+            } else {
+                alert('Facebook login failed');
+                $location.path( "/login" );
+            }
+        });
+};
+
+
 });

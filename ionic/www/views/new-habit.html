@@ -1,9 +1,56 @@
 <ion-view>
-  <ion-content class="padding">
-    <h3>Create new</h3>
-    <h5>{{test}}</h5>
-    <div class="">
-      <a ui-sref="login">Logout</a>
+  <ion-content class="newContent">
+    <h2 class="startNew">Create New Habit</h2>
+    <div class="newHabit">
+       
+        <label class="item item-input">
+            <input type="text" placeholder="Title">
+        </label>
+        <div class="doThis">
+            <h4 class="iWant">I want to do this:</h4>
+            <div class="button-bar">
+                <a class="button button-calm"  >More</a>
+                <a class="button button-calm">Less</a>
+            </div>
+        </div>
+        <div class="targetGoal">
+            <label class="item item-input" >
+                <!--<span class="input-label">Target:</span>-->
+                <input type="text" placeholder="Target:">
+            </label>
+            <h5>Per</h5>
+            <div class="button-bar">
+                <a class="button button-balanced">Day</a>
+                <a class="button button-balanced">Week</a>
+            </div>
+            <div class="categorySelector">
+                <h4 class="category">Category:</h4>
+                <select name="categoryChange" class="Selector">
+                    <option >Any</option>
+                    <option >Weight Loss</option>
+                    <option >Smoking</option>
+                    <option >Reading</option>
+                    <option >Running</option>
+                    <option >Nap time</option>
+                </select>
+            </div>
+            <div class="noteBar">
+                <label class="item item-input">
+                    <input type="text" class="noteFill" placeholder="Notes">
+                    
+                </label>
+            </div>
+            <div class="privateCheck">
+                
+                <ion-checkbox class="checkBox">Make This Habit Private</ion-checkbox>
+            </div>
+            <div class="submitBox">
+                <button class="button button-full button-balanced">Submit</button>
+            </div>
+        </div>
     </div>
+    <!--<div class="habitLogout">
+      <a ui-sref="login">Logout</a>
+    </div>-->
   </ion-content>
 </ion-view>

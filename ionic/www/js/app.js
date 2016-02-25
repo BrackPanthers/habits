@@ -71,7 +71,6 @@ habitApp.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvide
     }
   });
 
-
   $urlRouterProvider
-  .otherwise('/tabs/profile');
+  .otherwise('/login');
 });

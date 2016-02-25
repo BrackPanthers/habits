@@ -1,5 +1,33 @@
-habitApp.controller('loginCtrl', function($scope, $state, $q, loginService, $ionicLoading) {
-  // This is the success callback from the login method
+habitApp.controller('loginCtrl', function($scope, $state, $q, $ionicLoading) {
+
+  // basic, goes to extra screen, add $cordovaOauth above
+  /*
+  $scope.facebookLogin = function() {
+    $cordovaOauth.facebook("461176754071244", ["email"], {"auth_type": "rerequest"}).then(function(result) {
+        console.log(JSON.stringify(result));
+    }, function(error) {
+        console.log(JSON.stringify(error));
+    });
+  }
+  */
+
+  // This method is to get the user profile info from the facebook api
+  var getFacebookProfileInfo = function (authResponse) {
+    var info = $q.defer();
+
+    facebookConnectPlugin.api('/me?fields=email,name&access_token=' + authResponse.accessToken, null,
+      function (response) {
+        console.log(response);
+        info.resolve(response);
+      },
+      function (response) {
+        console.log(response);
+        info.reject(response);
+      }
+    );
+    return info.promise;
+  };
+
   var fbLoginSuccess = function(response) {
     if (!response.authResponse){
       fbLoginError("Cannot find the authResponse");
@@ -10,16 +38,17 @@ habitApp.controller('loginCtrl', function($scope, $state, $q, loginService, $ion
 
     getFacebookProfileInfo(authResponse)
     .then(function(profileInfo) {
+      console.log(profileInfo);
       // For the purpose of this example I will store user data on local storage
-      loginService.setUser({
-        authResponse: authResponse,
-				userID: profileInfo.id,
-				name: profileInfo.name,
-				email: profileInfo.email,
-        picture : "http://graph.facebook.com/" + authResponse.userID + "/picture?type=large"
-      });
+      // UserService.setUser({
+      //   authResponse: authResponse,
+      //   userID: profileInfo.id,
+      //   name: profileInfo.name,
+      //   email: profileInfo.email,
+      //   picture : "http://graph.facebook.com/" + authResponse.userID + "/picture?type=large"
+      // });
       $ionicLoading.hide();
-      $state.go('/profile');
+      // $state.go('app.home');
     }, function(fail){
       // Fail get profile info
       console.log('profile info fail', fail);
@@ -32,23 +61,6 @@ habitApp.controller('loginCtrl', function($scope, $state, $q, loginService, $ion
     $ionicLoading.hide();
   };
 
-  // This method is to get the user profile info from the facebook api
-  var getFacebookProfileInfo = function (authResponse) {
-    var info = $q.defer();
-
-    facebookConnectPlugin.api('/me?fields=email,name&access_token=' + authResponse.accessToken, null,
-      function (response) {
-				console.log(response);
-        info.resolve(response);
-      },
-      function (response) {
-				console.log(response);
-        info.reject(response);
-      }
-    );
-    return info.promise;
-  };
-
   //This method is executed when the user press the "Login with facebook" button
   $scope.facebookSignIn = function() {
     facebookConnectPlugin.getLoginStatus(function(success){
@@ -57,44 +69,48 @@ habitApp.controller('loginCtrl', function($scope, $state, $q, loginService, $ion
         // the user's ID, a valid access token, a signed request, and the time the access token
         // and signed request each expire
         console.log('getLoginStatus', success.status);
+        console.log('data received:', success);
 
-    		// Check if we have our user saved
-    		var user = loginService.getUser('facebook');
+        // Check if we have our user saved
+        // var user = UserService.getUser('facebook');
 
-    		if(!user.userID){
-					getFacebookProfileInfo(success.authResponse)
-					.then(function(profileInfo) {
-						// For the purpose of this example I will store user data on local storage
-						loginService.setUser({
-							authResponse: success.authResponse,
-							userID: profileInfo.id,
-							name: profileInfo.name,
-							email: profileInfo.email,
-							picture : "http://graph.facebook.com/" + success.authResponse.userID + "/picture?type=large"
-						});
+        // if(!user.userID){
+        //   getFacebookProfileInfo(success.authResponse)
+        //   .then(function(profileInfo) {
+        //     console.log(profileInfo);
+            // For the purpose of this example I will store user data on local storage
+            // UserService.setUser({
+            //   authResponse: success.authResponse,
+            //   userID: profileInfo.id,
+            //   name: profileInfo.name,
+            //   email: profileInfo.email,
+            //   picture : "http://graph.facebook.com/" + success.authResponse.userID + "/picture?type=large"
+            // });
+            // console.log("")
 
-						$state.go('/profile');
-					}, function(fail){
-						// Fail get profile info
-						console.log('profile info fail', fail);
-					});
-				}else{
-					$state.go('/profile');
-				}
+            // $state.go('app.home');
+          // }, function(fail){
+            // Fail get profile info
+            // console.log('profile info fail', fail);
+          // });
+        // } else{
+          // $state.go('app.home');
+        // }
       } else {
         // If (success.status === 'not_authorized') the user is logged in to Facebook,
-				// but has not authenticated your app
+        // but has not authenticated your app
         // Else the person is not logged into Facebook,
-				// so we're not sure if they are logged into this app or not.
+        // so we're not sure if they are logged into this app or not.
 
-				console.log('getLoginStatus', success.status);
+        console.log('getLoginStatus', success.status);
 
-				$ionicLoading.show({
+        $ionicLoading.show({
           template: 'Logging in...'
         });
 
-				// Ask the permissions you need. You can learn more about
-				// FB permissions here: https://developers.facebook.com/docs/facebook-login/permissions/v2.4
+        // Ask the permissions you need. You can learn more about
+        // FB permissions here: https://developers.facebook.com/docs/facebook-login/permissions/v2.4
+
         facebookConnectPlugin.login(['email', 'public_profile'], fbLoginSuccess, fbLoginError);
       }
     });

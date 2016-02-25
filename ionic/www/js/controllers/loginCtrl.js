@@ -13,7 +13,7 @@ habitApp.controller('loginCtrl', function ($scope, $state, $q, loginService, $io
     }
     $scope.loginFacebook = function () {
         console.log('logging in');
-        var ref = window.open($scope.serverIp + '/auth/google');
+        var ref = window.open('http://google.com');
         ref.addEventListener('loadstart', function (event) {
             if ((event.url).startsWith("http://localhost:3006/auth/google/callback")) {
                 var requestToken = (event.url).split("code=")[1];

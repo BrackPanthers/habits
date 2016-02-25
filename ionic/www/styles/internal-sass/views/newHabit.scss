@@ -1,44 +1,60 @@
 .newContent {
-    position: relative;
+    position: absolute;
     width: 100%;
-    height: 100vh
-    
 }
 
 .startNew {
     text-align: center;
-    padding-top: 1em
+    padding-top: 2em;
+    padding-bottom: 2em;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(http://i.imgur.com/p7mC6sG.jpg) no-repeat;
 }
+
+.startNew h2 {
+    color: white;
+}
+
 .newHabit {
     position: relative;
-    margin-top: 1em
+}
+
+.newHabit h4 {
+    text-align: center;
+    color: #444;
 }
 
 .doThis {
     position: relative;
-    text-align: center;
-    margin-top: 2em
 }
+
+.iWant {
+    color: #444;
+}
+
 .targetGoal {
     position: relative;
     width: 100%;
-    margin-top: 1em
 }
-.categorySelectory {
+
+.freqButtons {
+}
+.categorySelector {
     position: relative;
     width: 100%;
-    display: inline-block
-    
 }
 .category {
     position: absolute;
-    padding-top: 1vh
 }
+
 .Selector {
     position: absolute;
-    float: right;
-    
 } 
 .noteBar{
-    position: relative
+    position: relative;
 } 
+
+.submitBox {
+    margin-top: 1em;
+    text-align: center;
+    padding-bottom: 1em;
+}

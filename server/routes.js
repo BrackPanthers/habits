@@ -13,4 +13,6 @@ module.exports = function(app) {
 
   // habit endpoints
   app.post('/habits', habitCtrl.create);
+  app.put('/loghabit/:habitId', habitCtrl.log);
+  app.delete('/deletehabit/:habitId', habitCtrl.delete);
 }

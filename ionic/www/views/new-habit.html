@@ -4,7 +4,7 @@
     <div class="newHabit">
        
         <label class="item item-input">
-            <input type="text" placeholder="Title">
+            <input type="text" placeholder="Title" ng-model="newHabitData.text">
         </label>
         <div class="doThis">
             <h4 class="iWant">I want to do this:</h4>
@@ -16,7 +16,7 @@
         <div class="targetGoal">
             <label class="item item-input" >
                 <!--<span class="input-label">Target:</span>-->
-                <input type="text" placeholder="Target:">
+                <input type="text" placeholder="Target:" ng-model="newHabitData.frequency">
             </label>
             <h5>Per</h5>
             <div class="button-bar">
@@ -36,7 +36,7 @@
             </div>
             <div class="noteBar">
                 <label class="item item-input">
-                    <input type="text" class="noteFill" placeholder="Notes">
+                    <input type="text" class="noteFill" placeholder="Notes" ng-model=">
                     
                 </label>
             </div>

@@ -21,6 +21,8 @@ habitApp.controller('profileCtrl', function($scope, ngFB) {
             alert('Facebook error: ' + error.error_description);
         });
   
+$scope.logoutUser = ngFB.logout;
+
 
   // dummy data. remove when connected to back end
   $scope.userData = {

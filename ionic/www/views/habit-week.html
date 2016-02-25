@@ -1,0 +1,12 @@
+<div class="habit-week-info">
+  <div class="habit-week-text">
+    <a ui-sref="tabs.habitDetail({habitId: habitData._id})">{{habitData.text}}</a>
+
+  </div>
+  <div class="habit-week-details">
+    {{habitData.goal.frequency}} / {{habitData.goal.timeframe}}
+  </div>
+</div>
+<div class="habit-week-squares">
+  <div ng-repeat="day in dayBoxArr track by $index" ng-click="toggleDay($index)" ng-class="{'log-day-square': dayBoxArr[$index], 'bad-habit-square': habitData.kind === 'less'}" class="habit-week-square"><i class="ion-checkmark"></i><i class="ion-close"></i></div>
+</div>

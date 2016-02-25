@@ -1,15 +1,14 @@
 var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
 
-var datesSchema = new Schema({
-  Users: [{
+var dateSchema = mongoose.Schema({
+  users: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Users'
   }],
-  Habits: [{
+  habits: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Habits'
   }]
 });
 
-module.exports = mongoose.model('Dates', datesSchema);
+module.exports = mongoose.model('Date', dateSchema);

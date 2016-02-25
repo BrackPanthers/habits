@@ -1,24 +1,63 @@
 <ion-view>
-  <!-- <ion-pane >
-    <i class="icon ion-ios-checkmark"></i>
-  </ion-pane> -->
-  <ion-content>
+  <ion-slide-box on-slide-changed="slideHasChanged($index)" show-pager="true">
+  <ion-slide ng-repeat="habit in myHabits">
     <div class="wrapper">
       <div class="logger-wrapper">
+        <!--HEADLINE--->
         <div class="cover-title">
           <div class="cover-headline">
-          <h3>Did you<br><span>meditate</span></br>today?</h3>
+            <h3>Did you<br><span>{{habit.text}}</span></br>today?</h3>
+          </div>
         </div>
+        <!--CHECKBOX--->
+        <div ng-click="logHabit(myHabits[$index]._id)" class="check-button">
+          <i class="ion-ios-checkmark-outline"></i>
         </div>
-        <!-- <h3>Did you meditate today?<h3> -->
-        <div class="check-button">
-        <i class="ion-ios-checkmark-outline"></i>
-        </div>
+        <!--NO BUTTON--->
         <div class="no-button">
           <a href=''>NO</a>
         </div>
       </div>
     </div>
 
-  </ion-content>
+      <!-- <div class="logger-wrapper">
+        <div class="cover-title">
+          <div class="cover-headline">
+          <h3>Did you<br><span>meditate</span></br>today?</h3>
+        </div>
+        </div>
+        <div class="check-button">
+        <i class="ion-ios-checkmark-outline"></i>
+        </div>
+        <div class="no-button">
+          <a href=''>NO</a>
+        </div>
+      </div> -->
+  </ion-slide>
+</ion-slide-box>
+  <!-- <ion-pane >
+    <i class="icon ion-ios-checkmark"></i>
+  </ion-pane> -->
+  <!-- <ion-content>
+    <div class="wrapper">
+      <ion-slide-box on-slide-changed="slideHasChanged($index)">
+      <ion-slide ng-repeat="habit in myHabits">
+      <div class="logger-wrapper">
+        <div class="cover-title">
+          <div class="cover-headline">
+          <h3>Did you<br><span>meditate</span></br>today?</h3>
+        </div>
+        </div>
+        < <h3>Did you meditate today?<h3> -->
+        <!-- <div class="check-button">
+        <i class="ion-ios-checkmark-outline"></i>
+        </div>
+        <div class="no-button">
+          <a href=''>NO</a>
+        </div>
+      </div>
+  </ion-slide>
+  </ion-slide-box>
+  </div>
+</ion-content> -->
 </ion-view>

@@ -10,7 +10,7 @@ $scope.show = function() {
        { text: 'Move' }
      ],
      destructiveText: 'Delete',
-     titleText: 'Modify your album',
+     titleText: 'Modify your habit',
      cancelText: 'Cancel',
      cancel: function() {
           // add cancel code..
@@ -23,7 +23,7 @@ $scope.show = function() {
    // For example's sake, hide the sheet after two seconds
    $timeout(function() {
      hideSheet();
-   }, 2000);
+   }, 3000);
 
  };
 

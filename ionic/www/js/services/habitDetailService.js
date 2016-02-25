@@ -1,1 +1,4 @@
-habitDetailService.js
+habitApp
+    .service('habitDetailService', function () {
+
+    });

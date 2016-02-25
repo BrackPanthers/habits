@@ -1,4 +1,4 @@
-habitApp.controller('habitDetailCtrl', function($scope, $ionicActionSheet, $timeout) {
+habitApp.controller('habitDetailCtrl', function($scope, $ionicActionSheet, $timeout, habitDetailService) {
   $scope.test = 'HABIT DETAIL CTRL CONNECTED';
 
 $scope.show = function() {

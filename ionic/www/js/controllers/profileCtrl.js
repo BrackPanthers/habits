@@ -1,4 +1,4 @@
-habitApp.controller('profileCtrl', function($scope) {
+habitApp.controller('profileCtrl', function($scope, $state, $ionicLoading) {
   $scope.test = 'PROFILE CTRL CONNECTED';
 
   $scope.toggleContent = function(targetView) {
@@ -7,6 +7,43 @@ habitApp.controller('profileCtrl', function($scope) {
     } else if (targetView === 'accomps') {
       $scope.showAccomps = true;
     }
+  }
+
+  // $scope.showLogOutMenu = function() {
+  //   var hideSheet = $ionicActionSheet.show({
+  //     destructiveText: 'Logout',
+  //     titleText: 'Are you sure you want to logout? This app is awsome so I recommend you to stay.',
+  //     cancelText: 'Cancel',
+  //     cancel: function() {},
+  //     buttonClicked: function(index) {
+  //       return true;
+  //     },
+  //     destructiveButtonClicked: function(){
+  //       $ionicLoading.show({
+  //         template: 'Logging out...'
+  //       });
+  //
+  //       // Facebook logout
+  //       facebookConnectPlugin.logout(function(){
+  //         $ionicLoading.hide();
+  //         $state.go('login');
+  //       },
+  //       function(fail){
+  //         $ionicLoading.hide();
+  //       });
+  //     }
+  //   });
+  // };
+
+  $scope.logoutUser = function() {
+    facebookConnectPlugin.logout(
+    function(){
+      $ionicLoading.hide();
+      $state.go('login');
+    },
+    function(fail){
+      $ionicLoading.hide();
+    });
   }
 
   // dummy data. remove when connected to back end

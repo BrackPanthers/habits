@@ -1,6 +1,7 @@
 // import all required controllers/modules up here using 'require'
 var userCtrl = require('./controllers/userCtrl'),
-    habitCtrl = require('./controllers/habitCtrl');
+    habitCtrl = require('./controllers/habitCtrl'),
+    authCtrl = require('./controllers/authCtrl');
 
 module.exports = function(app) {
   // all endpoints go in here
@@ -13,4 +14,10 @@ module.exports = function(app) {
 
   // habit endpoints
   app.post('/habits', habitCtrl.create);
+
+  // auth endpoints
+  app.get('/auth', authCtrl.checkAuth, function(req, res) {
+    res.send('User authed with ID:', req.user);
+  });
+  app.post('/auth/facebook', authCtrl.facebookAuth);
 }

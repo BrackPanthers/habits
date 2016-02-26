@@ -1,13 +1,13 @@
-habitApp.service('habitService', function($http) {
+habitApp.service('habitService', function($http, constants) {
 
   this.logHabit = function(habitId) {
-    $http.put('/loghabit/' + habitId).then(function(result) {
+    $http.put(constants.baseServerUrl +'/loghabit/' + habitId).then(function(result) {
       console.log(result);
     })
   }
 
   this.deleteHabit = function(habitId) {
-    $http.delete('/deletehabit/' + habitId)
+    $http.delete(constants.baseServerUrl +'/deletehabit/' + habitId)
       .then(function(result) {
         console.log('habit delete function test');
     })
@@ -16,35 +16,33 @@ habitApp.service('habitService', function($http) {
     this.getHabit = function() {
         return $http({
             method: 'GET',
-            url: '/api/habits'
+            url: constants.baseServerUrl + '/api/habits'
         }).then(function(response){
+            console.log(response.data)
             return response.data
+            
         })
     }
 
     this.postNewHabit = function(habit) {
+        
         return $http({
             method: 'POST',
-            url: '/api/habits',
+            url: constants.baseServerUrl +'/api/habits',
             data: habit
         }).then(function(response){
+            console.log(response)
             return response
+            
         })
     }
 
-    this.removeHabit = function(id) {
-        return $http({
-            method: 'DELETE',
-            url: '/api/habits' + id
-        }).then(function(response){
-            return response.data
-        })
-    }
+   
 
     this.changeHabit = function(data) {
         return $http({
             method: 'PUT',
-            url: '/api/habits' + data._id,
+            url: constants.baseServerUrl +'/api/habits' + data._id,
             data: data
         }).then(function(response) {
             return response.data

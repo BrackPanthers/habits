@@ -6,15 +6,11 @@ habitApp.controller('loginCtrl', function($scope, $state, $q, $ionicLoading, aut
     facebookConnectPlugin.getLoginStatus(function(success) {
       // if already logged in:
       if(success.status === 'connected'){ // if connnected:
-        // console.log('getLoginStatus', success.status); // success is authResponse
-        authSvc.facebookLogin(success.accessToken, success.userID);
-        // then(function(response) {
-        //  store token in localstorage
-        //  go to user's profile page
-        // }
-        // $state.go('tabs.profile');
+        authSvc.facebookLogin(success.authResponse.accessToken, success.authResponse.userID);
+        // .then(function(response) {
+        //   $state.go('tabs.profile', {userId: response.});
+        // })
       } else { // if not connected, start login/connection process:
-
         $ionicLoading.show({
           template: 'Logging in...'
         });
@@ -31,10 +27,11 @@ habitApp.controller('loginCtrl', function($scope, $state, $q, $ionicLoading, aut
       fbLoginError("Cannot find the authResponse");
       return;
     }
-    authSvc.facebookLogin(response.authResponse.accessToken, response.authResponse.userID);
 
-    $ionicLoading.hide();
-    // $state.go('tabs.profile');
+    authSvc.facebookLogin(response.authResponse.accessToken, response.authResponse.userID)
+    .then(function(response) {
+      $ionicLoading.hide();
+    })
   };
 
   // This is the fail callback from the login method
@@ -43,36 +40,7 @@ habitApp.controller('loginCtrl', function($scope, $state, $q, $ionicLoading, aut
     $ionicLoading.hide();
   };
 
-  // Used after login to get user's fb profile info. Only needs permission if getting special info, e.g. friends. REMOVE
-  /*
-  var getFacebookProfileInfo = function (authResponse) {
-    var info = $q.defer();
-
-    facebookConnectPlugin.api('/me?fields=id,email,name,first_name,last_name,picture&access_token=' + authResponse.accessToken, ["user_friends", "public_profile"],
-      function (response) {
-        console.log("fb connect response, line 20:", response);
-        info.resolve(response);
-      },
-      function (response) {
-        console.log(response);
-        info.reject(response);
-      }
-    );
-    return info.promise;
-  };
- */
+  $scope.getCurrAuth = function() {
+    authSvc.getCurrAuth();
+  }
 });
-
-/*
-BASIC AUTH FLOW:
-
-1. USER GOES TO LOGIN PAGE
-2. APP CHECKS FOR VALID TOKEN AGAINST TOKENS STORED IN SERVER
-3. IF TOKEN IS VALID, USER DATA IS PULLED AND USER IS REDIRECTED TO THEIR PROFILE PAGE
-4. IF TOKEN IS INVALID/MISSING:
---> USER LOGS IN VIA FB/GOOGLE. CHECK TO SEE IF USER HAS ALREADY SIGNED UP FOR APP:
-----> IF YES: GET USER DATA FROM DB AND INJECT INTO PROFILE VIEW/ ROUTE TO PROFILE VIEW
-----> IF NO: GET USER DATA FROM FB GRAPH, ADD TO DB, INJECT INTO PROFILE VIEW, ROUTE TO PROFILE VIEW
---> TOKEN RETURNED FROM LOGIN IS STORED IN USER'S LOCAL STORAGE & POSTED TO SERVER
-
-*/

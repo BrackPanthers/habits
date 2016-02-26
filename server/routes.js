@@ -17,7 +17,7 @@ module.exports = function(app) {
 
   // auth endpoints
   app.get('/auth', authCtrl.checkAuth, function(req, res) {
-    res.send('User authed with ID:', req.user);
+    res.send({'User authed with ID': req.user});
   });
-  app.post('/auth/facebook', authCtrl.facebookAuth);
+  app.get('/auth/facebook', authCtrl.facebookAuth);
 }

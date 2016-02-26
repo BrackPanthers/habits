@@ -46,7 +46,7 @@ module.exports = {
   },
   facebookAuth: function(req, res) {
     // define fields of data to pull from facebook & url
-    var fields = ['id', 'email', 'name', 'first_name', 'last_name', 'picture'];
+    var fields = ['id', 'email', 'name', 'first_name', 'last_name'];
     var access_token = req.query.fb_access_token; // pass access token in query
 
     if (!access_token) {
@@ -72,7 +72,7 @@ module.exports = {
         if (existingUser) {
           // update relevant user data for current users?
           var newToken = createJWT(existingUser); // create new token for user
-          res.send({message: 'new token issued for existing user', token: newToken}); // send token back to user
+          res.send({message: 'new token issued for existing user', token: newToken, user_id: existingUser._id}); // send token back to user + user_id
         } else {
           var newUser = new User();
           newUser.facebook_id = profile.id;
@@ -84,7 +84,8 @@ module.exports = {
           console.log(newUser);
           newUser.save(function() {
             var token = createJWT(newUser);
-            res.send({message: 'token issued for new user', token: token});
+            // return token and new user Id for routing to profile page
+            res.send({message: 'token issued for new user', token: token, user_id: newUser._id});
           })
         }
       })

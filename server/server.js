@@ -5,7 +5,8 @@ var express = require('express'),
     cookieParser = require('cookie-parser'),
     mongoose = require('mongoose'),
     logger = require('morgan'), // server logging package
-    dotenv = require('dotenv').config();
+    dotenv = require('dotenv').config(),
+    config = require('./config');
 
 // set up express and start app
 var app = express();
@@ -31,5 +32,5 @@ var routes = require('./routes')(app);
 
 // start server listening
 app.listen(port, function() {
-  console.log('Server listening on port', port);
+  console.log('Server listening on ' +config.getip()+':'+ port);
 });

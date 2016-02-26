@@ -1,0 +1,68 @@
+.detail-content {
+
+  .detail-top-content {
+    height: 250px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:
+      linear-gradient(
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+      ),
+      url(https://static.pexels.com/photos/9806/pexels-photo.jpg) no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    .settings-link {
+      position: absolute;
+      top: 15px; right: 15px;
+      font-size: 30px;
+      color: white;
+    }
+
+    .habit-detail-wrapper {
+      text-align: center;
+    }
+
+    .habit-detail-name {
+        color: white;
+        font-size: 25px;
+      }
+      .habit-streak-name {
+          margin-top: 10px;
+          color: white;
+          font-size: 15px;
+        }
+  }
+  }
+.calendar-col{
+  display: flex;
+  border-right: 1px solid gray;
+  border-bottom: 1px solid gray;
+  height: 14.28vw;
+}
+
+.calendar-row {
+  padding: 0;
+}
+
+.calendar-col p {
+  margin: auto;
+}
+  .month-container {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    color: #d6d6d6;
+    justify-content: flex-start;
+
+    .habit-mo {
+      height: 14.28vw;
+      width: 14.28vw;
+      color: gray;
+      background-color: transparentize(white, 0.30);
+      box-shadow: -1px -1px #F9A440, inset -1px -1px 0 0 #F9A440;
+    }
+  }

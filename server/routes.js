@@ -19,8 +19,11 @@ module.exports = function(app) {
   });
   app.get('/auth/facebook', authCtrl.facebookAuth);
 
-  app.post('/api/habits', habitCtrl.create);
+
+  // habit endpoints
   app.get('/api/habits', habitCtrl.read);
+  app.post('/api/habits', habitCtrl.create);
   app.put('/api/habits/:id', habitCtrl.update);
-//   app.delete('/habits', habitCtrl.delete);
+  app.put('/loghabit/:habitId', habitCtrl.log);
+  app.delete('/deletehabit/:habitId', habitCtrl.delete);
 }

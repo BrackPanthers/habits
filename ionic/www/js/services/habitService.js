@@ -1,4 +1,18 @@
-habitApp.service('habitService', function($http){
+habitApp.service('habitService', function($http) {
+
+  this.logHabit = function(habitId) {
+    $http.put('/loghabit/' + habitId).then(function(result) {
+      console.log(result);
+    })
+  }
+
+  this.deleteHabit = function(habitId) {
+    $http.delete('/deletehabit/' + habitId)
+      .then(function(result) {
+        console.log('habit delete function test');
+    })
+  }
+
     this.getHabit = function() {
         return $http({
             method: 'GET',
@@ -7,6 +21,7 @@ habitApp.service('habitService', function($http){
             return response.data
         })
     }
+
     this.postNewHabit = function(habit) {
         return $http({
             method: 'POST',
@@ -16,6 +31,7 @@ habitApp.service('habitService', function($http){
             return response
         })
     }
+
     this.removeHabit = function(id) {
         return $http({
             method: 'DELETE',
@@ -24,6 +40,7 @@ habitApp.service('habitService', function($http){
             return response.data
         })
     }
+
     this.changeHabit = function(data) {
         return $http({
             method: 'PUT',

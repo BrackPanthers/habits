@@ -1,9 +1,80 @@
 <ion-view>
-  <ion-content class="padding">
-    <h3>Create new</h3>
-    <h5>{{test}}</h5>
-    <div class="">
-      <a ui-sref="login">Logout</a>
+  <ion-content class="newContent">
+    <div class="startNew">
+        <h2>Create New Habit</h2>
     </div>
+    <div class="newHabit">
+<<<<<<< HEAD
+       
+        <label class="item item-input">
+            <input type="text" placeholder="Title" ng-model="newHabitData.text">
+=======
+        <label class="item item-input item-floating-label">
+            <span class="input-label">Habit</span>
+            <input type="text" placeholder="Write Habit Name">
+>>>>>>> master
+        </label>
+        <div class="doThis">
+            <div class="item item-divider">How often do I want to do this?</div>
+            <div class="doThisButtons">
+                <ion-checkbox class="checkBox checkbox-balanced">More</ion-checkbox>
+                <ion-checkbox class="checkBox checkbox-balanced">Less</ion-checkbox>
+            </div>
+        </div>
+        <div class="targetGoal">
+            <label class="item item-input item-floating-label">
+                <!--<span class="input-label">Target:</span>-->
+<<<<<<< HEAD
+                <input type="text" placeholder="Target:" ng-model="newHabitData.frequency">
+=======
+                <span class="input-label">Target</span>
+                <input type="text" placeholder="Write Target Goal">
+>>>>>>> master
+            </label>
+
+            <div class="freqButtons">
+                <div class="item item-divider">
+                    Choose Frequency
+                </div>
+                <ion-checkbox class="checkBox checkbox-balanced">Per Day</ion-checkbox>
+                <ion-checkbox class="checkBox checkbox-balanced">Per Week</ion-checkbox>
+            </div>
+            <div class="categorySelector">
+                <label class="item item-input item-select">
+                    <div class="input-label">Category</div>
+                    <select name="categoryChange" class="Selector">
+                    <option value="" disabled selected>Choose Category</option>
+                    <option>Weight Loss</option>
+                    <option>Smoking</option>
+                    <option>Reading</option>
+                    <option>Running</option>
+                    <option>Nap time</option>
+                </select>
+                </label>
+            </div>
+            <div class="noteBar">
+<<<<<<< HEAD
+                <label class="item item-input">
+                    <input type="text" class="noteFill" placeholder="Notes" ng-model=">
+                    
+=======
+                <label class="item item-input item-floating-label">
+                    <span class="input-label">Notes</span>
+                    <input type="text" class="noteFill" placeholder="Write Notes">
+>>>>>>> master
+                </label>
+            </div>
+            <div class="privateCheck">
+                
+                <ion-checkbox class="checkBox checkbox-balanced">Make This Habit Private</ion-checkbox>
+            </div>
+            <div class="submitBox">
+                <button class="button button-full button-balanced">Submit</button>
+            </div>
+        </div>
+    </div>
+    <!--<div class="habitLogout">
+      <a ui-sref="login">Logout</a>
+    </div>-->
   </ion-content>
 </ion-view>

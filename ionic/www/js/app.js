@@ -1,7 +1,8 @@
 // declaring this as variable for easy reuse throughout angular code
-var habitApp = angular.module('habitApp', ['ionic']);
+var habitApp = angular.module('habitApp', ['ionic', 'ngOpenFB']);
 
-habitApp.run(function($ionicPlatform) {
+habitApp.run(function($ionicPlatform, ngFB) {
+  ngFB.init({appId: '461176754071244'});
   $ionicPlatform.ready(function() {
     if(window.cordova && window.cordova.plugins.Keyboard) {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard

@@ -1,0 +1,60 @@
+.newContent {
+    position: absolute;
+    width: 100%;
+}
+
+.startNew {
+    text-align: center;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(http://i.imgur.com/p7mC6sG.jpg) no-repeat;
+}
+
+.startNew h2 {
+    color: white;
+}
+
+.newHabit {
+    position: relative;
+}
+
+.newHabit h4 {
+    text-align: center;
+    color: #444;
+}
+
+.doThis {
+    position: relative;
+}
+
+.iWant {
+    color: #444;
+}
+
+.targetGoal {
+    position: relative;
+    width: 100%;
+}
+
+.freqButtons {
+}
+.categorySelector {
+    position: relative;
+    width: 100%;
+}
+.category {
+    position: absolute;
+}
+
+.Selector {
+    position: absolute;
+} 
+.noteBar{
+    position: relative;
+} 
+
+.submitBox {
+    margin-top: 1em;
+    text-align: center;
+    padding-bottom: 1em;
+}

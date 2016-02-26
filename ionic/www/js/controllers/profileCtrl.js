@@ -9,6 +9,7 @@ habitApp.controller('profileCtrl', function($scope, $state, $ionicLoading) {
     }
   }
 
+  // this is an ionic component for a logout menu, if we want to use it later
   // $scope.showLogOutMenu = function() {
   //   var hideSheet = $ionicActionSheet.show({
   //     destructiveText: 'Logout',
@@ -45,6 +46,7 @@ habitApp.controller('profileCtrl', function($scope, $state, $ionicLoading) {
       $ionicLoading.hide();
     });
   }
+
 
   // dummy data. remove when connected to back end
   $scope.userData = {

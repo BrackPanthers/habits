@@ -1,12 +1,13 @@
 <ion-view>
-  <ion-content class="padding">
-    <h3>Login Page</h3>
-    <button ui-sref="tabs.profile" class="button button-full button-positive">
-      Login with Facebook
-    </button>
-    <a class="facebook-sign-in button button-block" ng-click="facebookSignIn()">Login with Facebook</a>
-    <button ng-click="getCurrAuth()" class="button button-full button-assertive">
-      Login with Google
-    </button>
+  <ion-content>
+    <div class="padding">
+      <div class="habitLogo"></div>
+      <div class="loginWrapper">
+            <button class="button button-full button-assertive" ng-click="fbLogin()">Login with Facebook </button>
+            <button ui-sref="tabs.profile" class="button button-full button-assertive">
+              Login with Google
+            </button>
+        </div>
+      </div>
   </ion-content>
 </ion-view>

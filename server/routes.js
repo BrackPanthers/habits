@@ -12,12 +12,14 @@ module.exports = function(app) {
   // user endpoints
   app.post('/users', userCtrl.create);
 
-  // habit endpoints
-  app.post('/habits', habitCtrl.create);
-
   // auth endpoints
   app.get('/auth', authCtrl.checkAuth, function(req, res) {
     res.send({'User authed with ID': req.user});
   });
   app.get('/auth/facebook', authCtrl.facebookAuth);
+
+  app.post('/api/habits', habitCtrl.create);
+  app.get('/api/habits', habitCtrl.read);
+  app.put('/api/habits/:id', habitCtrl.update);
+//   app.delete('/habits', habitCtrl.delete);
 }

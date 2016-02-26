@@ -1,4 +1,6 @@
-habitApp.controller('habitDetailCtrl', function($scope, $ionicActionSheet, $timeout, habitDetailService) {
+
+habitApp.controller('habitDetailCtrl', function($scope, $ionicActionSheet, habitDetailService, $timeout, $stateParams, habitService) {
+
   var totNumOfDays = 30;
 $scope.daysOfMo = [];
 (function popMonth() {
@@ -33,6 +35,8 @@ $scope.show = function() {
 
  };
 
-
+ $scope.deleteHabit = function() {
+   habitService.deleteHabit($stateParams.habitId);
+ }
 
 });

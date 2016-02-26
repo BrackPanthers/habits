@@ -2,7 +2,6 @@ var mongoose = require('mongoose'),
     Habit = require('./../models/Habit');
 
 module.exports = {
-<<<<<<< HEAD
 
   create: function(req, res) {
     var habit = new Habit(req.body);

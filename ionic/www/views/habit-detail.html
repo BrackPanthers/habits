@@ -1,13 +1,26 @@
 <ion-view>
-  <ion-nav-bar class="bar-positive">
-    <ion-nav-back-button></ion-nav-back-button>
-  </ion-nav-bar>
-  <ion-content>
-    <div class="detail-banner">
-    </div>
 
-    <h3 class="hdetail">Habit detail view</h3>
-    <h5>{{test}}</h5>
-    <button ng-click="show()">Show Settings</button>
+  <ion-content>
+    <ion-content>
+  <div class="detail-content">
+    <div class="detail-top-content">
+      <div class="settings-link">
+        <i class="ion-ios-arrow-back" ui-sref="tabs.profile"></i>
+      </div>
+      <div class="habit-detail-wrapper">
+        <div class="habit-detail-name">
+          Picking Nose
+          <p class="habit-streak-name">
+            Streak:
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="month-container">
+    <div class="habit-mo" ng-repeat="day in daysOfMo track by $index">{{  }}</div>
+  </div>
+
   </ion-content>
+
 </ion-view>

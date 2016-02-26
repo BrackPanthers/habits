@@ -1,48 +1,72 @@
 <ion-view>
   <ion-content class="newContent">
-    <h2 class="startNew">Create New Habit</h2>
+    <div class="startNew">
+        <h2>Create New Habit</h2>
+    </div>
     <div class="newHabit">
+<<<<<<< HEAD
        
         <label class="item item-input">
-            <input type="text" placeholder="Title">
+            <input type="text" placeholder="Title" ng-model="newHabitData.text">
+=======
+        <label class="item item-input item-floating-label">
+            <span class="input-label">Habit</span>
+            <input type="text" placeholder="Write Habit Name">
+>>>>>>> master
         </label>
         <div class="doThis">
-            <h4 class="iWant">I want to do this:</h4>
-            <div class="button-bar">
-                <a class="button button-calm"  >More</a>
-                <a class="button button-calm">Less</a>
+            <div class="item item-divider">How often do I want to do this?</div>
+            <div class="doThisButtons">
+                <ion-checkbox class="checkBox checkbox-balanced">More</ion-checkbox>
+                <ion-checkbox class="checkBox checkbox-balanced">Less</ion-checkbox>
             </div>
         </div>
         <div class="targetGoal">
-            <label class="item item-input" >
+            <label class="item item-input item-floating-label">
                 <!--<span class="input-label">Target:</span>-->
-                <input type="text" placeholder="Target:">
+<<<<<<< HEAD
+                <input type="text" placeholder="Target:" ng-model="newHabitData.frequency">
+=======
+                <span class="input-label">Target</span>
+                <input type="text" placeholder="Write Target Goal">
+>>>>>>> master
             </label>
-            <h5>Per</h5>
-            <div class="button-bar">
-                <a class="button button-balanced">Day</a>
-                <a class="button button-balanced">Week</a>
+
+            <div class="freqButtons">
+                <div class="item item-divider">
+                    Choose Frequency
+                </div>
+                <ion-checkbox class="checkBox checkbox-balanced">Per Day</ion-checkbox>
+                <ion-checkbox class="checkBox checkbox-balanced">Per Week</ion-checkbox>
             </div>
             <div class="categorySelector">
-                <h4 class="category">Category:</h4>
-                <select name="categoryChange" class="Selector">
-                    <option >Any</option>
-                    <option >Weight Loss</option>
-                    <option >Smoking</option>
-                    <option >Reading</option>
-                    <option >Running</option>
-                    <option >Nap time</option>
+                <label class="item item-input item-select">
+                    <div class="input-label">Category</div>
+                    <select name="categoryChange" class="Selector">
+                    <option value="" disabled selected>Choose Category</option>
+                    <option>Weight Loss</option>
+                    <option>Smoking</option>
+                    <option>Reading</option>
+                    <option>Running</option>
+                    <option>Nap time</option>
                 </select>
+                </label>
             </div>
             <div class="noteBar">
+<<<<<<< HEAD
                 <label class="item item-input">
-                    <input type="text" class="noteFill" placeholder="Notes">
+                    <input type="text" class="noteFill" placeholder="Notes" ng-model=">
                     
+=======
+                <label class="item item-input item-floating-label">
+                    <span class="input-label">Notes</span>
+                    <input type="text" class="noteFill" placeholder="Write Notes">
+>>>>>>> master
                 </label>
             </div>
             <div class="privateCheck">
                 
-                <ion-checkbox class="checkBox">Make This Habit Private</ion-checkbox>
+                <ion-checkbox class="checkBox checkbox-balanced">Make This Habit Private</ion-checkbox>
             </div>
             <div class="submitBox">
                 <button class="button button-full button-balanced">Submit</button>

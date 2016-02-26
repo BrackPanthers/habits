@@ -15,4 +15,7 @@ module.exports = function(app) {
   app.post('/habits', habitCtrl.create);
   app.put('/loghabit/:habitId', habitCtrl.log);
   app.delete('/deletehabit/:habitId', habitCtrl.delete);
+  app.get('/api/habits', habitCtrl.read);
+  app.put('/api/habits/:id', habitCtrl.update);
+//   app.delete('/habits', habitCtrl.delete)
 }

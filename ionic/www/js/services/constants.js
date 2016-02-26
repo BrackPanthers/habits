@@ -1,5 +1,3 @@
-habitApp.constant('constants', function() {
-  return {
-    baseServerUrl: 'http://localhost:3000'
-  }
+habitApp.constant('constants', {
+  baseServerUrl: 'http://192.168.1.185:3000'// change to remote when hosting
 });

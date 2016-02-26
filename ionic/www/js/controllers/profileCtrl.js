@@ -1,5 +1,6 @@
-habitApp.controller('profileCtrl', function($scope, ngFB) {
-  $scope.test = 'PROFILE CTRL CONNECTED';
+habitApp.controller('profileCtrl', function($scope, $state, $stateParams, $ionicLoading, userSvc, userData) {
+  $scope.userData = userData; // this is after resolve is working
+  console.log($scope.userData);
 
   $scope.toggleContent = function(targetView) {
     if (targetView === 'mainContent') {
@@ -9,77 +10,101 @@ habitApp.controller('profileCtrl', function($scope, ngFB) {
     }
   }
 
-    ngFB.api({
-        path: '/me',
-        params: {fields: 'id,name,email,gender,location'}
-    }).then(
-        function (user) {
-          console.log(user);
-            $scope.user = user;
-        },
-        function (error) {
-            alert('Facebook error: ' + error.error_description);
-        });
-  
-$scope.logoutUser = ngFB.logout;
+  // this is an ionic component for a logout menu, if we want to use it later
+  // $scope.showLogOutMenu = function() {
+  //   var hideSheet = $ionicActionSheet.show({
+  //     destructiveText: 'Logout',
+  //     titleText: 'Are you sure you want to logout? This app is awsome so I recommend you to stay.',
+  //     cancelText: 'Cancel',
+  //     cancel: function() {},
+  //     buttonClicked: function(index) {
+  //       return true;
+  //     },
+  //     destructiveButtonClicked: function(){
+  //       $ionicLoading.show({
+  //         template: 'Logging out...'
+  //       });
+  //
+  //       // Facebook logout
+  //       facebookConnectPlugin.logout(function(){
+  //         $ionicLoading.hide();
+  //         $state.go('login');
+  //       },
+  //       function(fail){
+  //         $ionicLoading.hide();
+  //       });
+  //     }
+  //   });
+  // };
+
+  $scope.logoutUser = function() {
+    facebookConnectPlugin.logout(
+    function(){
+      $ionicLoading.hide();
+      $state.go('login');
+    },
+    function(fail){
+      $ionicLoading.hide();
+    });
+  }
 
 
   // dummy data. remove when connected to back end
-  $scope.userData = {
-    first_name: 'Mark',
-    last_name: 'Zuckerberg',
-    photo_url: 'http://a4.files.biography.com/image/upload/c_fill,cs_srgb,dpr_1.0,g_face,h_300,q_80,w_300/MTIwNjA4NjMzNjg3ODAzNDA0.jpg', // from facebook
-    habits: [
-      {
-        _id: 12345,
-        kind: 'more',
-        private: false,
-        category: 'exercise',
-        text: 'Go to gym',
-        goal: {
-          timeframe: 'week',
-          frequency: 4
-        },
-        logs: ['2016-02-07', '2016-02-08', '2016-02-10', '2016-02-12', '2016-02-14', '2016-02-15', '2016-02-16', '2016-02-17', '2016-02-19', '2016-02-21']
-      },
-      {
-        _id: 12346,
-        kind: 'less',
-        private: false,
-        category: 'diet',
-        text: 'Eat red meat',
-        goal: {
-          timeframe: 'week',
-          frequency: 2
-        },
-        logs: ['2016-02-07', '2016-02-10', '2016-02-17']
-      },
-      {
-        _id: 12345,
-        kind: 'more',
-        private: false,
-        category: 'exercise',
-        text: 'Go to gym',
-        goal: {
-          timeframe: 'week',
-          frequency: 4
-        },
-        logs: ['2016-02-07', '2016-02-08', '2016-02-10', '2016-02-12', '2016-02-14', '2016-02-15', '2016-02-16', '2016-02-17', '2016-02-19', '2016-02-21']
-      },
-      {
-        _id: 12346,
-        kind: 'less',
-        private: false,
-        category: 'diet',
-        text: 'Eat red meat',
-        goal: {
-          timeframe: 'week',
-          frequency: 2
-        },
-        logs: ['2016-02-07', '2016-02-10', '2016-02-17']
-      }
-    ]
-  };
+  // $scope.userData = {
+  //   first_name: 'Mark',
+  //   last_name: 'Zuckerberg',
+  //   photo_url: 'http://a4.files.biography.com/image/upload/c_fill,cs_srgb,dpr_1.0,g_face,h_300,q_80,w_300/MTIwNjA4NjMzNjg3ODAzNDA0.jpg', // from facebook
+  //   habits: [
+  //     {
+  //       _id: 12345,
+  //       kind: 'more',
+  //       private: false,
+  //       category: 'exercise',
+  //       text: 'Go to gym',
+  //       goal: {
+  //         timeframe: 'week',
+  //         frequency: 4
+  //       },
+  //       logs: ['2016-02-07', '2016-02-08', '2016-02-10', '2016-02-12', '2016-02-14', '2016-02-15', '2016-02-16', '2016-02-17', '2016-02-19', '2016-02-21']
+  //     },
+  //     {
+  //       _id: 12346,
+  //       kind: 'less',
+  //       private: false,
+  //       category: 'diet',
+  //       text: 'Eat red meat',
+  //       goal: {
+  //         timeframe: 'week',
+  //         frequency: 2
+  //       },
+  //       logs: ['2016-02-07', '2016-02-10', '2016-02-17']
+  //     },
+  //     {
+  //       _id: 12345,
+  //       kind: 'more',
+  //       private: false,
+  //       category: 'exercise',
+  //       text: 'Go to gym',
+  //       goal: {
+  //         timeframe: 'week',
+  //         frequency: 4
+  //       },
+  //       logs: ['2016-02-07', '2016-02-08', '2016-02-10', '2016-02-12', '2016-02-14', '2016-02-15', '2016-02-16', '2016-02-17', '2016-02-19', '2016-02-21']
+  //     },
+  //     {
+  //       _id: 12346,
+  //       kind: 'less',
+  //       private: false,
+  //       category: 'diet',
+  //       text: 'Eat red meat',
+  //       goal: {
+  //         timeframe: 'week',
+  //         frequency: 2
+  //       },
+  //       logs: ['2016-02-07', '2016-02-10', '2016-02-17']
+  //     }
+  //   ]
+  // };
 
   // accomplishment data
   $scope.accompData = {

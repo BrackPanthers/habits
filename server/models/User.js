@@ -10,6 +10,10 @@ var userSchema = mongoose.Schema({
   photo_url: {
     type: String
   },
+  full_name: {
+    type: String,
+    required: true
+  },
   first_name: {
     type: String,
     required: true

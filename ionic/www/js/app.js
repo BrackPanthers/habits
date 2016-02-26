@@ -36,11 +36,16 @@ habitApp.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvide
     templateUrl: './views/tabnav.html'
   })
   .state('tabs.profile', {
-    url: '/profile',
+    url: '/profile/:userId',
     views: {
       'profile-tab': {
         templateUrl: './views/profile.html',
-        controller: 'profileCtrl'
+        controller: 'profileCtrl',
+        resolve: {
+          userData: function(userSvc, $stateParams) {
+            return userSvc.getUserData($stateParams.userId);
+          }
+        }
       }
     }
   })
@@ -72,7 +77,6 @@ habitApp.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvide
     }
   });
 
-
   $urlRouterProvider
-  .otherwise('/tabs/profile');
+  .otherwise('/login');
 });

@@ -24,7 +24,7 @@ var habitSchema = mongoose.Schema({
   category: categorySchema,
   goal_point: pointSchema,
   starting_point: pointSchema,
-  logs: [{
+  logs: [{ //
     type: Number // ms timestamp, easier to work with
   }]
 }, {timestamps: {createdAt: 'created_at', updatedAt: 'updated_at'}});

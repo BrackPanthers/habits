@@ -11,6 +11,7 @@ module.exports = function(app) {
 
   // user endpoints
   app.post('/users', userCtrl.create);
+  app.get('/user/:userId', userCtrl.map);
 
   // auth endpoints
   app.get('/auth', authCtrl.checkAuth, function(req, res) {

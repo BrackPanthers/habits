@@ -40,7 +40,12 @@ habitApp.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvide
     views: {
       'profile-tab': {
         templateUrl: './views/profile.html',
-        controller: 'profileCtrl'
+        controller: 'profileCtrl',
+        resolve: {
+          userData: function(userSvc, $stateParams) {
+            return userSvc.getUserData($stateParams.userId);
+          }
+        }
       }
     }
   })

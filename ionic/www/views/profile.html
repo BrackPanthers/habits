@@ -7,11 +7,11 @@
         </div>
         <div class="user-info-wrapper">
           <div class="user-photo-wrapper">
-            <!-- <img src="//graph.facebook.com/{{userData.facebook_id}}/picture"> -->
-            <img src="{{userData.photo_url}}" alt="" class="profile-photo"/>
+            <img src="http://graph.facebook.com/{{userData.facebook_id}}/picture" class="profile-photo">
+            <!-- <img src="{{userData.photo_url}}" alt="" class="profile-photo"/> -->
           </div>
           <div class="user-name">
-            {{user.name}}
+            {{userData.full_name}}
           </div>
         </div>
       </div>

@@ -15,7 +15,7 @@ var port = process.env.SERVER_PORT;
 var corsOptions = {
 	origin: 'http://localhost/' + port
 };
-// app.use(logger('dev')); // logs any request made
+app.use(logger('dev')); // logs details any request made
 app.use(cors(corsOptions));
 app.use(bodyParser.json()); // parses any body into json
 

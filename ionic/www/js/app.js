@@ -1,5 +1,5 @@
 // declaring this as variable for easy reuse throughout angular code
-var habitApp = angular.module('habitApp', ['ionic']);
+var habitApp = angular.module('habitApp', ['ionic', 'facebook']);
 
 habitApp.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -20,7 +20,7 @@ habitApp.run(function($ionicPlatform) {
 })
 
 // tab based navigation/ routing
-habitApp.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+habitApp.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider, FacebookProvider, constants) {
   $ionicConfigProvider.tabs.position('bottom');
 
   $stateProvider
@@ -78,4 +78,8 @@ habitApp.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvide
 
   $urlRouterProvider
   .otherwise('/login');
+
+  // config facebook app for web auth
+  FacebookProvider.init(constants.fbAppId);
+
 });

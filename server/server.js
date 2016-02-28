@@ -13,11 +13,8 @@ var app = express();
 var port = process.env.SERVER_PORT;
 
 // set up middleware
-var corsOptions = {
-	origin: 'http://localhost/' + port
-};
 app.use(logger('dev')); // logs details any request made
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(bodyParser.json()); // parses any body into json
 
 // set up and connect to mongolab db

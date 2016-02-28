@@ -27,6 +27,11 @@ module.exports = {
     var token = req.header('Authorization').split(' ')[1];
     var payload = null;
 
+    // if no token:
+    if (!token) {
+      res.status(401).send({message: 'No token passed in header, or in wrong format'});
+    }
+
     // try to decode token:
     try {
       payload = jwt.decode(token, process.env.TOKEN_SECRET);

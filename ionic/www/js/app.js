@@ -27,7 +27,12 @@ habitApp.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvide
   .state('login', {
     url: '/login',
     templateUrl: './views/login.html',
-    controller: 'loginCtrl'
+    controller: 'loginCtrl',
+    resolve: {
+      userNotAuthed: function(authSvc) {
+        return authSvc.userNotAuthed();
+      }
+    }
   })
   .state('tabs', {
     url: '/tabs',
@@ -40,9 +45,14 @@ habitApp.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvide
       'profile-tab': {
         templateUrl: './views/profile.html',
         controller: 'profileCtrl',
-        resolve: {
+        resolve: { // before going to page:
+          // get user data for page
           userData: function(userSvc, $stateParams) {
             return userSvc.getUserData($stateParams.userId);
+          },
+          // make sure a user has logged in
+          authedUser: function(authSvc) {
+            return authSvc.checkAuth();
           }
         }
       }

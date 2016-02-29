@@ -6,8 +6,8 @@
     <div class="newHabit">
 
         <label class="item item-input item-floating-label">
-            <span class="input-label">Habit</span>
-            <input type="text" placeholder="Write Habit Name">
+            <span class="input-label" >Habit</span>
+            <input type="text" placeholder="Write Habit Name" ng-model="newHabit.text">
 
         </label>
         <div class="doThis">
@@ -57,7 +57,7 @@
                 <ion-checkbox class="checkBox checkbox-balanced">Make This Habit Private</ion-checkbox>
             </div>
             <div class="submitBox">
-                <button class="button button-full button-balanced">Submit</button>
+                <button class="button button-full button-balanced" ng-click="addNewHabit( newHabit)">Submit</button>
             </div>
         </div>
     </div>

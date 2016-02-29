@@ -7,7 +7,7 @@ module.exports = {
     var habit = new Habit(req.body);
     habit.save(function(err, result) {
       if (err) {
-        res.status(500).send('failed to create habit');
+        // res.status(500).send('failed to create habit');
       }
       res.send(result);
     });

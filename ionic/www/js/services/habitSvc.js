@@ -14,6 +14,7 @@ habitApp.service('habitService', function($http, constants) {
   }
 
     this.getHabit = function() {
+        console.log('hi')
         return $http({
             method: 'GET',
             url: constants.baseServerUrl + '/api/habits'

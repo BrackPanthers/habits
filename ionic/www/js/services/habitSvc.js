@@ -14,10 +14,9 @@ habitApp.service('habitService', function($http, constants) {
   }
 
     this.getHabit = function() {
-
         return $http({
             method: 'GET',
-            url: constants.baseServerUrl + '/api/habits',
+            url: constants.baseServerUrl + '/api/habits'
         }).then(function(response){
             console.log(response.data)
             return response.data
@@ -49,13 +48,4 @@ habitApp.service('habitService', function($http, constants) {
             return response.data
         })
     }
-
-    // this.getCategories = function() {
-    //     return $http({
-    //         method: 'GET',
-    //         url: '/api/categories'
-    //     }).then(function (response) {
-    //         return response.data
-    //     });
-    // }
 })

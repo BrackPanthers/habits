@@ -7,7 +7,7 @@ module.exports = {
     var habit = new Habit(req.body);
     habit.save(function(err, result) {
       if (err) {
-        // res.status(500).send('failed to create habit');
+        res.status(500).send('failed to create habit');
       }
       res.send(result);
     });
@@ -35,7 +35,6 @@ module.exports = {
     read: function (req, res) {
 
         Habit.find()
-        // .populate('category')
             .exec()
 
             .then(function (err, result) {

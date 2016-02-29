@@ -50,12 +50,4 @@ habitApp.service('habitService', function($http, constants) {
         })
     }
 
-    // this.getCategories = function() {
-    //     return $http({
-    //         method: 'GET',
-    //         url: '/api/categories'
-    //     }).then(function (response) {
-    //         return response.data
-    //     });
-    // }
 })

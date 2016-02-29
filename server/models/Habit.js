@@ -7,23 +7,36 @@ var habitSchema = mongoose.Schema({
     type: String,
     required: true
   },
+
   kind: {
     type: String,
     enum: ['more', 'less'],
-    // required: true
+    required: true
   },
+
   user_id: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
     // required: true
   },
+
+  target: {
+    type: String
+  },
+
   private: {
-    type: Boolean,
+    type: Boolean
     // default: false
   },
+
+  notes: {
+    type: String
+  },
+
   category: categorySchema,
+
   goal_point: pointSchema,
-  starting_point: pointSchema,
+  frequency: pointSchema,
   logs: [{ //
     type: Number // ms timestamp, easier to work with
   }]

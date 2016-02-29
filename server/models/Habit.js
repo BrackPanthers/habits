@@ -10,16 +10,16 @@ var habitSchema = mongoose.Schema({
   kind: {
     type: String,
     enum: ['more', 'less'],
-    required: true
+    // required: true
   },
   user_id: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
-    required: true
+    // required: true
   },
   private: {
     type: Boolean,
-    default: false
+    // default: false
   },
   category: categorySchema,
   goal_point: pointSchema,

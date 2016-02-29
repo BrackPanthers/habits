@@ -18,25 +18,13 @@ var habitSchema = mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
     required: true
-<<<<<<< HEAD
-  },
 
-  target: {
-    type: String
-  },
-
-  private: {
-
-    type: Boolean,
-    default: false
-
-=======
   },
 
   is_private: {
     type: Boolean,
     default: false
->>>>>>> master
+
   },
 
   notes: {

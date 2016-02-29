@@ -5,5 +5,24 @@ habitApp.controller('newHabitCtrl', function ($scope, habitService) {
         });
         console.log(habit)
     }
+
+	$scope.newHabit = {};
+
+    $scope.newHabit.private = false;
+
+    $scope.categories = [
+	    'Exercise',
+	    'Diet',
+	    'Personal Growth',
+	    'Relationships',
+	    'Hygiene',
+	    'General Health',
+	    'Community',
+	    'Technology',
+	    'Sleep',
+	    'Finances',
+	    'Hobbies',
+	    'Other'
+  ]
     
 });

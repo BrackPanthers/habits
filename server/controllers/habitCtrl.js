@@ -35,7 +35,9 @@ module.exports = {
     read: function (req, res) {
 
         Habit.find()
+        // .populate('category')
             .exec()
+
             .then(function (err, result) {
                 if (err) {
                     return res.send(err);

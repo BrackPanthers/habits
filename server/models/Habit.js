@@ -17,16 +17,12 @@ var habitSchema = mongoose.Schema({
   user_id: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
-    // required: true
+    required: true
   },
 
-  target: {
-    type: String
-  },
-
-  private: {
-    type: Boolean
-    // default: false
+  is_private: {
+    type: Boolean,
+    default: false
   },
 
   notes: {
@@ -36,7 +32,9 @@ var habitSchema = mongoose.Schema({
   category: categorySchema,
 
   goal_point: pointSchema,
-  frequency: pointSchema,
+
+  starting_point: pointSchema,
+
   logs: [{ //
     type: Number // ms timestamp, easier to work with
   }]

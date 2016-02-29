@@ -7,6 +7,7 @@
       <div class="settings-link">
         <i class="ion-ios-arrow-back" ui-sref="tabs.profile"></i>
       </div>
+      <!-- habit -->
       <div class="habit-detail-wrapper">
         <div class="habit-detail-name">
           Picking Nose
@@ -17,8 +18,12 @@
       </div>
     </div>
   </div>
+  <day-of-week></day-of-week>
+  <!-- calendar -->
+
   <div class="month-container">
-    <div class="habit-mo" ng-repeat="day in daysOfMo track by $index">{{  }}</div>
+    <div class="habit-mo" ng-repeat="day in datesArr track by $index" ng-class="day.class"><p>{{ day.date }}</p></div>
+
   </div>
 
   </ion-content>

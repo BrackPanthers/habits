@@ -11,7 +11,7 @@
 
         </label>
         <div class="doThis">
-            <div class="item item-divider">How often do I want to do this?</div>
+            <div class="item item-divider">Do I want to do this...</div>
             <div class="doThisButtons">
                 <ion-list>
                     <ion-radio name="doThis"ng-model="newHabit.kind" ng-value="'more'">More</ion-radio>
@@ -20,18 +20,21 @@
             </div>
         </div>
         <div class="targetGoal">
-            <label class="item item-input item-floating-label">
-                <span class="input-label">Target</span>
-                <input type="text" placeholder="Write Target Goal" ng-model="newHabit.target">
-            </label>
 
             <div class="freqButtons">
                 <div class="item item-divider">
-                    Choose Frequency
+                    How often do I want to do this?
                 </div>
+
+                <div class="item range">
+                    <i class="ion-chevron-left"></i>
+                    <input type="range" name="number" min="0" max="7" ng-model="newHabit.goal_point.frequency">
+                    <i class="ion-chevron-right"></i>
+                </div>
+
                 <ion-list>
-                    <ion-radio name="freq" ng-model="newHabit.frequency.time_frame" ng-value="'day'">Per Day</ion-radio>
-                    <ion-radio name="freq" ng-model="newHabit.frequency.time_frame" ng-value="'week'">Per Week</ion-radio>
+                    <ion-radio name="freq" ng-model="newHabit.goal_point.time_frame" ng-value="'day'">{{ newHabit.goal_point.frequency }} Times Per Day</ion-radio>
+                    <ion-radio name="freq" ng-model="newHabit.goal_point.time_frame" ng-value="'week'">{{ newHabit.goal_point.frequency }} Times Per Week</ion-radio>
                 </ion-list>
             </div>
             <div class="categorySelector">
@@ -51,7 +54,7 @@
             </div>
             <div class="privateCheck">
 
-                <ion-checkbox class="checkBox checkbox-balanced" ng-model="newHabit.private">Make This Habit Private</ion-checkbox>
+                <ion-checkbox class="checkBox checkbox-balanced" ng-model="newHabit.is_private">Make This Habit Private</ion-checkbox>
             </div>
             <div class="submitBox">
                 <button class="button button-full button-balanced" ng-click="addNewHabit( newHabit)">Submit</button>

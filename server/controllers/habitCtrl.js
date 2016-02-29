@@ -1,5 +1,6 @@
 var mongoose = require('mongoose'),
-    Habit = require('./../models/Habit');
+    Habit = require('./../models/Habit'),
+    User = require('./../models/User');
 
 module.exports = {
 
@@ -7,9 +8,16 @@ module.exports = {
     var habit = new Habit(req.body);
     habit.save(function(err, result) {
       if (err) {
-        // res.status(500).send('failed to create habit');
+        res.status(500).send('failed to create habit');
       }
-      res.send(result);
+      User.findByIdAndUpdate(result.user_id, {$addToSet: {habits: result._id}}, {new: true}, function(err, result) {
+        if (err) {
+          res.json(err);
+        } else {
+          res.json(result);
+          console.log(result);
+        }
+      });
     });
   },
 
@@ -35,7 +43,6 @@ module.exports = {
     read: function (req, res) {
 
         Habit.find()
-        // .populate('category')
             .exec()
 
             .then(function (err, result) {

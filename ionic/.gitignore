@@ -6,3 +6,4 @@ platforms/
 plugins/
 www/bundle.js
 www/styles/master.css
+www/js/services/constants.js

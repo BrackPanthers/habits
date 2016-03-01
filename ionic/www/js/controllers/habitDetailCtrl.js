@@ -1,5 +1,10 @@
 
-habitApp.controller('habitDetailCtrl', function($scope, $ionicActionSheet, habitDetailService, $timeout, $stateParams, habitService) {
+habitApp.controller('habitDetailCtrl', function($scope, $ionicActionSheet, habitDetailService, $timeout, $stateParams, habitService, $ionicHistory) {
+
+  // go back function (for back button)
+  $scope.goBack = function() {
+    $ionicHistory.goBack();
+  }
 
   //TEST DATA//
     $scope.datesArr = [

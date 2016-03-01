@@ -37,7 +37,8 @@ habitApp.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvide
   .state('tabs', {
     url: '/tabs',
     abstract: true,
-    templateUrl: './views/tabnav.html'
+    templateUrl: './views/tabnav.html',
+    controller: 'tabsCtrl'
   })
   .state('tabs.profile', {
     url: '/profile/:userId',

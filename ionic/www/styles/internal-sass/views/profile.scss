@@ -3,15 +3,15 @@
 .profile-content {
 
   .profile-top-content {
-    height: 25vh;
+    height: 35vh;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     background:
       linear-gradient(
-        rgba(0, 0, 0, 0.5),
-        rgba(0, 0, 0, 0.5)
+        rgba(38, 38, 38, 0.55),
+        rgba(38, 38, 38, 0.55)
       ),
       url(https://scontent-dfw1-1.xx.fbcdn.net/hphotos-xpt1/v/t1.0-9/12717383_10207650602799381_5565313457721542865_n.jpg?oh=decb23dc9e5a7d8446fdb64783c6071b&oe=576F78EF) no-repeat;
     background-position: center;
@@ -19,23 +19,27 @@
 
     .settings-link {
       position: absolute;
-      top: 15px; right: 15px;
+      top: 20px; right: 25px;
       font-size: 22px;
       color: white;
+      font-size: 2em;
     }
 
     .user-info-wrapper {
       text-align: center;
 
       .profile-photo {
-        width: 75px;
+        width: 73px;
         border-radius: 50%;
+        margin-bottom: 10px;
       }
 
       .user-name, .settings-link {
         color: white;
-        font-size: 16px;
-        letter-spacing: 0.05em;
+        font-size: 18px;
+        letter-spacing: 0.1em;
+        font-family: 'Proxima Nova', sans-serif;
+        font-weight: bold;
       }
     }
 
@@ -46,11 +50,15 @@
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
+    font-family: 'Proxima Nova', sans-serif;
+    font-weight: bold;
+    letter-spacing: 0.12em;
+    margin-top: -1px;
+    background-color: #457ed0;
 
     .profile-tab {
       background-color: #457ed0;
       color: white;
-      letter-spacing: 0.05em;
       text-transform: uppercase;
       width: 50%;
       height: 50px;
@@ -60,7 +68,7 @@
     }
 
     .profile-tab:first-of-type {
-      border-right: 1px solid white;
+      // border-right: 1px solid white;
     }
   }
 
@@ -69,17 +77,22 @@
     flex-flow: row nowrap;
     align-items: center;
     justify-content: space-around;
-    background-color: #d6d6d6;
-    padding: 5px 0px;
+    background-color: #f5f5f5;
+    padding: 10px 0px;
+    font-family: 'Proxima Nova', sans-serif;
+    font-weight: bold;
+    color: #2a2a2a;
+    border-bottom: 2px solid #e7e7e7;
 
     .day-of-week-letter {
       padding: 0px 5px;
     }
 
     .current-day {
-      background-color: gray;
+      background-color: #bcc1c5;
+      padding: 2px 8px;
       border-radius: 50%;
-      color: white;
+      color: #2a2a2a;
     }
   }
 }

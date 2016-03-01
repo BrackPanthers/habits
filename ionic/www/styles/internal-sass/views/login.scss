@@ -4,7 +4,7 @@
       rgba(38, 38, 38, 0.55),
       rgba(38, 38, 38, 0.55)
       ),
-      url(http://i.imgur.com/YSDO3Vo.jpg) no-repeat;
+      url('https://static.pexels.com/photos/36776/fitness-strength-strong-male-large.jpg'), no-repeat;
       background-position: center;
       background-size: cover;
       height: 100vh;
@@ -41,6 +41,24 @@
   font-family: 'Proxima Nova', sans-serif;
   font-size: 1.1em;
   text-transform: uppercase;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.09em;
   font-weight: bold;
+  display: flex;
+  text-align: center;
+}
+
+.btn-text-wrapper {
+  display: flex;
+  // flex-direction: row;
+  margin: auto;
+  width: 100%;
+}
+.button p {
+  margin: auto;
+  margin-left: -50px;
+}
+.button i {
+  margin: auto;
+  margin-right: 60px;
+  font-size: 1.7em;
 }

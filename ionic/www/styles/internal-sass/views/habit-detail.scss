@@ -11,7 +11,7 @@
         rgba(0, 0, 0, 0.5),
         rgba(0, 0, 0, 0.5)
       ),
-      url(https://static.pexels.com/photos/9806/pexels-photo.jpg) no-repeat;
+      url('../../img/habit-detail.jpg');
     background-position: center;
     background-size: cover;
 
@@ -27,8 +27,13 @@
     }
 
     .habit-detail-name {
+        font-family: 'Proxima Nova', sans-serif;
+        font-weight: bold;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
         color: white;
-        font-size: 25px;
+        font-size: 22px;
       }
       .habit-streak-name {
           margin-top: 10px;
@@ -63,7 +68,12 @@
       height: 14.28vw;
       width: 14.28vw;
       color: gray;
+      display: flex;
       background-color: transparentize(white, 0.30);
       box-shadow: -1px -1px gainsboro, inset -1px -1px 0 0 gainsboro;
+    }
+
+    p {
+      margin: auto;
     }
   }

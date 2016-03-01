@@ -13,7 +13,7 @@
         rgba(38, 38, 38, 0.55),
         rgba(38, 38, 38, 0.55)
       ),
-      url(https://scontent-dfw1-1.xx.fbcdn.net/hphotos-xpt1/v/t1.0-9/12717383_10207650602799381_5565313457721542865_n.jpg?oh=decb23dc9e5a7d8446fdb64783c6071b&oe=576F78EF) no-repeat;
+      url('../../img/prof-cover.jpg');
     background-position: center;
     background-size: cover;
 
@@ -63,37 +63,24 @@
       width: 50%;
       height: 50px;
       display: flex;
+      position: relative;
       align-items: center;
       justify-content: center;
+
+      .profile-tab-bar {
+        width: 40px;
+        height: 2.5px;
+        background-color: #fff;
+        position: absolute;
+        top: 0;
+      }
     }
 
     .profile-tab:first-of-type {
       // border-right: 1px solid white;
     }
   }
-  
-  .day-of-week-bar {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: space-around;
-    background-color: #f5f5f5;
-    padding: 10px 0px;
-    font-family: 'Proxima Nova', sans-serif;
-    font-weight: bold;
-    color: #2a2a2a;
-    border-bottom: 2px solid #e7e7e7;
-
-    .day-of-week-letter {
-      padding: 0px 5px;
-    }
-
-    .current-day {
-      background-color: #bcc1c5;
-      padding: 2px 8px;
-      border-radius: 50%;
-      color: #2a2a2a;
-    }
-  }
 
 }
+
+//TABS STYLES //

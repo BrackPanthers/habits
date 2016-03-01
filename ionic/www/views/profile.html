@@ -15,10 +15,12 @@
         </div>
       </div>
       <div class="profile-tabs">
-        <div ng-click="toggleContent('mainContent')" class="profile-tab">
+        <div ng-click="toggleContent('mainContent'); toggleHabitTab()" class="profile-tab">
+          <div ng-show="habitTab" id="habit-tab-bar" class="profile-tab-bar"></div>
           Habits
         </div>
-        <div ng-click="toggleContent('accomps')" class="profile-tab">
+        <div ng-click="toggleContent('accomps'); toggleBadgesTab()" class="profile-tab">
+          <div ng-show="badgesTab" id="badges-tab-bar" class="profile-tab-bar"></div>
           Badges
         </div>
       </div>

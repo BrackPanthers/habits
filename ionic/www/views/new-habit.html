@@ -6,12 +6,10 @@
     <div class="newHabit">
 
         <label class="item item-input item-floating-label">
-            <span class="input-label" >Habit</span>
-            <input type="text" placeholder="Write Habit Name" ng-model="newHabit.text">
-
+            <input type="text" placeholder="Write Habit Name..." ng-model="newHabit.text">
         </label>
         <div class="doThis">
-            <div class="item item-divider">Do I want to do this...</div>
+            <div class="item item-divider">Do you want to do this...</div>
             <div class="doThisButtons">
                 <ion-list>
                     <ion-radio name="doThis"ng-model="newHabit.kind" ng-value="'more'">More</ion-radio>
@@ -23,7 +21,7 @@
 
             <div class="freqButtons">
                 <div class="item item-divider">
-                    How often do I want to do this?
+                    How often do you want to do this?
                 </div>
 
                 <div class="item range">
@@ -57,7 +55,7 @@
                 <ion-checkbox class="checkBox checkbox-balanced" ng-model="newHabit.is_private">Make This Habit Private</ion-checkbox>
             </div>
             <div class="submitBox">
-                <button class="button button-full button-balanced" ng-click="addNewHabit( newHabit)">Submit</button>
+                <button class="button button-full button-balanced" ng-click="addNewHabit(newHabit)">Submit</button>
             </div>
         </div>
     </div>

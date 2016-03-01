@@ -52,5 +52,17 @@ habitApp.controller('profileCtrl', function($scope, $state, $stateParams, $ionic
     challenges_won: 7
   }
 
+  $scope.habitTab = true;
+  $scope.badgesTab = false;
+  $scope.toggleHabitTab = function() {
+    $scope.habitTab = true;
+    $scope.badgesTab = false;
+  }
+  $scope.toggleBadgesTab = function() {
+    $scope.habitTab = false;
+    $scope.badgesTab = true;
+  }
+
+
 
 });

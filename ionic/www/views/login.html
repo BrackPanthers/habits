@@ -3,9 +3,15 @@
     <div class="padding">
       <div class="habitLogo"></div>
       <div class="loginWrapper">
-            <button class="button button-full button-positive" ng-click="facebookSignIn()">Login with Facebook </button>
+            <button class="button button-full button-positive" ng-click="facebookSignIn()">
+              <div class="btn-text-wrapper">
+                <i class="ion-social-facebook"></i> <p class="login-btn-text">Connect with Facebook</p>
+              </div>
+            </button>
             <button ng-click="getCurrAuth()" class="button button-full button-assertive">
-              Login with Google
+              <div class="btn-text-wrapper">
+                <i class="ion-social-google"></i> <p class="login-btn-text">Connect with Google</p>
+              </div>
             </button>
         </div>
       </div>

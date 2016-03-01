@@ -73,7 +73,7 @@ habitApp.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvide
     views: {
       'logger-tab': {
         templateUrl: './views/logger.html',
-        controller: 'loggerCtrl'
+        controller: 'loggerCtrl',
       }
     }
   })

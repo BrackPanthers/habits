@@ -6,7 +6,10 @@ var express = require('express'),
     mongoose = require('mongoose'),
     logger = require('morgan'), // server logging package
     dotenv = require('dotenv').config(),
-    config = require('./config');
+    config = require('./config'),
+    moment = require('moment');
+
+moment().format();
 
 // set up express and start app
 var app = express();

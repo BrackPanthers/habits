@@ -5,14 +5,21 @@ habit-week {
   flex-flow: column nowrap;
 
   .habit-week-info {
-    padding: 8px;
+    padding: 12px 12px 12px 18px;
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
     justify-content: space-between;
     .habit-week-text {
-      font-size: 20px;
+      font-size: 18px;
+      font-family: 'Proxima Nova', sans-serif;
       font-weight: bold;
+      letter-spacing: 0.07em;
+    }
+    a {
+      color: #457ED0;
+      text-decoration: none;
+      border-bottom: 2px solid #457ED0;
     }
 
     .habit-week-details {
@@ -29,7 +36,7 @@ habit-week {
       display: flex;
       align-items: center;
       justify-content: center;
-      border-right:: 1px solid white;
+      border-right: 1px solid white;
       background-color: #d6d6d6;
       color: #d6d6d6;
       font-size: 24px;
@@ -40,7 +47,7 @@ habit-week {
     }
 
     .habit-week-square.log-day-square {
-      background-color: teal;
+      background-color: #16BE9D;
     }
 
     .habit-week-square.log-day-square.bad-habit-square {

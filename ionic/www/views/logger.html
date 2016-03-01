@@ -10,8 +10,8 @@
           </div>
         </div>
         <!--CHECKBOX--->
-        <div ng-click="logHabit(myHabits[$index]._id)" class="check-button">
-          <i class="ion-ios-checkmark-outline"></i>
+        <div class="check-button">
+          <i ng-click="logHabit(myHabits[$index]._id); toggleChecked()" ng-hide="checked" class="ion-ios-checkmark-outline"></i><i ng-show="checked" class="ion-ios-checkmark"></i>
         </div>
         <!--NO BUTTON--->
         <div class="no-button">

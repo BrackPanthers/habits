@@ -1,19 +1,24 @@
 
-  .day-of-week-bar {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: space-around;
-    background-color: #d6d6d6;
-    padding: 5px 0px;
+.day-of-week-bar {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #f5f5f5;
+  padding: 10px 0px;
+  font-family: 'Proxima Nova', sans-serif;
+  font-weight: bold;
+  color: #2a2a2a;
+  border-bottom: 2px solid #e7e7e7;
 
-    .day-of-week-letter {
-      padding: 0px 5px;
-    }
-
-    .current-day {
-      background-color: gray;
-      border-radius: 50%;
-      color: white;
-    }
+  .day-of-week-letter {
+    padding: 0px 5px;
   }
+
+  .current-day {
+    background-color: #bcc1c5;
+    padding: 2px 8px;
+    border-radius: 50%;
+    color: #2a2a2a;
+  }
+}

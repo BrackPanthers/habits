@@ -57,12 +57,13 @@
     flex-flow: row wrap;
     color: #d6d6d6;
     justify-content: flex-start;
+    text-align: center;
 
     .habit-mo {
       height: 14.28vw;
       width: 14.28vw;
       color: gray;
       background-color: transparentize(white, 0.30);
-      box-shadow: -1px -1px #F9A440, inset -1px -1px 0 0 #F9A440;
+      box-shadow: -1px -1px gainsboro, inset -1px -1px 0 0 gainsboro;
     }
   }

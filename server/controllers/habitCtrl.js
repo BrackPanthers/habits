@@ -22,10 +22,12 @@ module.exports = {
   },
 
   log: function(req, res) {
-    Habit.findByIdAndUpdate(req.params.habitId, {$addToSet: {logs: Date.now()}}, {new: true}, function(err, result) {
+    console.log("I am making a log!");
+    Habit.findByIdAndUpdate(req.params.habitId, {$push: {logs: new Date()}}, {new: true}, function(err, result) {
       if (err) {
         res.json(err);
       } else {
+        console.log(result);
         res.json(result);
       }
     })

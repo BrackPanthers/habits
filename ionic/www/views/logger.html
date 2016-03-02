@@ -1,6 +1,6 @@
 <ion-view>
-  <ion-slide-box on-slide-changed="slideHasChanged($index)" show-pager="true">
-  <ion-slide ng-repeat="habit in userData.habits">
+  <ion-slide-box on-slide-changed="slideHasChanged($index); slideChanged()" show-pager="true">
+  <ion-slide ng-repeat="habit in userHabits">
     <div class="wrapper">
       <div class="logger-wrapper">
         <!--HEADLINE--->
@@ -11,11 +11,13 @@
         </div>
         <!--CHECKBOX--->
         <div class="check-button">
-          <i ng-click="logHabit(userData.habits[$index]._id); toggleChecked()" ng-hide="checked" class="ion-ios-checkmark-outline"></i><i ng-show="checked" class="ion-ios-checkmark"></i>
+          <i ng-click="logHabit(userHabits[$index]._id); habit.checked=true; nextSlide()" ng-hide="habit.checked" class="ion-ios-checkmark-outline"></i>
+          <i ng-show="habit.checked" class="ion-ios-checkmark"></i>
         </div>
         <!--NO BUTTON--->
-        <div class="no-button">
-          <a href=''>NO</a>
+        {{habit.no}}
+        <div class="no-button" ng-class="{red: habit.no}">
+          <a ng-click="nextSlide(); toggleNoButton(habit)" href=''>NO</a>
         </div>
       </div>
     </div>

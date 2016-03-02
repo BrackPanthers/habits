@@ -1,13 +1,5 @@
 habitApp.service('authSvc', function($http, $state, $q, $ionicLoading, Facebook, constants) {
 
-  // used to hold data about current user. only id for now, empty to start
-  var currUser = {};
-
-  // used to return data on curr user;
-  this.getCurrUser = function() {
-    return currUser;
-  };
-
   // check token auth from server endpoint
   this.checkAuth = function() {
     var def = $q.defer();
@@ -28,8 +20,7 @@ habitApp.service('authSvc', function($http, $state, $q, $ionicLoading, Facebook,
     })
     .then(
       function(response) {
-        currUser.user_id = response.data; // update currUser data every time method called
-        def.resolve(currUser); // if valid, resolve with user id
+        def.resolve(response.data); // if valid, resolve with user id
       },
       function(err) {
         def.reject(err); // if not, reject

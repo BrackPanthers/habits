@@ -13,12 +13,9 @@ module.exports = function(app) {
   app.post('/users', userCtrl.create);
   app.get('/user/:userId', userCtrl.map);
 
-  // auth endpoints
-  app.get('/auth', authCtrl.checkAuth, function(req, res) {
-    res.send(req.user);
-  });
+  // checks curr user and pulls user data if auth'd
+  app.get('/auth', authCtrl.checkAuth, userCtrl.map);
   app.get('/auth/facebook', authCtrl.facebookAuth);
-
 
   // habit endpoints
   app.get('/api/habits', habitCtrl.read);

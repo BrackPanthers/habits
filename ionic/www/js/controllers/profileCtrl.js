@@ -1,9 +1,5 @@
-habitApp.controller('profileCtrl', function($scope, $state, $stateParams, $ionicLoading, userSvc, authSvc, userData) {
-  $scope.userData = userData; // this is after resolve is working
-  $scope.authData = authSvc.getCurrUser();
-
-  console.log("Data for profile page:", $scope.userData);
-  console.log("Data for auth'd user:", $scope.authData);
+habitApp.controller('profileCtrl', function($scope, authSvc, profileData) {
+  $scope.profileData = profileData; // this is after resolve is working
 
   $scope.toggleContent = function(targetView) {
     if (targetView === 'mainContent') {
@@ -41,8 +37,6 @@ habitApp.controller('profileCtrl', function($scope, $state, $stateParams, $ionic
   // };
 
   $scope.logoutUser = authSvc.logout;
-
-  // }
 
   // dummy accomplishment data
   $scope.accompData = {

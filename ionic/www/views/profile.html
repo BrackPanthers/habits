@@ -7,10 +7,10 @@
         </div>
         <div class="user-info-wrapper">
           <div class="user-photo-wrapper">
-            <img ng-src="http://graph.facebook.com/{{userData.facebook_id}}/picture" class="profile-photo">
+            <img ng-src="http://graph.facebook.com/{{profileData.facebook_id}}/picture" class="profile-photo">
           </div>
           <div class="user-name">
-            {{userData.full_name}}
+            {{profileData.full_name}}
           </div>
         </div>
       </div>
@@ -25,7 +25,7 @@
       <day-of-week></day-of-week>
 
       <div class="profile-main-content" ng-hide="showAccomps">
-        <habit-week ng-repeat="habit in userData.habits" habit-data="habit"></habit-week>
+        <habit-week ng-repeat="habit in profileData.habits" habit-data="habit"></habit-week>
       </div>
       <div class="accomplishments-content" ng-show="showAccomps">
         <h3>Records</h3>

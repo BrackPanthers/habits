@@ -1,32 +1,8 @@
-habitApp.controller('loggerCtrl', function($scope, $timeout, $ionicSlideBoxDelegate, habitService, authSvc, userSvc) {
-  $scope.test = 'LOGGER CTRL CONNECTED';
+habitApp.controller('loggerCtrl', function($scope, $timeout, $ionicSlideBoxDelegate, habitService, authedUser) {
 
-  // $scope.myHabits = [
-  //   {
-  //     _id: '324546576879',
-  //     user_id: 'exrctvyubnimo',
-  //     text: "meditate",
-  //     kind: "more"
-  //   },
-  //   {
-  //     _id: '345678909080',
-  //     user_id: 'exrctvyubnimo',
-  //     text: "exercise",
-  //     kind: "more"
-  //   },
-  //   {
-  //     _id: '5673547949',
-  //     user_id: 'exrctvyubnimo',
-  //     text: "call mom",
-  //     kind: "more"
-  //   },
-  //   {
-  //     _id: '43512452546',
-  //     user_id: 'exrctvyubnimo',
-  //     text: "eat read meat",
-  //     kind: "more"
-  //   }
-  // ];
+  $scope.userData = authedUser;
+
+  console.log("The shizz nutz:", $scope.userData);
 
   $scope.logHabit = function(habitId) {
     console.log('habit logger ran!');
@@ -37,27 +13,6 @@ habitApp.controller('loggerCtrl', function($scope, $timeout, $ionicSlideBoxDeleg
   $scope.deleteHabit = function(habitId) {
     habitService.deleteHabit(habitId);
   }
-
-  //
-  // $scope.getHabitsForUser = function(userId) {
-  //   habitSvc.getHabitsForUser(userId);
-  // }
-  //
-  // $scope.getHabitsForUser($stateParams.userId)
-  // .then(
-  //   function(response) {
-  //     $scope.myHabits = response; // or response.data
-  //   }
-  // );
-
-  $scope.currUserId = '56d478f37f056e5303d39d4f';
-  console.log($scope.currUserId);
-
-  userSvc.getUserData($scope.currUserId).then(function(result) {
-    $scope.myHabits = result.habits;
-    $ionicSlideBoxDelegate.update();
-    console.log(result);
-  })
 
   //TOGGLE CHECK BUTTON
   $scope.checked = false;

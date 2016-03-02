@@ -1,7 +1,6 @@
 <div class="habit-week-info">
   <div class="habit-week-text">
-    <a ui-sref="tabs.habitDetail({habitId: habitData._id})">{{habitData.text}}</a>
-
+    <a ng-click="openModal()" href="">{{habitData.text}}</a>
   </div>
   <div class="habit-week-details">
     {{habitData.goal_point.frequency}} / {{habitData.goal_point.time_frame}}

@@ -1,0 +1,32 @@
+<ion-modal-view>
+  <div class="detail-content">
+    <div class="detail-top-content">
+      <div class="settings-link">
+        <i class="ion-ios-arrow-back" ng-click="closeModal()"></i>
+      </div>
+      <!-- habit -->
+      <div class="habit-detail-wrapper">
+        <div class="habit-detail-name">
+          {{habitData.text}}
+          <p class="habit-streak-name">
+            Goal: {{habitData.goal_point.frequency}} / {{habitData.goal_point.time_frame}}
+          </p>
+          <p class="habit-streak-name">
+            Current Streak: 12
+          </p>
+          <p class="habit-streak-name">
+            Longest Streak: 21
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <day-of-week></day-of-week>
+  <!-- calendar -->
+  <month-calendar habit-data="habitData"></month-calendar>
+
+  <div class="month-container">
+    <div class="habit-mo" ng-repeat="day in datesArr track by $index" ng-class="day.class"><p>{{ day.date }}</p></div>
+  </div>
+</ion-modal-view>

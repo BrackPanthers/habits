@@ -12,10 +12,6 @@ habitApp.controller('loggerCtrl', function($scope, $timeout, $ionicSlideBoxDeleg
     return item;
   });
 
-  console.log("user habits", $scope.userHabits);
-
-  console.log("The shizz nutz:", $scope.userData);
-
   $scope.slideChanged = function () {
       $ionicSlideBoxDelegate.update();
   }

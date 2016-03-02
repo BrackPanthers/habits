@@ -13,4 +13,4 @@ habitApp.service('userSvc', function($http, constants) {
       }
     )
   }
-})
+});

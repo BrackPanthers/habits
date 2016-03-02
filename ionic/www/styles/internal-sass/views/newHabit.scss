@@ -5,13 +5,19 @@
 
 .startNew {
     text-align: center;
-    padding-top: 2em;
-    padding-bottom: 2em;
-    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(http://i.imgur.com/p7mC6sG.jpg) no-repeat;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+    background-color: #457ED0;
+    // background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(http://i.imgur.com/p7mC6sG.jpg) no-repeat;
 }
 
 .startNew h2 {
-    color: white;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 0.07em;
+    font-size: 20px;
+    margin-bottom: 0;
 }
 
 .newHabit {
@@ -48,13 +54,19 @@
 
 .Selector {
     position: absolute;
-} 
+}
 .noteBar{
     position: relative;
-} 
+}
 
 .submitBox {
     margin-top: 1em;
     text-align: center;
     padding-bottom: 1em;
+    width: 100%;
+}
+
+.newHabit input {
+  font-size: 1.3em;
+  margin: 10px 0;
 }

@@ -20,7 +20,8 @@ habitApp.service('authSvc', function($http, $state, $q, $ionicLoading, Facebook,
     })
     .then(
       function(response) {
-        def.resolve(response.data); // if valid, resolve with user id
+        currUser = response.data;
+        def.resolve(response.data); // if valid, resolve with user data
       },
       function(err) {
         def.reject(err); // if not, reject
@@ -34,21 +35,17 @@ habitApp.service('authSvc', function($http, $state, $q, $ionicLoading, Facebook,
     var def = $q.defer();
 
     // if currUser obj has user id, block from login page/ redirect:
-    if (currUser.user_id) {
-      def.reject({message: 'currently logged in, no login page access allowed'});
-      $state.go('tabs.profile', {userId: currUser.user_id});
-    } else {
-      this.checkAuth() // if not, check auth
-      .then(
-        function(response) { // if user authed, block/ redirect
-          def.reject({message: 'currently logged in, no login page access allowed'});
-          $state.go('tabs.profile', {userId: response});
-        },
-        function(err) {
-          def.resolve(); // if neither, allow to login page
-        }
-      )
-    }
+    this.checkAuth()
+    .then(
+      function(response) {
+        def.reject();
+        $state.go('tabs.profile', {userId: response._id});
+      },
+      function(err) {
+        def.resolve();
+      }
+    );
+
     return def.promise;
   };
 
@@ -61,7 +58,7 @@ habitApp.service('authSvc', function($http, $state, $q, $ionicLoading, Facebook,
     .then(
       function(response) { // response is a token from server, w/ user id
         localStorage.setItem('app_token', response.data.token);
-        currUser.user_id = response.data.user_id;
+        // currUser.user_id = response.data.user_id;
         $state.go('tabs.profile', {userId: response.data.user_id});
         return response;
       },
@@ -123,8 +120,6 @@ habitApp.service('authSvc', function($http, $state, $q, $ionicLoading, Facebook,
   this.logout = function() {
     // delete token
     localStorage.removeItem('app_token');
-    // reset curr user data
-    currUser = {};
     // go to login page
     $state.go('login');
     // *Note: logout does not log user out of fb, just our app

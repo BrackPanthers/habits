@@ -35,7 +35,7 @@ habitApp.controller('habitDetailCtrl', function($scope, $ionicActionSheet, habit
     var startDate = moment();
     var startDayOfWeek = startDate.format('d');
     var startDateNum = startDate.format('D');
-    console.log(startDateNum);
+    // console.log(startDateNum);
 
     //SQUARE COLOR LOGIC//
     for (var i = 0; i < $scope.datesArr.length; i++) {
@@ -43,7 +43,6 @@ habitApp.controller('habitDetailCtrl', function($scope, $ionicActionSheet, habit
         $scope.datesArr[i]['class'] = 'green-highlight';
       }
     }
-    console.log($scope.datesArr);
 
 
   //DEFINE START DATE//
@@ -52,7 +51,7 @@ habitApp.controller('habitDetailCtrl', function($scope, $ionicActionSheet, habit
     if (i == startDayOfWeek) {
       $scope.datesArr[i].date = startDateNum;
       startIndex = i;
-      console.log(startDateNum);
+      // console.log(startDateNum);
     }
   }
 

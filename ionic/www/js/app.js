@@ -61,15 +61,6 @@ habitApp.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvide
       }
     }
   })
-  .state('tabs.habitDetail', {
-    url: '/habit/:habitId',
-    views: {
-      'profile-tab': {
-        templateUrl: './views/habit-detail.html',
-        controller: 'habitDetailCtrl'
-      }
-    }
-  })
   .state('tabs.logger', {
     url: '/logger',
     views: {

@@ -24,9 +24,6 @@
 
   <day-of-week></day-of-week>
   <!-- calendar -->
-  <month-calendar habit-data="habitData"></month-calendar>
+  <calendar-streak habit-data="habitData"></calendar-streak>
 
-  <div class="month-container">
-    <div class="habit-mo" ng-repeat="day in datesArr track by $index" ng-class="day.class"><p>{{ day.date }}</p></div>
-  </div>
 </ion-modal-view>

@@ -1,3 +1,3 @@
-habitApp.controller('tabsCtrl', function($scope, authSvc) {
-  $scope.currAuth = authSvc.getCurrUser();
+habitApp.controller('tabsCtrl', function($scope, authedUser) {
+  $scope.authedUser = authedUser;
 });

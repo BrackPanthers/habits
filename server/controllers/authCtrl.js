@@ -46,7 +46,7 @@ module.exports = {
     }
 
     // if everything works (token is valid, etc)
-    req.user = payload.sub; // attach user data to request, call next()
+    req.params.userId = payload.sub; // attach user data to request, call next()
     next();
   },
   facebookAuth: function(req, res) {

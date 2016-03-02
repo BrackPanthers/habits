@@ -38,7 +38,13 @@ habitApp.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvide
     url: '/tabs',
     abstract: true,
     templateUrl: './views/tabnav.html',
-    controller: 'tabsCtrl'
+    controller: 'tabsCtrl',
+    resolve: {
+      // this will make auth data available everywhere, immune to page refreshes
+      authedUser: function(authSvc) {
+        return authSvc.checkAuth();
+      }
+    }
   })
   .state('tabs.profile', {
     url: '/profile/:userId',
@@ -48,12 +54,8 @@ habitApp.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvide
         controller: 'profileCtrl',
         resolve: { // before going to page:
           // get user data for page
-          userData: function(userSvc, $stateParams) {
+          profileData: function(userSvc, $stateParams) {
             return userSvc.getUserData($stateParams.userId);
-          },
-          // make sure a user has logged in
-          authedUser: function(authSvc) {
-            return authSvc.checkAuth();
           }
         }
       }
@@ -73,7 +75,7 @@ habitApp.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvide
     views: {
       'logger-tab': {
         templateUrl: './views/logger.html',
-        controller: 'loggerCtrl',
+        controller: 'loggerCtrl'
       }
     }
   })

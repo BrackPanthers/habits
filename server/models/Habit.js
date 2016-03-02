@@ -36,7 +36,7 @@ var habitSchema = mongoose.Schema({
   starting_point: pointSchema,
 
   logs: [{ //
-    type: Number // ms timestamp, easier to work with
+    type: Date// ms timestamp, easier to work with
   }]
 }, {timestamps: {createdAt: 'created_at', updatedAt: 'updated_at'}});
 // ^^ this last line will auto generate timestamps

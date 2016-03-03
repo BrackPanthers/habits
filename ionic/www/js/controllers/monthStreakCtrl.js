@@ -1,6 +1,7 @@
 habitApp.controller('monthStreakCtrl', function($scope, $ionicActionSheet, $timeout, $stateParams, habitService, $ionicHistory) {
 //TEST DATA//
-// console.log("Stoof:", $scope.habitData);
+  console.log("Stoof:", $scope.habitData);
+
     $scope.datesArr = [
       {
         num: 1,

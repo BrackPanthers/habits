@@ -88,6 +88,9 @@ habitApp.controller('streakInfoCtrl', function($scope, $ionicActionSheet, $timeo
     var logsPerWeek = [];
     var weekStreak = 1;
     var highestWeek = 1;
+    for (var i = 0; i < logs.length; i++) {
+      logsPerWeek.push()
+    }
   }
 
 

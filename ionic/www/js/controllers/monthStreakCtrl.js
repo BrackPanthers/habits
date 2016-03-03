@@ -1,64 +1,65 @@
 habitApp.controller('monthStreakCtrl', function($scope, $ionicActionSheet, $timeout, $stateParams, habitService, $ionicHistory) {
-//TEST DATA//
-console.log("Stoof:", $scope.habitData);
-    $scope.datesArr = [
-      {
-        num: 1,
-        completed: true
-      },
-      {num: 1},
-      {num: 1},
-      {num: 1},
-      {num: 1,
-      completed: true},
-      {num: 1},
-      {num: 1},
-      {num: 1},
-      {num: 1},
-      {num: 1},
-      {num: 1,
-      completed: true},
-      {num: 1},
-      {num: 1},
-      {num: 1},
-      {num: 1},
-      {num: 1},
-      {num: 1},
-      {num: 1}
-    ];
-    var startDate = moment();
-    var startDayOfWeek = startDate.format('d');
-    var startDateNum = startDate.format('D');
-    // console.log(startDateNum);
+    console.log("Habit detail data:", $scope.habitData);
 
-    //SQUARE COLOR LOGIC//
+    //DEFINE STARTING DATE, CURRENT DATE, AND DIFFERENCE IN DAYS
+    var start = moment($scope.habitData.logs[0]);
+    var now = moment();
+    var difference = now.diff(start, 'days');
+    //CHECK IF DIFFERENCE IS LESS THAN 7 AND SET TO 7 IF IT IS
+    difference = difference >= 7 ? difference : 7;
+
+    //MAKE DATES ARRAY OF OBJECTS BASED OFF DIFFERENCE (# OF DAYS ELAPSED)
+    $scope.datesArr = [];
+    for (var i = 0; i < difference; i++) {
+      $scope.datesArr.push({});
+    }
+
+    //ESTABLISH START DAY OF WEEK (0-6) AND DAY OF MONTH(1-31)
+    var startDayOfWeek = start.format('d');
+    var startDayOfMonth = start.format('D');
+
+    //LOOP THROUGH DATES ARRAY AND DEFINE STARTING INDEX
+    var startIndex;
     for (var i = 0; i < $scope.datesArr.length; i++) {
-      if ( $scope.datesArr[i].completed === true) {
-        $scope.datesArr[i]['class'] = 'green-highlight';
+      if (i == startDayOfWeek) {
+        $scope.datesArr[i].date = startDayOfMonth;
+        startIndex = i;
       }
     }
 
-
-  //DEFINE START DATE//
-  var startIndex;
-  for (var i = 0; i < $scope.datesArr.length; i++) {
-    if (i == startDayOfWeek) {
-      $scope.datesArr[i].date = startDateNum;
-      startIndex = i;
-      // console.log(startDateNum);
+    //POPULATE CALENDAR SQUARES BEGINNING WITH START INDEX (MOVING FORWARD)
+    for (var i = startIndex; i < $scope.datesArr.length; i++) {
+        $scope.datesArr[i]['date'] = moment(start).add(i - (startIndex), 'days').format('D');
     }
-  }
+    //POPULATE CALENDAR SQUARES BEGINNING WITH START INDEX (MOVING BACKWARDS)//
+    var count = 1;
+    for (var i = startIndex - 1; i >= 0; i--) {
+      $scope.datesArr[i]['date'] = moment(start).subtract(count, 'days').format('D');
+      $scope.datesArr[i]['period'] = 'before-start';
+      count++;
+    }
 
-  //POPULATE CALENDAR DATES//
-  for (var i = startIndex + 1; i < $scope.datesArr.length; i++) {
-      $scope.datesArr[i]['date'] = moment().add(i - (startIndex), 'days').format('D');
-  }
+    //COMPLETED SQUARES COLOR LOGIC
+    $scope.habitData.logs.forEach(function(item) {
+      for (var i = 0; i < $scope.datesArr.length; i++) {
+        if ($scope.datesArr[i].date == moment(item).format('D')) {
+          $scope.datesArr[i].class = 'green-highlight';
+        }
+      }
+    })
 
-  var count = 1;
-  for (var i = startIndex - 1; i >= 0; i--) {
-    $scope.datesArr[i]['date'] = moment().subtract(count, 'days').format('D');
-    count++;
-  }
+    // //SQUARES BEFORE START DATE
+    // for (var i = 0; i < $scope.datesArr.length; i++) {
+    //   if ($scope.datesArr[i].date < )
+    // }
+
+
+  // //SQUARE COLOR LOGIC//
+  // for (var i = 0; i < $scope.datesArr.length; i++) {
+  //   if ( $scope.datesArr[i].completed === true) {
+  //     $scope.datesArr[i]['class'] = 'green-highlight';
+  //   }
+  // }
 
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

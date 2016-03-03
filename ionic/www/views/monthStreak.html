@@ -1,3 +1,5 @@
 <div class="month-container">
-    <div class="habit-mo" ng-repeat="day in datesArr track by $index" ng-class="day.class"><p>{{ day.date }}</p></div>
-  </div>
+    <div class="habit-mo" ng-repeat="day in datesArr track by $index" ng-class="{'green-highlight': day.class, 'before-start': day.period}">
+        <p>{{ day.date }}</p>
+    </div>
+</div>

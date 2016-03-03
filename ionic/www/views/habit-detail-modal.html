@@ -5,20 +5,7 @@
         <i class="ion-ios-arrow-back" ng-click="closeModal()"></i>
       </div>
       <!-- habit -->
-      <div class="habit-detail-wrapper">
-        <div class="habit-detail-name">
-          {{habitData.text}}
-          <p class="habit-streak-name">
-            Goal: {{habitData.goal_point.frequency}} / {{habitData.goal_point.time_frame}}
-          </p>
-          <p class="habit-streak-name">
-            Current Streak: 12
-          </p>
-          <p class="habit-streak-name">
-            Longest Streak: 21
-          </p>
-        </div>
-      </div>
+      <streak-info habit-data="habitData"></streak-info>
     </div>
     <day-of-week></day-of-week>
   </div>

@@ -26,6 +26,7 @@ habitApp.controller('monthStreakCtrl', function($scope, $ionicActionSheet, $time
 
     //LOOP THROUGH DATES ARRAY AND DEFINE STARTING INDEX
     var startIndex;
+
     for (var i = 0; i < $scope.datesArr.length; i++) {
       if (i == startDayOfWeek) {
         $scope.datesArr[i].date = startDayOfMonth;

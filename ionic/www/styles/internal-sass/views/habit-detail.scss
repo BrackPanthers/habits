@@ -1,4 +1,11 @@
+.calendar-wrapper {
+  margin-top: 295px;
+}
+
 .detail-content {
+  position: fixed;
+  width: 100%;
+  z-index: 20000;
 
   .detail-top-content {
     height: 250px;
@@ -71,6 +78,14 @@
       display: flex;
       background-color: transparentize(white, 0.30);
       box-shadow: -1px -1px gainsboro, inset -1px -1px 0 0 gainsboro;
+    }
+
+    .green-highlight {
+      background-color: lightgreen;
+    }
+
+    .before-start {
+      background-color: gainsboro;
     }
 
     p {

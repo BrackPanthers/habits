@@ -1,10 +1,76 @@
 habitApp.controller('habitWeekCtrl', function($scope, $ionicModal) {
 
-  $scope.dayBoxArr = [false, false, false, false, false, false, false];
+  function getWeeklyLogData() {
+    /// CAN I GET "RELEVANT LOGS" FROM SERVER?
+    // get data about today
+    var today = moment();
+    var dow = today.day();
+
+    if (dow === 7) {
+      dow = 0; // change day of week index for sunday
+    }
+
+    var today_date = today.format("MM-DD-YYYY");
+    var startOfWeekDate = today.subtract(dow, 'd').startOf("day");
+
+    var sortedLogs = $scope.habitData.logs.sort(function(a, b) {
+      if (moment(a) > moment(b)) {
+        return 1;
+      }
+      if (moment(a) < moment(b)) {
+        return -1;
+      }
+      return 0;
+    });
+
+    var relevantLogs = [];
+
+    // loop through sorted logs, starting with most recent
+    for (var i = sortedLogs.length - 1; i >= 0 ; i--) {
+      var logMoment = moment(sortedLogs[i]);
+      if (logMoment.isBefore(moment().endOf("day")) && logMoment.isAfter(startOfWeekDate)) {
+        relevantLogs.push(logMoment.format("MM-DD-YYYY"));
+      } else if (logMoment.isBefore(startOfWeekDate)) {
+        break; // if you reach a log before the start of the week, stop loop
+      }
+    }
+
+    // set up arr for keeping track of logged data
+    var dayBoxArr = [
+      {logged: false},
+      {logged: false},
+      {logged: false},
+      {logged: false},
+      {logged: false},
+      {logged: false},
+      {logged: false}
+    ];
+
+    // used to add class to today
+    dayBoxArr[dow].today = true;
+
+    dayBoxArr.forEach(function(elem, i, arr) {
+      if (i === 0) {
+        elem.date_stamp = startOfWeekDate.format("MM-DD-YYYY");
+      } else {
+        elem.date_stamp = startOfWeekDate.add(1, 'day').format("MM-DD-YYYY");
+      }
+
+      if (relevantLogs.indexOf(elem.date_stamp) > -1) {
+        elem.logged = true;
+      }
+    });
+
+    return dayBoxArr;
+  }
+
+  $scope.dayBoxArr = getWeeklyLogData();
+
   $scope.toggleDay = function(dayIndex) {
-    $scope.dayBoxArr[dayIndex] = !$scope.dayBoxArr[dayIndex];
+    $scope.dayBoxArr[dayIndex].logged = !$scope.dayBoxArr[dayIndex].logged;
   };
 
+  // modal functions
   $ionicModal.fromTemplateUrl('./views/habit-detail-modal.html', {
     scope: $scope,
     animation: 'slide-in-right'
@@ -25,144 +91,4 @@ habitApp.controller('habitWeekCtrl', function($scope, $ionicModal) {
     $scope.modal.remove();
   });
 
-  //// CONTROLLER DATA IMPORTED FROM HABIT-DETAIL CTRL ////
-  //// TURN CALENDAR INTO DIRECTIVE AND MOVE THIS TO NEW CTRL ///
-
-  //TEST DATA//
-    $scope.datesArr = [
-      {
-        num: 1,
-        completed: true
-      },
-      {num: 1},
-      {num: 1},
-      {num: 1},
-      {num: 1,
-      completed: true},
-      {num: 1},
-      {num: 1},
-      {num: 1},
-      {num: 1},
-      {num: 1},
-      {num: 1,
-      completed: true},
-      {num: 1},
-      {num: 1},
-      {num: 1},
-      {num: 1},
-      {num: 1},
-      {num: 1},
-      {num: 1}
-    ];
-    var startDate = moment();
-    var startDayOfWeek = startDate.format('d');
-    var startDateNum = startDate.format('D');
-    // console.log(startDateNum);
-
-    //SQUARE COLOR LOGIC//
-    for (var i = 0; i < $scope.datesArr.length; i++) {
-      if ( $scope.datesArr[i].completed === true) {
-        $scope.datesArr[i]['class'] = 'green-highlight';
-      }
-    }
-
-
-  //DEFINE START DATE//
-  var startIndex;
-  for (var i = 0; i < $scope.datesArr.length; i++) {
-    if (i == startDayOfWeek) {
-      $scope.datesArr[i].date = startDateNum;
-      startIndex = i;
-      // console.log(startDateNum);
-    }
-  }
-
-  //POPULATE CALENDAR DATES//
-  for (var i = startIndex + 1; i < $scope.datesArr.length; i++) {
-      $scope.datesArr[i]['date'] = moment().add(i - (startIndex), 'days').format('D');
-  }
-
-  var count = 1;
-  for (var i = startIndex - 1; i >= 0; i--) {
-    $scope.datesArr[i]['date'] = moment().subtract(count, 'days').format('D');
-    count++;
-  }
-
-
-    // $scope.days = [
-    //   {
-    //     day: 'Sunday',
-    //     letter: 'S',
-    //     class: ''
-    //   },
-    //   {
-    //     day: 'Monday',
-    //     letter: 'M',
-    //     class: ''
-    //   },
-    //   {
-    //     day: 'Tuesday',
-    //     letter: 'T',
-    //     class: ''
-    //   },
-    //   {
-    //     day: 'Wednesday',
-    //     letter: 'W',
-    //     class: ''
-    //   },
-    //   {
-    //     day: 'Thursday',
-    //     letter: 'T',
-    //     class: ''
-    //   },
-    //   {
-    //     day: 'Friday',
-    //     letter: 'F',
-    //     class: ''
-    //   },
-    //   {
-    //     day: 'Saturday',
-    //     letter: 'S',
-    //     class: ''
-    //   }
-    // ]
-    //
-    // var currentDay = moment().format('dddd');
-    // for (var i = 0; i < $scope.days.length; i++) {
-    //   if ($scope.days[i].day === currentDay) {
-    //     $scope.days[i].class = 'current-day';
-    //   }
-    // }
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-  $scope.show = function() {
-
-   // Show the action sheet
-   var hideSheet = $ionicActionSheet.show({
-     buttons: [
-       { text: '<b>Share</b> This' },
-       { text: 'Move' }
-     ],
-     destructiveText: 'Delete',
-     titleText: 'Modify your habit',
-     cancelText: 'Cancel',
-     cancel: function() {
-          // add cancel code..
-        },
-     buttonClicked: function(index) {
-       return true;
-     }
-   });
-
-   // For example's sake, hide the sheet after two seconds
-   $timeout(function() {
-     hideSheet();
-   }, 3000);
-
-  };
-
-  $scope.deleteHabit = function() {
-   habitService.deleteHabit($stateParams.habitId);
-  }
 });

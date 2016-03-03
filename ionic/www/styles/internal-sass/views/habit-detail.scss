@@ -1,4 +1,11 @@
+.calendar-wrapper {
+  margin-top: 295px;
+}
+
 .detail-content {
+  position: fixed;
+  width: 100%;
+  z-index: 20000;
 
   .detail-top-content {
     height: 250px;

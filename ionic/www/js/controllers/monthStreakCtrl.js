@@ -1,4 +1,6 @@
-habitApp.controller('monthStreakCtrl', function($scope, $ionicActionSheet, $timeout, $stateParams, habitService, $ionicHistory) {
+habitApp.controller('monthStreakCtrl', function($scope, $ionicActionSheet, $timeout, $stateParams,
+  habitService, $ionicHistory, $ionicScrollDelegate) {
+    $ionicScrollDelegate.scrollBottom();
     console.log("Habit detail data:", $scope.habitData);
 
     //SORT LOGS, DEFINE STARTING DATE, CURRENT DATE, AND DIFFERENCE IN DAYS

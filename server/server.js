@@ -8,9 +8,7 @@ var express = require('express'),
     dotenv = require('dotenv').config(),
     config = require('./config'),
     moment = require('moment');
-
-moment().format();
-
+    
 // set up express and start app
 var app = express();
 var port = process.env.SERVER_PORT;

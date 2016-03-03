@@ -1,5 +1,7 @@
 habitApp.controller('profileCtrl', function($scope, authSvc, profileData) {
   $scope.profileData = profileData; // this is after resolve is working
+  console.log(profileData);
+
 
   $scope.toggleContent = function(targetView) {
     if (targetView === 'mainContent') {

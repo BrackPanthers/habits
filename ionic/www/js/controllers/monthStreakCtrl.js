@@ -1,18 +1,10 @@
 habitApp.controller('monthStreakCtrl', function($scope, $ionicActionSheet, $timeout, $stateParams,
   habitService, $ionicHistory, $ionicScrollDelegate) {
-    $ionicScrollDelegate.scrollBottom();
+
     console.log("Habit detail data:", $scope.habitData);
 
     //SORT LOGS, DEFINE STARTING DATE, CURRENT DATE, AND DIFFERENCE IN DAYS
-    var sortedLogs = $scope.habitData.logs.sort(function(a, b) {
-      if (moment(a) > moment(b)) {
-        return 1;
-      }
-      if (moment(a) < moment(b)) {
-        return -1;
-      }
-      return 0;
-    });
+    var sortedLogs = $scope.habitData.logs;
 
     var start = moment(sortedLogs[0]);
     var now = moment();
@@ -74,19 +66,6 @@ habitApp.controller('monthStreakCtrl', function($scope, $ionicActionSheet, $time
       }
     })
 
-    // //SQUARES BEFORE START DATE
-    // for (var i = 0; i < $scope.datesArr.length; i++) {
-    //   if ($scope.datesArr[i].date < )
-    // }
-
-
-  // //SQUARE COLOR LOGIC//
-  // for (var i = 0; i < $scope.datesArr.length; i++) {
-  //   if ( $scope.datesArr[i].completed === true) {
-  //     $scope.datesArr[i]['class'] = 'green-highlight';
-  //   }
-  // }
-
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   $scope.show = function() {
@@ -118,5 +97,8 @@ habitApp.controller('monthStreakCtrl', function($scope, $ionicActionSheet, $time
    $scope.deleteHabit = function() {
      habitService.deleteHabit($stateParams.habitId);
    }
+   $ionicScrollDelegate.resize();
+   $ionicScrollDelegate.scrollBottom();
+
 
 });

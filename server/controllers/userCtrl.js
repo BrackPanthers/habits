@@ -1,5 +1,6 @@
 var mongoose = require('mongoose'),
-    User = require('./../models/User');
+    User = require('./../models/User'),
+    moment = require ('moment');
 
 module.exports = {
   create: function(req, res) {
@@ -22,6 +23,17 @@ module.exports = {
         } else if (!response) {
           res.status(401).send('no user found with that id');
         }
+        response.habits.forEach(function(item) {
+          item.logs.sort(function(a, b) {
+            if (moment(a) > moment(b)) {
+              return 1;
+            }
+            if (moment(a) < moment(b)) {
+              return -1;
+            }
+            return 0;
+          });
+        })
         res.send(response);
       }
     )

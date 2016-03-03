@@ -1,4 +1,4 @@
-habitApp.controller('streakInfoCtrl', function($scope, $ionicActionSheet, $timeout, $stateParams, habitService, $ionicHistory) {
+habitApp.controller('streakInfoCtrl', function($scope) {
   var timeFrame = $scope.habitData.goal_point.time_frame;
   var logs = $scope.habitData.logs;
 
@@ -42,20 +42,27 @@ habitApp.controller('streakInfoCtrl', function($scope, $ionicActionSheet, $timeo
   }
 
   var currentDayStreak = function(logs) {
-    var dayStreak = 1;
+    if (moment().subtract(1, 'days').startOf('day') > moment(logs[logs.length - 1])) {
+      $scope.dayStreak = 0;
+      return;
+    } else {
+      var dayStreak = 1;
     // console.log('Length: ', logs.length);
-    for (var i = logs.length - 1; i > 0; i--) {
-      var lastDay = moment(logs[i]).format("MM-DD-YYYY");
-      var nextDay = moment(logs[i - 1]).add(1, 'days').format("MM-DD-YYYY");
-      // console.log("Comparing data", lastDay, nextDay)
-      if ( nextDay === lastDay) {
-        dayStreak++;
+      for (var i = logs.length - 1; i > 0; i--) {
+        var lastDay = moment(logs[i]).format("MM-DD-YYYY");
+        var nextDay = moment(logs[i - 1]).add(1, 'days').format("MM-DD-YYYY");
+        // console.log("Comparing data", lastDay, nextDay)
+        if ( nextDay === lastDay) {
+          dayStreak++;
+        }
+        else {
+          break;
+        }
       }
-      else {
-        break;
-      }
+      $scope.dayStreak = dayStreak;
     }
-    $scope.dayStreak = dayStreak;
+
+
     // console.log("run currentDayStreak", dayStreak)
   }
 
@@ -92,9 +99,6 @@ habitApp.controller('streakInfoCtrl', function($scope, $ionicActionSheet, $timeo
       logsPerWeek.push()
     }
   }
-
-
-
 
   // checkStreak(logs);
   compareGoalTimeFrame(timeFrame);

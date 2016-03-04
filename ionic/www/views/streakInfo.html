@@ -1,0 +1,14 @@
+	<div class="habit-detail-wrapper">
+		<div class="habit-detail-name">
+		  {{habitData.text}}
+		  <p class="habit-streak-name">
+		    Goal: {{habitData.goal_point.frequency}} / {{habitData.goal_point.time_frame}}
+		  </p>
+		  <p class="habit-streak-name">
+		    Current Streak: {{ dayStreak }} {{habitData.goal_point.time_frame}}s
+		  </p>
+		  <p class="habit-streak-name">
+		    Longest Streak: {{ highestStreak }} {{ highestWeek }} {{habitData.goal_point.time_frame}}s
+		  </p>
+		</div>
+	</div>

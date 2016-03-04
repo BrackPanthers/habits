@@ -2,34 +2,61 @@ habitApp.service("streakSvc", function() {
   /// DAILY STREAK FUNCTIONS ///
 
   // checking daily current and highest streaks
-  this.checkStreak = function(logs) {
-    var highestStreak = 1;
-    var streak = 1;
-    for (var i = 0; i < logs.length - 1; i++) {
-    var date1 = moment(logs[i]).format("MM-DD-YYYY");
-    var date2 = moment(logs[i + 1]).subtract(1, 'days').format("MM-DD-YYYY");
-    // console.log("Comparing data", date1, date2)
-    if ( date2 === date1 ) {
-      // console.log("adding to streak")
-      streak++;
-      if (streak > highestStreak) {
-          highestStreak = streak;
-          // console.log('set new highestStreak', highestStreak);
+  this.checkStreak = function(logs, habitData) {
+    var highestStreak = 0;
+    var streak = 0;
+    if (habitData.kind == 'more') {
+      if (logs.length === 0 ) {
+        highestStreak = '0';
+        return highestStreak;
       }
-    }
-      else {
-        // console.log('streak ended');
-        streak = 1;
+      if (logs.length === 1 ) {
+        highestStreak = 1;
+        return highestStreak;
+      };
+      for (var i = 0; i < logs.length - 1; i++) {
+      var date1 = moment(logs[i]).format("MM-DD-YYYY");
+      var date2 = moment(logs[i + 1]).subtract(1, 'days').format("MM-DD-YYYY");
+      // console.log("Comparing data", date1, date2)
+      if ( date2 === date1 ) {
+        // console.log("adding to streak")
+        streak++;
+        if (streak > highestStreak) {
+            highestStreak = streak;
+            // console.log('set new highestStreak', highestStreak);
+        }
       }
+        else {
+          // console.log('streak ended');
+          streak = 1;
+        }
+      }
+      return highestStreak;
     }
-    return highestStreak;
+    // else {
+    //   var today = moment();
+    //   var startDate = moment(habitData.createdAt);
+    //   if ( logs.length === 0 ) {
+    //     highestStreak = today.clone().subtract(startDate);
+
+
+    //   }
+    //   // for (var i = 0; i < logs.length -1; i++) {
+
+    //   // }
+
+    //   console.log("Highest streak:", highestStreak);
+    // }
   }
+  
+
 
   this.currentDayStreak = function(logs) {
-    if (moment().subtract(1, 'days').startOf('day') > moment(logs[logs.length - 1])) {
-      var dayStreak = 0;
+    var dayStreak;
+    if (moment().subtract(1, 'days').startOf('day') > moment(logs[logs.length - 1]) || logs.length == 0) {
+      dayStreak = '0';
     } else {
-      var dayStreak = 1;
+      dayStreak = 1;
       for (var i = logs.length - 1; i > 0; i--) {
         var lastDay = moment(logs[i]).format("MM-DD-YYYY");
         var nextDay = moment(logs[i - 1]).add(1, 'days').format("MM-DD-YYYY");

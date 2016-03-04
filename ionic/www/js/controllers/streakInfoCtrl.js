@@ -3,7 +3,7 @@ habitApp.controller('streakInfoCtrl', function($scope, streakSvc) {
   var compareGoalTimeFrame = function(logs, timeFrame) {
   	if (timeFrame === 'day') {
   		// console.log('run daily checkStreak')
-  		$scope.highestStreak = streakSvc.checkStreak(logs); // longest streak
+  		$scope.highestStreak = streakSvc.checkStreak(logs, $scope.habitData); // longest streak
       $scope.dayStreak = streakSvc.currentDayStreak(logs);
       // currentDayStreak(logs); // current streak
   	}

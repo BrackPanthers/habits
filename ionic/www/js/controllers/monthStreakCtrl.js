@@ -1,7 +1,7 @@
 habitApp.controller('monthStreakCtrl', function($scope, $ionicActionSheet, $timeout, $stateParams,
   habitService, $ionicHistory, $ionicScrollDelegate) {
 
-    console.log("Habit detail data:", $scope.habitData);
+    // console.log("Habit detail data:", $scope.habitData);
 
     //SORT LOGS, DEFINE STARTING DATE, CURRENT DATE, AND DIFFERENCE IN DAYS
     var sortedLogs = $scope.habitData.logs;
@@ -33,7 +33,7 @@ habitApp.controller('monthStreakCtrl', function($scope, $ionicActionSheet, $time
         startIndex = i;
       }
     }
-    console.log(moment('11 29 2015'));
+    // console.log(moment('11 29 2015'));
 
     //POPULATE CALENDAR SQUARES BEGINNING WITH START INDEX (MOVING FORWARD)
     for (var i = startIndex; i < $scope.datesArr.length; i++) {
@@ -49,7 +49,7 @@ habitApp.controller('monthStreakCtrl', function($scope, $ionicActionSheet, $time
       count++;
     }
 
-    console.log($scope.datesArr);
+    // console.log($scope.datesArr);
 
     //LABEL FIRST OF EACH MONTH
     for (var i = 0; i < $scope.datesArr.length; i++) {
@@ -100,6 +100,5 @@ habitApp.controller('monthStreakCtrl', function($scope, $ionicActionSheet, $time
    }
    $ionicScrollDelegate.resize();
    $ionicScrollDelegate.scrollBottom();
-
 
 });

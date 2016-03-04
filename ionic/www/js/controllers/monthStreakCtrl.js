@@ -3,7 +3,6 @@ habitApp.controller('monthStreakCtrl', function($scope, $ionicActionSheet, $time
 
     //SORT LOGS, DEFINE STARTING DATE, CURRENT DATE, AND DIFFERENCE IN DAYS
     var sortedLogs = $scope.habitData.logs;
-
     var start = moment(sortedLogs[0]);
     var now = moment();
     var difference = now.diff(start, 'days');
@@ -12,9 +11,8 @@ habitApp.controller('monthStreakCtrl', function($scope, $ionicActionSheet, $time
     var startDayOfWeek = start.format('d');
     var startDayOfMonth = start.format('D');
 
-
     //CHECK IF DIFFERENCE IS LESS THAN 7 AND SET TO 7 IF IT IS
-    difference = difference >= 7 ? (Number(difference) + Number(startDayOfWeek) + 1) : 7;
+    difference = difference >= 6 ? (Number(difference) + Number(startDayOfWeek) + 1) : 7;
 
     //MAKE DATES ARRAY OF OBJECTS BASED OFF DIFFERENCE (# OF DAYS ELAPSED)
     $scope.datesArr = [];
@@ -93,8 +91,5 @@ habitApp.controller('monthStreakCtrl', function($scope, $ionicActionSheet, $time
    $scope.deleteHabit = function() {
      habitService.deleteHabit($stateParams.habitId);
    }
-   $ionicScrollDelegate.resize();
-   $ionicScrollDelegate.scrollBottom();
-
 
 });

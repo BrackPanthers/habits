@@ -5,7 +5,7 @@
 		    Goal: {{habitData.goal_point.frequency}} / {{habitData.goal_point.time_frame}}
 		  </p>
 		  <p class="habit-streak-name">
-		    Current Streak: {{ dayStreak }} {{habitData.goal_point.time_frame}}s
+		    Current Streak: {{ dayStreak || currWeekStreak }} {{habitData.goal_point.time_frame}}s
 		  </p>
 		  <p class="habit-streak-name">
 		    Longest Streak: {{ highestStreak || longestWeekStreak }} {{ highestWeek }} {{habitData.goal_point.time_frame}}s

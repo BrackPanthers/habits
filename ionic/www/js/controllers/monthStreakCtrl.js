@@ -1,11 +1,8 @@
 habitApp.controller('monthStreakCtrl', function($scope, $ionicActionSheet, $timeout, $stateParams,
   habitService, $ionicHistory, $ionicScrollDelegate) {
 
-    console.log("Habit detail data:", $scope.habitData);
-
     //SORT LOGS, DEFINE STARTING DATE, CURRENT DATE, AND DIFFERENCE IN DAYS
     var sortedLogs = $scope.habitData.logs;
-
     var start = moment(sortedLogs[0]);
     var now = moment();
     var difference = now.diff(start, 'days');
@@ -14,9 +11,8 @@ habitApp.controller('monthStreakCtrl', function($scope, $ionicActionSheet, $time
     var startDayOfWeek = start.format('d');
     var startDayOfMonth = start.format('D');
 
-
     //CHECK IF DIFFERENCE IS LESS THAN 7 AND SET TO 7 IF IT IS
-    difference = difference >= 7 ? (Number(difference) + Number(startDayOfWeek) + 1) : 7;
+    difference = difference >= 6 ? (Number(difference) + Number(startDayOfWeek) + 1) : 7;
 
     //MAKE DATES ARRAY OF OBJECTS BASED OFF DIFFERENCE (# OF DAYS ELAPSED)
     $scope.datesArr = [];
@@ -33,13 +29,13 @@ habitApp.controller('monthStreakCtrl', function($scope, $ionicActionSheet, $time
         startIndex = i;
       }
     }
-    console.log(moment('11 29 2015'));
 
     //POPULATE CALENDAR SQUARES BEGINNING WITH START INDEX (MOVING FORWARD)
     for (var i = startIndex; i < $scope.datesArr.length; i++) {
         $scope.datesArr[i]['date'] = moment(start).add(i - (startIndex), 'days').format('MM DD YYYY');
         $scope.datesArr[i]['dateNum'] = moment(start).add(i - (startIndex), 'days').format('D');
     }
+
     //POPULATE CALENDAR SQUARES BEGINNING WITH START INDEX (MOVING BACKWARDS)//
     var count = 1;
     for (var i = startIndex - 1; i >= 0; i--) {
@@ -48,8 +44,6 @@ habitApp.controller('monthStreakCtrl', function($scope, $ionicActionSheet, $time
       $scope.datesArr[i]['period'] = 'before-start';
       count++;
     }
-
-    console.log($scope.datesArr);
 
     //LABEL FIRST OF EACH MONTH
     for (var i = 0; i < $scope.datesArr.length; i++) {
@@ -62,7 +56,7 @@ habitApp.controller('monthStreakCtrl', function($scope, $ionicActionSheet, $time
     $scope.habitData.logs.forEach(function(item) {
       for (var i = 0; i < $scope.datesArr.length; i++) {
         if ($scope.datesArr[i].date == moment(item).format('MM DD YYYY')) {
-          $scope.datesArr[i].class = 'green-highlight';
+          $scope.datesArr[i].logged = true;
         }
       }
     })
@@ -98,8 +92,5 @@ habitApp.controller('monthStreakCtrl', function($scope, $ionicActionSheet, $time
    $scope.deleteHabit = function() {
      habitService.deleteHabit($stateParams.habitId);
    }
-   $ionicScrollDelegate.resize();
-   $ionicScrollDelegate.scrollBottom();
-
 
 });

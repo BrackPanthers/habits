@@ -1,0 +1,35 @@
+.calendar-col{
+  display: flex;
+  border-right: 1px solid gray;
+  border-bottom: 1px solid gray;
+  height: 14.28vw;
+}
+
+.calendar-row {
+  padding: 0;
+}
+
+.calendar-col p {
+  margin: auto;
+}
+  .month-container {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    color: #d6d6d6;
+    justify-content: flex-start;
+    text-align: center;
+
+    .habit-mo {
+      height: 14.28vw;
+      width: 14.28vw;
+      color: gray;
+      display: flex;
+      background-color: transparentize(white, 0.30);
+      box-shadow: -1px -1px gainsboro, inset -1px -1px 0 0 gainsboro;
+    }
+
+    p {
+      margin: auto;
+    }
+  }

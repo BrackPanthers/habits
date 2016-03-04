@@ -39,6 +39,7 @@ habitApp.controller('monthStreakCtrl', function($scope, $ionicActionSheet, $time
         $scope.datesArr[i]['date'] = moment(start).add(i - (startIndex), 'days').format('MM DD YYYY');
         $scope.datesArr[i]['dateNum'] = moment(start).add(i - (startIndex), 'days').format('D');
     }
+
     //POPULATE CALENDAR SQUARES BEGINNING WITH START INDEX (MOVING BACKWARDS)//
     var count = 1;
     for (var i = startIndex - 1; i >= 0; i--) {
@@ -61,7 +62,7 @@ habitApp.controller('monthStreakCtrl', function($scope, $ionicActionSheet, $time
     $scope.habitData.logs.forEach(function(item) {
       for (var i = 0; i < $scope.datesArr.length; i++) {
         if ($scope.datesArr[i].date == moment(item).format('MM DD YYYY')) {
-          $scope.datesArr[i].class = 'green-highlight';
+          $scope.datesArr[i].logged = true;
         }
       }
     })

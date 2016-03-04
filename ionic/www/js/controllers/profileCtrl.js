@@ -11,33 +11,6 @@ habitApp.controller('profileCtrl', function($scope, authSvc, profileData) {
     }
   }
 
-  // var logs = [1, 2, 3, 4, 5, 6, 7, 10, 11, 12]
-
-  // var checkStreak = function(logs) {
-  //   console.log('Starting check');
-  //   var highestStreak = 0;
-  //   var streak = 0;
-  //   console.log('Length: ', logs.length);
-  //   for (var i = 0; i < logs.length - 1; i++) {
-  //     if (logs[i + 1] - logs[i] === 1) {
-  //       streak++; 
-  //       if (streak > highestStreak) {
-  //         highestStreak = streak;
-  //         console.log('set new highestStreak', highestStreak);
-  //       }
-  //       console.log('add to streak: '+streak+'/'+highestStreak);
-  //     }
-  //     else {
-  //       console.log('streak ended');
-  //       streak = 0;
-  //     }
-  //   }
-  //   console.log('fin', highestStreak);
-  //   $scope.highestStreak = highestStreak;
-  // }
-
-  // checkStreak(logs);
-
   // this is an ionic component for a logout menu, if we want to use it later
   // $scope.showLogOutMenu = function() {
   //   var hideSheet = $ionicActionSheet.show({

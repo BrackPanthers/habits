@@ -31,24 +31,50 @@ habitApp.service("streakSvc", function() {
           streak = 1;
         }
       }
-      return highestStreak;
+
     }
-    // else {
-    //   var today = moment();
-    //   var startDate = moment(habitData.createdAt);
-    //   if ( logs.length === 0 ) {
-    //     highestStreak = today.clone().subtract(startDate);
+    else { // if calculating streak for less habit
+      var today = moment();
+      var startDate = moment(habitData.createdAt);
+      if ( logs.length === 0 ) {
+        highestStreak = today.diff(startDate, 'days').toString();
+        // convert to string so it shows up in angular
+        console.log(highestStreak);
+      } else if (logs.length === 1) {
+        var onlyLog = moment(logs[0]);
+        var firstStreak = onlyLog.diff(startDate, 'days');
+        var secondStreak = today.diff(onlyLog, 'days');
 
+        highestStreak = firstStreak;
 
-    //   }
-    //   // for (var i = 0; i < logs.length -1; i++) {
+        if (firstStreak < secondStreak) {
+          highestStreak = secondStreak;
+        }
+      } else { // if at least two logs in arr
+        // loop through each log in array
+        var firstStreak = moment(logs[0]).diff(startDate, 'days');
+        var lastStreak = today.diff(moment(logs[logs.length -1]), 'days');
 
-    //   // }
+        highestStreak = firstStreak;
+        if (lastStreak > firstStreak) {
+          highestStreak = lastStreak;
+        }
 
-    //   console.log("Highest streak:", highestStreak);
-    // }
+        // loop through remaining logs to check if any longer streaks
+        for (var i = 0; i < logs.length - 1; i++) {
+          var streak = moment(logs[i + 1]).diff(moment(logs[i]), 'days');
+          // console.log("STREAK CHECK:", streak)
+          if (streak > highestStreak) {
+            highestStreak = streak;
+          }
+        }
+      }
+      // console.log("Highest streak:", highestStreak);
+    }
+
+    return highestStreak;
   }
-  
+
 
 
   this.currentDayStreak = function(logs) {

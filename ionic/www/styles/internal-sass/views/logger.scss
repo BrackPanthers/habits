@@ -36,8 +36,12 @@
   z-index: 1000;
 }
 
-.ion-ios-checkmark {
+.ion-ios-checkmark.green-log-checkmark{
   color: #38D19F;
+}
+
+.ion-ios-checkmark.red-log-checkmark{
+  color: #ff6363;
 }
 
 .no-button {
@@ -107,5 +111,5 @@
 .no-button.red a{
   background-color: #FB4350;
   color: #fff;
-  border-color: #FB4350; 
+  border-color: #FB4350;
 }

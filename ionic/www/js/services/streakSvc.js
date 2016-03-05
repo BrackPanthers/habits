@@ -75,26 +75,29 @@ habitApp.service("streakSvc", function() {
     return highestStreak;
   }
 
-
-
-  this.currentDayStreak = function(logs) {
+  this.currentDayStreak = function(logs, habitData) {
     var dayStreak;
-    if (moment().subtract(1, 'days').startOf('day') > moment(logs[logs.length - 1]) || logs.length == 0) {
-      dayStreak = '0';
-    } else {
-      dayStreak = 1;
-      for (var i = logs.length - 1; i > 0; i--) {
-        var lastDay = moment(logs[i]).format("MM-DD-YYYY");
-        var nextDay = moment(logs[i - 1]).add(1, 'days').format("MM-DD-YYYY");
-        if ( nextDay === lastDay) {
-          dayStreak++;
-        }
-        else {
-          break;
+    if (habitData.kind == 'more') {
+      if (moment().subtract(1, 'days').startOf('day') > moment(logs[logs.length - 1]) || logs.length == 0) {
+        dayStreak = '0';
+      } else {
+        dayStreak = 1;
+        for (var i = logs.length - 1; i > 0; i--) {
+          var lastDay = moment(logs[i]).format("MM-DD-YYYY");
+          var nextDay = moment(logs[i - 1]).add(1, 'days').format("MM-DD-YYYY");
+          if ( nextDay === lastDay) {
+            dayStreak++;
+          }
+          else {
+            break;
+          }
         }
       }
+    } else if (habitData.kind == 'less') {
+      var today = moment();
+      var mostRecentLog = moment(logs[logs.length -1]);
+      dayStreak = today.diff(mostRecentLog, 'days');
     }
-
     return dayStreak;
   }
 

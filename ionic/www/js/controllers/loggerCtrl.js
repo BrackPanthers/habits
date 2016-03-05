@@ -8,6 +8,7 @@ habitApp.controller('loggerCtrl', function($scope, $timeout, $ionicSlideBoxDeleg
     if (today.format("YYYY MM DD") === last_log.format("YYYY MM DD") && item.logs.length){
       item.checked = true;
     }
+
     console.log(item.checked);
     return item;
   });

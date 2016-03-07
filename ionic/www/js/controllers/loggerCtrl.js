@@ -32,6 +32,11 @@ habitApp.controller('loggerCtrl', function($scope, $timeout, $ionicSlideBoxDeleg
     }, 500);
   }
 
+  $scope.removeLog = function(habitId) {
+    var dateToRemove = moment().format('MM-DD-YYYY');
+    habitService.removeLog(habitId, dateToRemove);
+  }
+
   $scope.deleteHabit = function(habitId) {
     habitService.deleteHabit(habitId);
   }

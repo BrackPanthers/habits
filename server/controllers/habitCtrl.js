@@ -47,6 +47,7 @@ module.exports = {
 
   removeLog: function(req, res) {
     var dateToRemove = req.body.date_to_remove;
+    console.log('date to remove', dateToRemove);
     if (!dateToRemove) {
       res.status(406).send('Please include a habit ID and date with your request.');
     }

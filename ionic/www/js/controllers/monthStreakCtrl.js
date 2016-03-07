@@ -6,7 +6,7 @@ habitApp.controller('monthStreakCtrl', function($scope, $ionicActionSheet, $time
     var start = moment(sortedLogs[0]).startOf('day');
     var now = moment().startOf('day');
     var difference = now.diff(start, 'days', true);
-    console.log('difference', difference);
+
     //ESTABLISH START DAY OF WEEK (0-6) AND DAY OF MONTH(1-31)
     var startDayOfWeek = start.format('d');
     var startDayOfMonth = start.format('D');

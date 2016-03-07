@@ -13,7 +13,7 @@
         <!--CHECKBOX-->
         <div class="check-button">
           <i ng-click="logHabit(userHabits[$index]._id); habit.checked=true; nextSlide()" ng-hide="habit.checked" class="ion-ios-checkmark-outline"></i>
-          <i ng-click="" ng-show="habit.checked" ng-class="{'ion-ios-checkmark': true, 'green-log-checkmark': habit.kind == 'more', 'red-log-checkmark': habit.kind == 'less'}"></i>
+          <i ng-click="removeLog(userHabits[$index]._id); habit.checked=false" ng-show="habit.checked" ng-class="{'ion-ios-checkmark': true, 'green-log-checkmark': habit.kind == 'more', 'red-log-checkmark': habit.kind == 'less'}"></i>
         </div>
         <!--NO BUTTON-->
         {{habit.no}}

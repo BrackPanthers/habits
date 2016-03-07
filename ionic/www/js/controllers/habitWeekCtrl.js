@@ -130,6 +130,10 @@ habitApp.controller('habitWeekCtrl', function($scope, $ionicModal, $ionicPopup, 
   $scope.closeModal = function() {
     $scope.modal.hide();
   };
+  
+  $scope.deleteHabit = function(habitID) {
+      habitService.deleteHabit(habitID);
+  }
 
   //Cleanup the modal when we're done with it!
   $scope.$on('$destroy', function() {

@@ -1,4 +1,4 @@
-habitApp.controller('habitWeekCtrl', function($scope, $ionicModal) {
+habitApp.controller('habitWeekCtrl', function($scope, $ionicModal, $ionicPopup, habitService) {
 
   function getWeeklyLogData() {
     /// CAN I GET "RELEVANT LOGS" FROM SERVER?
@@ -13,16 +13,17 @@ habitApp.controller('habitWeekCtrl', function($scope, $ionicModal) {
     var today_date = today.format("MM-DD-YYYY");
     var startOfWeekDate = today.subtract(dow, 'd').startOf("day");
 
-    var sortedLogs = $scope.habitData.logs.sort(function(a, b) {
-      if (moment(a) > moment(b)) {
-        return 1;
-      }
-      if (moment(a) < moment(b)) {
-        return -1;
-      }
-      return 0;
-    });
+    // var sortedLogs = $scope.habitData.logs.sort(function(a, b) {
+    //   if (moment(a) > moment(b)) {
+    //     return 1;
+    //   }
+    //   if (moment(a) < moment(b)) {
+    //     return -1;
+    //   }
+    //   return 0;
+    // });
 
+    var sortedLogs = $scope.habitData.logs;
     var relevantLogs = [];
 
     // loop through sorted logs, starting with most recent
@@ -66,8 +67,52 @@ habitApp.controller('habitWeekCtrl', function($scope, $ionicModal) {
 
   $scope.dayBoxArr = getWeeklyLogData();
 
-  $scope.toggleDay = function(dayIndex) {
-    $scope.dayBoxArr[dayIndex].logged = !$scope.dayBoxArr[dayIndex].logged;
+  $scope.toggleDay = function(dayIndex, dayBoxArr, habitData) {
+    var habitDay = dayBoxArr[dayIndex];
+    var confirmPopup;
+    // console.log(habitDay);
+
+    // if trying to log habit in future, return and end function/ do nothing
+    if (moment(habitDay.date_stamp) > moment()) {
+      return;
+    }
+
+    if (habitDay.logged) {
+      confirmPopup = $ionicPopup.confirm({
+        title: 'Remove log for habit',
+        template: 'Are you sure you want to remove all logs for this habit on ' + habitDay.date_stamp + '?',
+        okText: 'Yes'
+      })
+      confirmPopup.then(
+        function(res) {
+          if (res) {
+            console.log("remove habit logs");
+            habitService.removeLog(habitData._id, habitDay.date_stamp);
+            habitDay.logged = false;
+          } else {
+            console.log("do not remove habit logs");
+          }
+        }
+      )
+    } else {
+      confirmPopup = $ionicPopup.confirm({
+        title: 'Add log for habit',
+        template: 'Are you sure you want to add a log for this habit on ' + habitDay.date_stamp + '?',
+        okText: 'Yes'
+      })
+      confirmPopup.then(
+        function(res) {
+          if (res) {
+            console.log("add habit log");
+            habitDay.logged = true;
+            habitService.logHabit(habitData._id, habitDay.date_stamp);
+          } else {
+            console.log("do not add habit log");
+          }
+        }
+      )
+    }
+
   };
 
   // modal functions

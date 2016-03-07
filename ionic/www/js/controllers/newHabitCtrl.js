@@ -1,4 +1,4 @@
-habitApp.controller('newHabitCtrl', function ($scope, habitService, authSvc, authedUser) {
+habitApp.controller('newHabitCtrl', function ($scope, $state, habitService, authSvc, authedUser) {
 
   // blank habit obj
   $scope.newHabit = {
@@ -14,6 +14,8 @@ habitApp.controller('newHabitCtrl', function ($scope, habitService, authSvc, aut
         $scope.newHabit = {
            goal_point: {}
   	    };
+
+        $state.go('tabs.profile', {userId: authedUser._id});
       });
   }
 

@@ -12,7 +12,7 @@ habitApp.controller('monthStreakCtrl', function($scope, $ionicActionSheet, $time
     var startDayOfMonth = start.format('D');
 
     //CHECK IF DIFFERENCE IS LESS THAN 7 AND SET TO 7 IF IT IS
-    difference = difference >= 6 ? (Number(difference) + Number(startDayOfWeek) + 1) : 7;
+    difference = (Number(difference) + Number(startDayOfWeek) + 1) >= 6 ? (Number(difference) + Number(startDayOfWeek) + 1) : 7;
 
     //MAKE DATES ARRAY OF OBJECTS BASED OFF DIFFERENCE (# OF DAYS ELAPSED)
     $scope.datesArr = [];

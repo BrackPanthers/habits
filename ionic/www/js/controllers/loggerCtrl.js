@@ -1,6 +1,7 @@
 habitApp.controller('loggerCtrl', function($scope, $timeout, $ionicSlideBoxDelegate, habitService, authedUser) {
 
   $scope.userData = authedUser;
+  console.log('user data', $scope.userData);
   $scope.userHabits = authedUser.habits.map(function(item) {
     var today = moment();
     var last_log = moment(item.logs[item.logs.length-1]);
@@ -8,7 +9,6 @@ habitApp.controller('loggerCtrl', function($scope, $timeout, $ionicSlideBoxDeleg
     if (today.format("YYYY MM DD") === last_log.format("YYYY MM DD") && item.logs.length){
       item.checked = true;
     }
-
     console.log(item.checked);
     return item;
   });

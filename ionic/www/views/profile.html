@@ -14,7 +14,8 @@
           </div>
         </div>
       </div>
-      <div class="profile-tabs">
+      <!--Commented tabs out for not -->
+      <!-- <div class="profile-tabs">
         <div ng-click="toggleContent('mainContent'); toggleHabitTab()" class="profile-tab">
           <div ng-show="habitTab" id="habit-tab-bar" class="profile-tab-bar"></div>
           Habits
@@ -23,13 +24,13 @@
           <div ng-show="badgesTab" id="badges-tab-bar" class="profile-tab-bar"></div>
           Badges
         </div>
-      </div>
+      </div> -->
       <day-of-week></day-of-week>
 
       <div class="profile-main-content" ng-hide="showAccomps">
-        <habit-week ng-repeat="habit in profileData.habits" habit-data="habit"></habit-week>
+        <habit-week ng-repeat="habit in profileData.habits | orderBy: '-created_at'" habit-data="habit"></habit-week>
       </div>
-      <div class="accomplishments-content" ng-show="showAccomps">
+      <!-- <div class="accomplishments-content" ng-show="showAccomps">
         <h3>Overall Records</h3>
         <h6>Longest Daily Streak: {{accompData.longest_daily_streak}}</h6>
         <h6>Goals Reached: {{accompData.goals_reached}}</h6>
@@ -37,7 +38,7 @@
         <h6>Challenges Won: {{accompData.challenges_won}}</h6>
         <h6>Total Habits: {{accompData.challenges_won}}</h6>
 
-      </div>
+      </div> -->
 
     </div>
 

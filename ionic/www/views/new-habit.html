@@ -1,64 +1,58 @@
 <ion-view>
   <ion-content class="newContent">
-    <div class="startNew">
+   <div class="startNew">
         <h2>Create New Habit</h2>
-    </div>
-    <div class="newHabit">
-
-        <label class="item item-input item-floating-label">
-            <input type="text" placeholder="Write Habit Name..." ng-model="newHabit.text">
-        </label>
-        <div class="doThis">
-            <div class="item item-divider">Do you want to do this...</div>
-            <div class="doThisButtons">
-                <ion-list>
-                    <ion-radio name="doThis"ng-model="newHabit.kind" ng-value="'more'">More</ion-radio>
-                    <ion-radio name="doThis" ng-model="newHabit.kind" ng-value="'less'">Less</ion-radio>
-                </ion-list>
-            </div>
-        </div>
-        <div class="targetGoal">
-
-            <div class="freqButtons">
-                <div class="item item-divider">
-                    How often do you want to do this?
-                </div>
-
-                <div class="item range">
-                    <i class="ion-chevron-left"></i>
-                    <input type="range" name="number" min="0" max="7" ng-model="newHabit.goal_point.frequency">
-                    <i class="ion-chevron-right"></i>
-                </div>
-
-                <ion-list>
-                    <ion-radio name="freq" ng-model="newHabit.goal_point.time_frame" ng-value="'day'">{{ newHabit.goal_point.frequency }} Times Per Day</ion-radio>
-                    <ion-radio name="freq" ng-model="newHabit.goal_point.time_frame" ng-value="'week'">{{ newHabit.goal_point.frequency }} Times Per Week</ion-radio>
-                </ion-list>
-            </div>
-            <div class="categorySelector">
-                <label class="item item-input item-select">
-                    <div class="input-label">Category</div>
-                    <select name="categoryChange" class="Selector" ng-model="newHabit.category">
-                        <option value="" disabled selected>Choose Category</option>
-                        <option ng-repeat="category in categories">{{ category }}</option>
-                    </select>
-                </label>
-            </div>
-            <div class="noteBar">
+    </div> 
+    <form name="habitForm" novalidate>
+        <div class="newHabit">
                 <label class="item item-input item-floating-label">
-                    <span class="input-label">Notes</span>
-                    <input type="text" class="noteFill" placeholder="Write Notes" ng-model="newHabit.notes">
+                    <input type="text" placeholder="Write Habit Name..." class="form-control" ng-model="newHabit.text" required>
                 </label>
+            <div class="doThis">
+                <div class="item item-divider">Do you want to do this...</div>
+                <div class="doThisButtons">
+                    <ion-list>
+                        <ion-radio name="doThis"ng-model="newHabit.kind" ng-value="'more'" required>More</ion-radio>
+                        <ion-radio name="doThis" ng-model="newHabit.kind" ng-value="'less'" required>Less</ion-radio>
+                    </ion-list>
+                </div>
             </div>
-            <div class="privateCheck">
+            <div class="targetGoal">
 
-                <ion-checkbox class="checkBox checkbox-balanced" ng-model="newHabit.is_private">Make This Habit Private</ion-checkbox>
-            </div>
-            <div class="submitBox">
-                <button class="button button-full button-balanced" ng-click="addNewHabit(newHabit)">Submit</button>
+                <div class="freqButtons">
+                    <div class="item item-divider">
+                        How often do you want to do this?
+                    </div>
+
+                    <div class="item range">
+                        <i class="ion-chevron-left"></i>
+                        <input type="range" name="number" min="0" max="7" ng-model="newHabit.goal_point.frequency" required>
+                        <i class="ion-chevron-right"></i>
+                    </div>
+
+                    <ion-list>
+                        <div class="item item-divider">Choose if this is Daily or Weekly</div>
+                        <ion-radio name="freq" ng-model="newHabit.goal_point.time_frame" ng-value="'day'" required>{{ newHabit.goal_point.frequency }} Times Per Day</ion-radio>
+                        <ion-radio name="freq" ng-model="newHabit.goal_point.time_frame" ng-value="'week'" required>{{ newHabit.goal_point.frequency }} Times Per Week</ion-radio>
+                    </ion-list>
+                </div>
+                <div class="categorySelector">
+                    <label class="item item-input item-select">
+                        <div class="input-label">Category</div>
+                        <select name="categoryChange" class="Selector" ng-model="newHabit.category" required>
+                            <option value="" disabled selected>Choose Category</option>
+                            <option ng-repeat="category in categories">{{ category }}</option>
+                        </select>
+                    </label>
+                </div>
+            <!--<div class="privateCheck">
+                    <ion-checkbox class="checkBox checkbox-balanced" ng-model="newHabit.is_private">Make This Habit Private</ion-checkbox>
+                </div> -->
+                <div class="submitBox">
+                    <button type="submit" class="button button-full button-balanced" ng-disabled="habitForm.$invalid" ng-click="addNewHabit(newHabit)">Submit</button>
+                </div>
             </div>
         </div>
-    </div>
-
+    </form>
   </ion-content>
 </ion-view>

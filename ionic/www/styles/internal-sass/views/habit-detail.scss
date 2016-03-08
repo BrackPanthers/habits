@@ -22,17 +22,9 @@
     background-position: center;
     background-size: cover;
 
-    .settings-link {
-      position: absolute;
-      top: 15px; right: 15px;
-      font-size: 30px;
-      color: white;
-    }
-
     .habit-detail-wrapper {
       text-align: center;
     }
-
     .habit-detail-name {
         font-family: 'Proxima Nova', sans-serif;
         font-weight: bold;
@@ -95,4 +87,19 @@
     p {
       margin: auto;
     }
+  }
+  .ion-ios-arrow-back {
+    position:absolute;
+    top: 10px;
+    left: 15px;
+    font-size: 30px;
+    color: white;
+  }
+
+  .ion-trash-b {
+    position:absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 25px;
+    color: white;
   }

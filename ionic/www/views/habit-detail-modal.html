@@ -1,9 +1,16 @@
 <ion-modal-view>
   <div class="detail-content">
     <div class="detail-top-content">
-      <div class="settings-link">
+
+      <!-- <div class="settings-link"> -->
         <i class="ion-ios-arrow-back" ng-click="closeModal()"></i>
-      </div>
+      <!-- </div> -->
+
+      <!-- <div class="left"> -->
+        <i class="ion-trash-b" ng-click="deleteHabit(habitData)"></i>
+      <!-- </div> -->
+
+
       <!-- habit -->
       <streak-info habit-data="habitData"></streak-info>
     </div>
@@ -14,3 +21,5 @@
       <calendar-streak habit-data="habitData"></calendar-streak>
   </ion-content>
 </ion-modal-view>
+<!-- <div class="settings-link">
+</div> -->

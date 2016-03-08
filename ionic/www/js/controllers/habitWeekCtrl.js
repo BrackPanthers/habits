@@ -1,5 +1,7 @@
 habitApp.controller('habitWeekCtrl', function($scope, $ionicModal, $ionicPopup, habitService) {
 
+  console.log($scope.habitData);
+
   function getWeeklyLogData() {
     /// CAN I GET "RELEVANT LOGS" FROM SERVER?
     // get data about today

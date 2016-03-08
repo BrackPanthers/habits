@@ -10,7 +10,7 @@
                     <input type="text" placeholder="Write Habit Name..." class="form-control" maxlength="25" ng-model="newHabit.text" required>
                 </label>
             <div class="doThis">
-                <div class="item item-divider">Do you want to do this...</div>
+                <div class="item item-divider">I want to do this...</div>
                 <div class="doThisButtons">
                     <ion-list>
                         <ion-radio name="doThis"ng-model="newHabit.kind" ng-value="'more'" required>More</ion-radio>
@@ -22,7 +22,7 @@
 
                 <div class="freqButtons">
                     <div class="item item-divider">
-                        How often do you want to do this?
+                        How often do I want to do this?
                     </div>
 
                     <div class="item range">
@@ -32,12 +32,12 @@
                     </div>
 
                     <ion-list>
-                        <div class="item item-divider">Choose if this is Daily or Weekly</div>
+                        <div class="item item-divider">Daily or Weekly?</div>
                         <ion-radio name="freq" ng-model="newHabit.goal_point.time_frame" ng-value="'day'" required>{{ newHabit.goal_point.frequency }} Times Per Day</ion-radio>
                         <ion-radio name="freq" ng-model="newHabit.goal_point.time_frame" ng-value="'week'" required>{{ newHabit.goal_point.frequency }} Times Per Week</ion-radio>
                     </ion-list>
                 </div>
-                <div class="categorySelector">
+                <!-- <div class="categorySelector">
                     <label class="item item-input item-select">
                         <div class="input-label">Category</div>
                         <select name="categoryChange" class="Selector" ng-model="newHabit.category" required>
@@ -45,7 +45,7 @@
                             <option ng-repeat="category in categories">{{ category }}</option>
                         </select>
                     </label>
-                </div>
+                </div> -->
             <!--<div class="privateCheck">
                     <ion-checkbox class="checkBox checkbox-balanced" ng-model="newHabit.is_private">Make This Habit Private</ion-checkbox>
                 </div> -->

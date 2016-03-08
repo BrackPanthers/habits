@@ -70,7 +70,6 @@ habitApp.controller('habitWeekCtrl', function($scope, $ionicModal, $ionicPopup, 
   $scope.toggleDay = function(dayIndex, dayBoxArr, habitData) {
     var habitDay = dayBoxArr[dayIndex];
     var confirmPopup;
-    // console.log(habitDay);
 
     // if trying to log habit in future, return and end function/ do nothing
     if (moment(habitDay.date_stamp) > moment()) {
@@ -94,7 +93,7 @@ habitApp.controller('habitWeekCtrl', function($scope, $ionicModal, $ionicPopup, 
           }
         }
       )
-    } else {
+    } else if (!habitDay.logged) {
       confirmPopup = $ionicPopup.confirm({
         title: 'Add log for habit',
         template: 'Are you sure you want to add a log for this habit on ' + habitDay.date_stamp + '?',

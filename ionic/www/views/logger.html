@@ -6,13 +6,14 @@
         <!--HEADLINE-->
         <div class="cover-title">
           <div class="cover-headline">
-            <h3>Did you<br><span>{{habit.text}}</span></br>today?</h3>
+            <h3>Did you<br><span>{{habit.text}}</span></br>
+            <span id="frequency" ng-hide="(habit.goal_point.frequency <= 1) || (habit.goal_point.time_frame !== 'day')">{{habit.goal_point.frequency}} times</span></span> today?</h3>
           </div>
         </div>
         <!--CHECKBOX-->
         <div class="check-button">
           <i ng-click="logHabit(userHabits[$index]._id); habit.checked=true; nextSlide()" ng-hide="habit.checked" class="ion-ios-checkmark-outline"></i>
-          <i ng-show="habit.checked" ng-class="{'ion-ios-checkmark': true, 'green-log-checkmark': habit.kind == 'more', 'red-log-checkmark': habit.kind == 'less'}"></i>
+          <i ng-click="removeLog(userHabits[$index]._id); habit.checked=false" ng-show="habit.checked" ng-class="{'ion-ios-checkmark': true, 'green-log-checkmark': habit.kind == 'more', 'red-log-checkmark': habit.kind == 'less'}"></i>
         </div>
         <!--NO BUTTON-->
         {{habit.no}}

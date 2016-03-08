@@ -19,7 +19,15 @@ habit-week {
     a {
       color: #457ED0;
       text-decoration: none;
-      border-bottom: 2px solid #457ED0;
+      // border-bottom: 2px solid #457ED0;
+    }
+
+    .green-highlight {
+      color: lightgreen;
+    }
+
+    .red-highlight {
+      color: #eb7272;
     }
 
     .habit-week-details {
@@ -55,7 +63,7 @@ habit-week {
     // }
 
     .habit-week-square.log-day-square.bad-habit-square {
-      background-color: #FB4350;
+      background-color: #eb7272;
 
       i.ion-checkmark {
         display: none;

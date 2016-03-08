@@ -2,11 +2,12 @@
   <ion-content class="newContent">
    <div class="startNew">
         <h2>Create New Habit</h2>
-    </div> 
+
+    </div>
     <form name="habitForm" novalidate>
         <div class="newHabit">
                 <label class="item item-input item-floating-label">
-                    <input type="text" placeholder="Write Habit Name..." class="form-control" ng-model="newHabit.text" required>
+                    <input type="text" placeholder="Write Habit Name..." class="form-control" maxlength="25" ng-model="newHabit.text" required>
                 </label>
             <div class="doThis">
                 <div class="item item-divider">Do you want to do this...</div>

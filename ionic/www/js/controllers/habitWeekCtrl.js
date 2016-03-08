@@ -1,4 +1,4 @@
-habitApp.controller('habitWeekCtrl', function($scope, $ionicModal, $ionicPopup, habitService) {
+habitApp.controller('habitWeekCtrl', function($scope, $ionicModal, $ionicPopup, habitService, $ionicPopup) {
 
   function getWeeklyLogData() {
     /// CAN I GET "RELEVANT LOGS" FROM SERVER?
@@ -134,5 +134,26 @@ habitApp.controller('habitWeekCtrl', function($scope, $ionicModal, $ionicPopup, 
   $scope.$on('$destroy', function() {
     $scope.modal.remove();
   });
+
+  // A confirm dialog
+$scope.deleteHabit = function(habitData) {
+  var confirmPopup = $ionicPopup.confirm({
+    title: 'Delete Habit',
+    template: 'Are you sure you want to delete this habit?'
+  });
+
+  confirmPopup.then(function(res) {
+    if(res) {
+      habitService.deleteHabit(habitData)
+      .then(
+        function(res) {
+          $scope.closeModal();
+        }
+      )
+    } else {
+      console.log('Delete canceled.');
+      }
+  });
+};
 
 });

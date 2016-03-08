@@ -1,9 +1,9 @@
 <div class="habit-week-info">
   <div class="habit-week-text">
-    <a ng-click="openModal()" href="">{{habitData.text}}</a>
+    <i class="ion-record" ng-class="{'red-dot': habitData.kind == 'less'}"></i> <a ng-click="openModal()" href="">{{habitData.text}}</a>
   </div>
   <div class="habit-week-details">
-    {{habitData.goal_point.frequency}} / {{habitData.goal_point.time_frame}}
+    <i ng-click="openModal()" class="ion-chevron-right"></i><!-- {{habitData.goal_point.frequency}} / {{habitData.goal_point.time_frame}} -->
   </div>
 </div>
 <div class="habit-week-squares">

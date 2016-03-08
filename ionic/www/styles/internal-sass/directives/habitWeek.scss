@@ -15,23 +15,29 @@ habit-week {
       font-family: 'Proxima Nova', sans-serif;
       font-weight: bold;
       letter-spacing: 0.07em;
+
+      i {
+        font-size: 0.6em;
+        color: #38D19F;
+      }
+
+      .red-dot {
+        font-size: 0.6em;
+        color: #FB4350;
+      }
     }
     a {
       color: #457ED0;
       text-decoration: none;
-      // border-bottom: 2px solid #457ED0;
     }
-
-    .green-highlight {
-      color: lightgreen;
-    }
-
-    .red-highlight {
-      color: #eb7272;
-    }
+  }
 
     .habit-week-details {
       padding-top: 3px;
+      color: #989898;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-size: 0.9em;
     }
   }
 
@@ -44,9 +50,11 @@ habit-week {
       display: flex;
       align-items: center;
       justify-content: center;
-      border-right: 1px solid white;
-      background-color: #d6d6d6;
-      color: #d6d6d6;
+      border-top: 1px solid #C4C4C4;
+      border-bottom: 1px solid #C4C4C4;
+      border-right: 1px solid #C4C4C4;
+      background-color: #fff;
+      color: #fff;
       font-size: 24px;
       height: 14vw;
       i.ion-close {
@@ -55,7 +63,7 @@ habit-week {
     }
 
     .habit-week-square.log-day-square {
-      background-color: #16BE9D;
+      background-color: #38D19F;
     }
 
     // .habit-week-square.today-square {
@@ -63,7 +71,7 @@ habit-week {
     // }
 
     .habit-week-square.log-day-square.bad-habit-square {
-      background-color: #eb7272;
+      background-color: #FB4350;
 
       i.ion-checkmark {
         display: none;
@@ -74,4 +82,3 @@ habit-week {
       }
     }
   }
-}

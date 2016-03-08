@@ -1,4 +1,4 @@
-habitApp.service('habitService', function($http, constants) {
+habitApp.service('habitService', function($http, constants, $state) {
 
   this.logHabit = function(habitId, logDate) {
     var reqBody = {};
@@ -45,11 +45,13 @@ habitApp.service('habitService', function($http, constants) {
     )
   }
 
-  this.deleteHabit = function(habitId) {
-    $http.delete(constants.baseServerUrl +'/deletehabit/' + habitId)
+  this.deleteHabit = function(habitData) {
+    return $http.delete(constants.baseServerUrl +'/deletehabit/' + habitData._id)
       .then(function(result) {
-        console.log('habit delete function test');
-    })
+        console.log('Habit has been deleted.');
+        return result;
+        // $state.go($state.current, {userId: habitData.user_id}, {refresh: true});
+    });
   }
 
   this.getHabit = function() {

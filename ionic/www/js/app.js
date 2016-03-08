@@ -36,7 +36,7 @@ habitApp.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvide
   })
   .state('tabs', {
     url: '/tabs',
-    abstract: true,
+    // abstract: true,
     templateUrl: './views/tabnav.html',
     controller: 'tabsCtrl',
     resolve: {
@@ -48,16 +48,17 @@ habitApp.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvide
   })
   .state('tabs.profile', {
     url: '/profile/:userId',
+    cache: false, // this updates profile every time you go back
     views: {
       'profile-tab': {
         templateUrl: './views/profile.html',
-        controller: 'profileCtrl',
-        resolve: { // before going to page:
-          // get user data for page
-          profileData: function(userSvc, $stateParams) {
-            return userSvc.getUserData($stateParams.userId);
-          }
-        }
+        controller: 'profileCtrl'
+      }
+    },
+    resolve: { // before going to page:
+      // get user data for page
+      profileData: function(userSvc, $stateParams) {
+        return userSvc.getUserData($stateParams.userId);
       }
     }
   })

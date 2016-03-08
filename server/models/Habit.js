@@ -25,10 +25,6 @@ var habitSchema = mongoose.Schema({
     default: false
   },
 
-  notes: {
-    type: String
-  },
-
   category: categorySchema,
 
   goal_point: pointSchema,

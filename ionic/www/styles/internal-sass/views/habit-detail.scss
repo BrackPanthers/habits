@@ -18,7 +18,7 @@
         rgba(0, 0, 0, 0.5),
         rgba(0, 0, 0, 0.5)
       ),
-      url('./../img/habit-detail.jpg');
+      url('https://static.pexels.com/photos/7862/pexels-photo-large.jpg');
     background-position: center;
     background-size: cover;
 
@@ -51,8 +51,8 @@
   }
 .calendar-col{
   display: flex;
-  border-right: 1px solid gray;
-  border-bottom: 1px solid gray;
+  // border-right: 1px solid gray;
+  // border-bottom: 1px solid gray;
   height: 14.28vw;
 }
 
@@ -74,25 +74,29 @@
     .habit-mo {
       height: 14.28vw;
       width: 14.28vw;
-      color: gray;
+      color: #5d6163;
       display: flex;
       background-color: transparentize(white, 0.30);
       box-shadow: -1px -1px gainsboro, inset -1px -1px 0 0 gainsboro;
     }
 
     .green-highlight {
-      background-color: lightgreen;
+      background-color: #38D19F;
+      color: #fff;
     }
 
     .red-highlight {
-      background-color: #eb7272;
+      background-color: #FB4350;
+      color: #fff;
     }
 
     .before-start {
-      background-color: gainsboro;
+      background-color: #D7DAD6;
     }
 
     p {
       margin: auto;
+      font-weight: bold;
+      letter-spacing: 0.05em;
     }
   }

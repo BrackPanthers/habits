@@ -3,9 +3,10 @@
 #### Made With
 Habit Tracker is created using Ionic, MEAN stack, Gulp, and Sass.</br>
 
-<img src="http://ecodile.com/wp-content/uploads/2015/10/ionic.png" style="height: 150px; margin-right: 50px;"/><img src="http://fullstacktutorials.net/wp-content/uploads/2015/11/mean3.png" style="height: 150px; margin-right: 50px;"/>
-<img src="https://raw.githubusercontent.com/gulpjs/artwork/master/gulp-2x.png" style="height: 150px; margin-right: 50px;"/>
-<img src="http://sass-lang.com/assets/img/logos/logo-b6e1ef6e.svg" style="height: 150px;"/>
+<img src="http://i.imgur.com/ZYzdXkC.png"/>
+<img src="http://i.imgur.com/LtmjiLC.png"/>
+<img src="http://i.imgur.com/w6bDhAX.png"/>
+<img src="http://i.imgur.com/tGUCAyq.png"/>
 
 
 
@@ -44,24 +45,24 @@ Habit Tracker allows you to track your good and bad habits for each month.
 
 
 *Tyler Palmer*
-<a href="url"><img src="http://www.sevencreative.co.uk/cmsimages/email-marketing-prices(1).png" style="height: 30px; margin-left: 20px; margin-right: 20px;"/></a>
-<a href="url"><img src="https://assets-cdn.github.com/images/modules/logos_page/Octocat.png" style="height: 30px;"/></a></br>
+<a href="url"><img src="http://i.imgur.com/DXFFpko.png"/></a>
+<a href="url"><img src="http://i.imgur.com/m5qX9r5.png"/></a></br>
 
 *Logan Marshall*
-<a href="url"><img src="http://www.sevencreative.co.uk/cmsimages/email-marketing-prices(1).png" style="height: 30px; margin-left: 20px; margin-right: 20px;"/></a>
-<a href="url"><img src="https://assets-cdn.github.com/images/modules/logos_page/Octocat.png" style="height: 30px;"/></a></br>
+<a href="url"><img src="http://i.imgur.com/DXFFpko.png"/></a>
+<a href="url"><img src="http://i.imgur.com/m5qX9r5.png"/></a></br>
 
 *Jeff Garcia*
-<a href="url"><img src="http://www.sevencreative.co.uk/cmsimages/email-marketing-prices(1).png" style="height: 30px; margin-left: 20px; margin-right: 20px;"/></a>
-<a href="url"><img src="https://assets-cdn.github.com/images/modules/logos_page/Octocat.png" style="height: 30px;"/></a></br>
+<a href="url"><img src="http://i.imgur.com/DXFFpko.png"/></a>
+<a href="url"><img src="http://i.imgur.com/m5qX9r5.png"/></a></br>
 
 *Fernando Fernandez*
-<a href="ffmp777@yahoo.com"><img src="http://www.sevencreative.co.uk/cmsimages/email-marketing-prices(1).png" style="height: 30px; margin-left: 20px; margin-right: 20px;"/></a>
-<a href="https://github.com/fer77"><img src="https://assets-cdn.github.com/images/modules/logos_page/Octocat.png" style="height: 30px;"/></a></br>
+<a href="ffmp777@yahoo.com"><img src="http://i.imgur.com/DXFFpko.png"/></a>
+<a href="https://github.com/fer77"><img src="http://i.imgur.com/m5qX9r5.png"/></a></br>
 
 *Justin Stofferahn*
-<a href="url"><img src="http://www.sevencreative.co.uk/cmsimages/email-marketing-prices(1).png" style="height: 30px; margin-left: 20px; margin-right: 20px;"/></a>
-<a href="url"><img src="https://assets-cdn.github.com/images/modules/logos_page/Octocat.png" style="height: 30px;"/></a></br>
+<a href="url"><img src="http://i.imgur.com/DXFFpko.png"/></a>
+<a href="url"><img src="http://i.imgur.com/m5qX9r5.png"/></a></br>
 
 
 

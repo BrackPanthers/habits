@@ -1,4 +1,4 @@
-habitApp.controller('habitWeekCtrl', function($scope, $ionicModal, $ionicPopup, habitService, $ionicPopup) {
+habitApp.controller('habitWeekCtrl', function($scope, $ionicModal, $ionicPopup, habitService, dataSvc) {
 
   function getWeeklyLogData() {
     /// CAN I GET "RELEVANT LOGS" FROM SERVER?
@@ -12,16 +12,6 @@ habitApp.controller('habitWeekCtrl', function($scope, $ionicModal, $ionicPopup, 
 
     var today_date = today.format("MM-DD-YYYY");
     var startOfWeekDate = today.subtract(dow, 'd').startOf("day");
-
-    // var sortedLogs = $scope.habitData.logs.sort(function(a, b) {
-    //   if (moment(a) > moment(b)) {
-    //     return 1;
-    //   }
-    //   if (moment(a) < moment(b)) {
-    //     return -1;
-    //   }
-    //   return 0;
-    // });
 
     var sortedLogs = $scope.habitData.logs;
     var relevantLogs = [];
@@ -86,8 +76,15 @@ habitApp.controller('habitWeekCtrl', function($scope, $ionicModal, $ionicPopup, 
         function(res) {
           if (res) {
             console.log("remove habit logs");
-            habitService.removeLog(habitData._id, habitDay.date_stamp);
-            habitDay.logged = false;
+            habitService.removeLog(habitData._id, habitDay.date_stamp)
+            .then(
+              function(res) {
+                habitDay.logged = false;
+                dataSvc.removeLocalLogsForDay(habitData.logs, habitDay.date_stamp);
+                dataSvc.checkForLogsToday([habitData]);
+              }
+            )
+
           } else {
             console.log("do not remove habit logs");
           }
@@ -102,9 +99,16 @@ habitApp.controller('habitWeekCtrl', function($scope, $ionicModal, $ionicPopup, 
       confirmPopup.then(
         function(res) {
           if (res) {
-            console.log("add habit log");
-            habitDay.logged = true;
-            habitService.logHabit(habitData._id, habitDay.date_stamp);
+            // if confirmed, try to add habit:
+            habitService.logHabit(habitData._id, habitDay.date_stamp)
+            .then(
+              function(res) { // if success, update data for that habit
+                habitDay.logged = true;
+                habitData.logs.push(moment(habitDay.date_stamp).toDate());
+                dataSvc.sortLogs(habitData.logs);
+                dataSvc.checkForLogsToday([habitData]);
+              }
+            )
           } else {
             console.log("do not add habit log");
           }

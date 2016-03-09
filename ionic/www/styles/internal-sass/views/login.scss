@@ -1,10 +1,10 @@
 .padding {
   background:
     linear-gradient(
-      rgba(38, 38, 38, 0.55),
-      rgba(38, 38, 38, 0.55)
+      rgba(38, 38, 38, 0.45),
+      rgba(38, 38, 38, 0.45)
       ),
-      url('./../img/login-banner.jpg'), no-repeat;
+      url('https://static.pexels.com/photos/3750/nature-rocks-lake-moss-large.jpeg'), no-repeat;
       background-position: center;
       background-size: cover;
       height: 100vh;
@@ -21,7 +21,7 @@
 }
 
 .habitLogo {
-  height: 250px;
+  height: 240px;
 	background-image: url(http://i.imgur.com/G0d2zas.png);
   background-repeat: no-repeat;
   background-size: contain;
@@ -36,7 +36,7 @@
 }
 
 .button {
-  min-height: 60px;
+  min-height: 75px;
   padding: 0;
   font-family: 'Proxima Nova', sans-serif;
   font-size: 1.1em;

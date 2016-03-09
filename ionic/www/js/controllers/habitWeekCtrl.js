@@ -139,4 +139,25 @@ habitApp.controller('habitWeekCtrl', function($scope, $ionicModal, $ionicPopup, 
     $scope.modal.remove();
   });
 
+  // A confirm dialog
+$scope.deleteHabit = function(habitData) {
+  var confirmPopup = $ionicPopup.confirm({
+    title: 'Delete Habit',
+    template: 'Are you sure you want to delete this habit?'
+  });
+
+  confirmPopup.then(function(res) {
+    if(res) {
+      habitService.deleteHabit(habitData)
+      .then(
+        function(res) {
+          $scope.closeModal();
+        }
+      )
+    } else {
+      console.log('Delete canceled.');
+      }
+  });
+};
+
 });

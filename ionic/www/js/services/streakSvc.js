@@ -3,7 +3,7 @@ habitApp.service("streakSvc", function() {
 
   // checking daily current and highest streaks
   this.checkStreak = function(logs, habitData) {
-    console.log(habitData.text)
+    // console.log(habitData.text)
     var highestStreak = 1;
     var streak = 1;
     if (habitData.kind == 'more') {
@@ -18,17 +18,17 @@ habitApp.service("streakSvc", function() {
       for (var i = 0; i < logs.length - 1; i++) {
       var date1 = moment(logs[i]).format("MM-DD-YYYY");
       var date2 = moment(logs[i + 1]).subtract(1, 'days').format("MM-DD-YYYY");
-      console.log("Comparing data", date1, date2)
+      // console.log("Comparing data", date1, date2)
       if ( date2 === date1 ) {
-        console.log("adding to streak")
+        // console.log("adding to streak")
         streak++;
         if (streak > highestStreak) {
             highestStreak = streak;
-            console.log('set new highestStreak', highestStreak);
+            // console.log('set new highestStreak', highestStreak);
         }
       }
         else {
-          console.log('streak ended');
+          // console.log('streak ended');
           streak = 1;
         }
       }
@@ -40,7 +40,7 @@ habitApp.service("streakSvc", function() {
       if ( logs.length === 0 ) {
         highestStreak = today.diff(startDate, 'days').toString();
         // convert to string so it shows up in angular
-        console.log(highestStreak);
+        // console.log(highestStreak);
       } else if (logs.length === 1) {
         var onlyLog = moment(logs[0]);
         var firstStreak = onlyLog.diff(startDate, 'days');

@@ -40,7 +40,6 @@ habitApp.service("streakSvc", function() {
       if ( logs.length === 0 ) {
         highestStreak = today.diff(startDate, 'days').toString();
         // convert to string so it shows up in angular
-        // console.log(highestStreak);
       } else if (logs.length === 1) {
         var onlyLog = moment(logs[0]);
         var firstStreak = onlyLog.diff(startDate, 'days');
@@ -95,9 +94,14 @@ habitApp.service("streakSvc", function() {
         }
       }
     } else if (habitData.kind == 'less') {
+      if (logs.length === 0) {
+        dayStreak = '0';
+      }
+      else {
       var today = moment();
       var mostRecentLog = moment(logs[logs.length -1]);
       dayStreak = today.diff(mostRecentLog, 'days');
+      }
     }
     return dayStreak;
   }

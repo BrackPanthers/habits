@@ -1,16 +1,6 @@
-habitApp.controller('loggerCtrl', function($scope, $timeout, $ionicSlideBoxDelegate, habitService, authedUser) {
+habitApp.controller('loggerCtrl', function($scope, $timeout, $ionicSlideBoxDelegate, habitService) {
 
-  $scope.userData = authedUser;
-  // console.log('user data', $scope.userData);
-  $scope.userHabits = authedUser.habits.map(function(item) {
-    var today = moment();
-    var last_log = moment(item.logs[item.logs.length-1]);
-    item.checked = false;
-    if (today.format("YYYY MM DD") === last_log.format("YYYY MM DD") && item.logs.length){
-      item.checked = true;
-    }
-    return item;
-  });
+  $scope.userData = $scope.authedUser;
 
   $scope.slideChanged = function () {
       $ionicSlideBoxDelegate.update();
@@ -34,10 +24,6 @@ habitApp.controller('loggerCtrl', function($scope, $timeout, $ionicSlideBoxDeleg
   $scope.removeLog = function(habitId) {
     var dateToRemove = moment().format('MM-DD-YYYY');
     habitService.removeLog(habitId, dateToRemove);
-  }
-
-  $scope.deleteHabit = function(habitId) {
-    habitService.deleteHabit(habitId);
   }
 
 });

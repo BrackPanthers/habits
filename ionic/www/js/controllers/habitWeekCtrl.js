@@ -55,7 +55,7 @@ habitApp.controller('habitWeekCtrl', function($scope, $ionicModal, $ionicPopup, 
     return dayBoxArr;
   }
 
-  $scope.dayBoxArr = getWeeklyLogData();
+  $scope.habitData.dayBoxArr = getWeeklyLogData();
 
   $scope.toggleDay = function(dayIndex, dayBoxArr, habitData) {
     var habitDay = dayBoxArr[dayIndex];
@@ -152,6 +152,12 @@ $scope.deleteHabit = function(habitData) {
       .then(
         function(res) {
           $scope.closeModal();
+          // delete habit from local arr
+          $scope.habitsArr.forEach(function(elem, i, arr) {
+            if (elem._id === habitData._id) {
+              arr.splice(i, 1);
+            }
+          });
         }
       )
     } else {

@@ -6,6 +6,7 @@ habitApp.service('habitService', function($http, constants, $state) {
     if (logDate) {
       reqBody.logDate = logDate;
     }
+
     return $http({
       method: 'PUT',
       url: constants.baseServerUrl +'/loghabit/' + habitId,

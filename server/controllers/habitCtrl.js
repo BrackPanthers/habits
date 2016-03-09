@@ -31,7 +31,8 @@ module.exports = {
       if (moment(logDate) > moment()) {
         res.status(406).send('Cannot log in the future.');
       }
-    } else {
+    }
+    else {
       logDate = new Date();
     }
 

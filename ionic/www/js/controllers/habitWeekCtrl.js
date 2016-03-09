@@ -55,7 +55,7 @@ habitApp.controller('habitWeekCtrl', function($scope, $ionicModal, $ionicPopup, 
     return dayBoxArr;
   }
 
-  $scope.dayBoxArr = getWeeklyLogData();
+  $scope.habitData.dayBoxArr = getWeeklyLogData();
 
   $scope.toggleDay = function(dayIndex, dayBoxArr, habitData) {
     var habitDay = dayBoxArr[dayIndex];

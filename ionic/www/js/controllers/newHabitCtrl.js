@@ -1,22 +1,22 @@
-habitApp.controller('newHabitCtrl', function ($scope, $state, habitService, authSvc, authedUser) {
+habitApp.controller('newHabitCtrl', function ($scope, $state, habitService, authSvc) {
 
   // blank habit obj
   $scope.newHabit = {
 		goal_point: {}
 	};
 
-  console.log("from new hab:", authedUser);
-
   $scope.addNewHabit = function (habit) {
-  	habit.user_id = authedUser._id;
-      habitService.postNewHabit(habit).then(function (res) {
-        // reset habit obj
-        $scope.newHabit = {
-           goal_point: {}
-  	    };
+  	habit.user_id = $scope.authedUser._id;
+    habitService.postNewHabit(habit).then(function (res) {
+      // reset habit obj
+      $scope.newHabit = {
+         goal_point: {}
+	    };
 
-        $state.go('tabs.profile', {userId: authedUser._id});
-      });
+      // once habit created, add to $scope.authedUser data to update view
+      $scope.authedUser.habits.push(res.data);
+      $state.go('tabs.profile', {userId: $scope.authedUser._id});
+    });
   }
 
   $scope.newHabit.goal_point.frequency = 0;

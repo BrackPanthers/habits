@@ -1,6 +1,6 @@
-habitApp.controller('profileCtrl', function($scope, authSvc, profileData) {
-  $scope.profileData = profileData; // this is after resolve is working
-  // console.log("profile", $scope.profileData);
+habitApp.controller('profileCtrl', function($scope, authSvc) {
+  $scope.profileData = $scope.authedUser; // this comes from parent scope
+  // console.log("profile", $scope.profileData.habits);
 
   $scope.toggleContent = function(targetView) {
     if (targetView === 'mainContent') {
@@ -8,6 +8,10 @@ habitApp.controller('profileCtrl', function($scope, authSvc, profileData) {
     } else if (targetView === 'accomps') {
       $scope.showAccomps = true;
     }
+  }
+
+  $scope.changeName = function() {
+    $scope.objCheck.name = 'BILLY';
   }
 
   $scope.logoutUser = authSvc.logout;
@@ -19,32 +23,5 @@ habitApp.controller('profileCtrl', function($scope, authSvc, profileData) {
     one_week_badges: 12,
     challenges_won: 7
   }
-
-  // this is an ionic component for a logout menu, if we want to use it later
-  // $scope.showLogOutMenu = function() {
-  //   var hideSheet = $ionicActionSheet.show({
-  //     destructiveText: 'Logout',
-  //     titleText: 'Are you sure you want to logout? This app is awsome so I recommend you to stay.',
-  //     cancelText: 'Cancel',
-  //     cancel: function() {},
-  //     buttonClicked: function(index) {
-  //       return true;
-  //     },
-  //     destructiveButtonClicked: function(){
-  //       $ionicLoading.show({
-  //         template: 'Logging out...'
-  //       });
-  //
-  //       // Facebook logout
-  //       facebookConnectPlugin.logout(function(){
-  //         $ionicLoading.hide();
-  //         $state.go('login');
-  //       },
-  //       function(fail){
-  //         $ionicLoading.hide();
-  //       });
-  //     }
-  //   });
-  // };
 
 });

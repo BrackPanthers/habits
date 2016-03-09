@@ -7,16 +7,16 @@ module.exports = {
 
   create: function(req, res) {
     var habit = new Habit(req.body);
-    habit.save(function(err, result) {
+    habit.save(function(err, habitResult) {
       if (err) {
         res.status(500).send('failed to create habit');
       }
-      User.findByIdAndUpdate(result.user_id, {$addToSet: {habits: result._id}}, {new: true}, function(err, result) {
+      User.findByIdAndUpdate(habitResult.user_id, {$addToSet: {habits: habitResult._id}}, {new: true}, function(err, userResult) {
         if (err) {
           res.json(err);
         } else {
-          res.json(result);
-          console.log(result);
+          res.json(habitResult);
+          // console.log(result);
         }
       });
     });

@@ -3,7 +3,8 @@ habitApp.directive('habitWeek', function() {
     templateUrl: './views/habit-week.html',
     controller: 'habitWeekCtrl',
     scope: {
-      habitData: '='
+      habitData: '=',
+      habitsArr: '='
     }
   }
 });

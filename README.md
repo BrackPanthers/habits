@@ -45,24 +45,24 @@ Habit Tracker allows you to track your good and bad habits for each month.
 
 
 *Tyler Palmer*
-<a href="url"><img src="http://i.imgur.com/DXFFpko.png"/></a>
-<a href="url"><img src="http://i.imgur.com/m5qX9r5.png"/></a></br>
+<a href="mailto:mr.tylerpalmer@gmail.com"><img src="http://i.imgur.com/DXFFpko.png"/></a>
+<a href="https://github.com/therealtp"><img src="http://i.imgur.com/m5qX9r5.png"/></a></br>
 
 *Logan Marshall*
-<a href="url"><img src="http://i.imgur.com/DXFFpko.png"/></a>
+<a href="mailto:"><img src="http://i.imgur.com/DXFFpko.png"/></a>
 <a href="url"><img src="http://i.imgur.com/m5qX9r5.png"/></a></br>
 
 *Jeff Garcia*
-<a href="url"><img src="http://i.imgur.com/DXFFpko.png"/></a>
-<a href="url"><img src="http://i.imgur.com/m5qX9r5.png"/></a></br>
+<a href="mailto:jeffrgarcia24@gmail.com"><img src="http://i.imgur.com/DXFFpko.png"/></a>
+<a href="https://github.com/Jefftronn"><img src="http://i.imgur.com/m5qX9r5.png"/></a></br>
 
 *Fernando Fernandez*
-<a href="ffmp777@yahoo.com"><img src="http://i.imgur.com/DXFFpko.png"/></a>
+<a href="mailto:ffmp777@yahoo.com"><img src="http://i.imgur.com/DXFFpko.png"/></a>
 <a href="https://github.com/fer77"><img src="http://i.imgur.com/m5qX9r5.png"/></a></br>
 
 *Justin Stofferahn*
-<a href="url"><img src="http://i.imgur.com/DXFFpko.png"/></a>
-<a href="url"><img src="http://i.imgur.com/m5qX9r5.png"/></a></br>
+<a href="mailto:Stofferahnjustin@gmail.com"><img src="http://i.imgur.com/DXFFpko.png"/></a>
+<a href="https://github.com/Jstofferahn"><img src="http://i.imgur.com/m5qX9r5.png"/></a></br>
 
 
 

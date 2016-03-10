@@ -3,8 +3,8 @@
 #### Made With
 Habit Tracker is created using Ionic, MEAN stack, Gulp, and Sass.</br>
 
-<img src="http://i.imgur.com/ZYzdXkC.png" style="margin-right: 30px;"/>
-<img src="http://i.imgur.com/LtmjiLC.png" style="margin-right: 30px;"/>
+<img src="http://i.imgur.com/ZYzdXkC.png" style="margin-right: 60px;"/>
+<img src="http://i.imgur.com/LtmjiLC.png" style="margin-right: 60px;"/>
 <img src="http://i.imgur.com/w6bDhAX.png"/>
 <img src="http://i.imgur.com/MxpFDZz.png"/>
 

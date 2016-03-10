@@ -19,8 +19,10 @@ Last updated: 03/09/2016</br>
 #### About
 Habit Tracker mobile app, was developed as a DevMountain DM-8 group project.  The idea behind Habit Tracker is to keep track of good and bad habits in an easy and intuitive way.  Creating a habit is easy, see your daily/weekly progress, and keep track of your monthly progress for each of those habits.
 
+#### Watch this video to see Habit Tracker at work
 
-![][login]
+
+<a href="https://youtu.be/f7f0sLH3yOU">![][login]</a>
 
 
 #### Track Your Habits

@@ -53,8 +53,9 @@ Habit Tracker allows you to track your good and bad habits for each month.
 <a href="https://github.com/therealtp"><img src="http://i.imgur.com/m5qX9r5.png"/></a></br>
 
 *Logan Marshall*
-<a href="mailto:"><img src="http://i.imgur.com/DXFFpko.png" style="margin-right: 20px; margin-left: 20px;"/></a>
-<a href="url"><img src="http://i.imgur.com/m5qX9r5.png"/></a></br>
+<a href="mailto:
+logangmarshall@gmail.com"><img src="http://i.imgur.com/DXFFpko.png" style="margin-right: 20px; margin-left: 20px;"/></a>
+<a href="https://github.com/loganxc12"><img src="http://i.imgur.com/m5qX9r5.png"/></a></br>
 
 *Jeff Garcia*
 <a href="mailto:jeffrgarcia24@gmail.com"><img src="http://i.imgur.com/DXFFpko.png" style="margin-right: 20px; margin-left: 20px;"/></a>

@@ -14,8 +14,6 @@ Habit Tracker is created using Ionic, MEAN stack, Gulp, and Sass.</br>
 
 Habit Tracker Version 0.1</br>
 Last updated: 03/09/2016</br>
-Habit Tracker can be found on the Android store.</br>
-
 
 
 #### About
@@ -24,21 +22,27 @@ Habit Tracker mobile app, was developed as a DevMountain DM-8 group project.  Th
 
 ![][login]
 
-#### Creating Habits
-Create good/bad habits and work on improving or stoping them.  Set the frequency of each habit to track.
-
-![][create]
 
 #### Track Your Habits
 Habit Tracker makes it easy to track the days you follow or break a habit.  This way you prepare for those days that are the hardest to keep a habit on.
 
 ![][track]
+
+
+#### Creating Habits
+Create good/bad habits and work on improving or stoping them.  Set the frequency of each habit to track.
+
+![][create]
+
+
+#### Log Your Habits
+Logging your habits is a simple screen tap.
+
 ![][track2]
 
 #### Streak
 Habit Tracker allows you to track your good and bad habits for each month.
 
-![][streak1]
 ![][streak2]
 
 ## Reporting Issues, Members, and Contact Info

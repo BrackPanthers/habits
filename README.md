@@ -1,7 +1,7 @@
-# Habit Tracker
+# Habit Master
 
 #### Made With
-Habit Tracker is created using Ionic, MEAN stack, Gulp, and Sass.</br>
+Habit Master was built using the MEAN stack, the Ionic Framework, Gulp and Sass.</br>
 
 <img src="http://i.imgur.com/ZYzdXkC.png" style="margin-right: 60px;"/>
 <img src="http://i.imgur.com/LtmjiLC.png" style="margin-right: 60px;"/>
@@ -12,38 +12,38 @@ Habit Tracker is created using Ionic, MEAN stack, Gulp, and Sass.</br>
 
 #### Version
 
-Habit Tracker Version 0.1</br>
-Last updated: 03/09/2016</br>
+Habit Master Version 0.1</br>
+Last updated: 03/14/2016</br>
 
 
 #### About
-Habit Tracker mobile app, was developed as a DevMountain DM-8 group project.  The idea behind Habit Tracker is to keep track of good and bad habits in an easy and intuitive way.  Creating a habit is easy, see your daily/weekly progress, and keep track of your monthly progress for each of those habits.
+This mobile app was developed as a DevMountain DM-8 group project. The idea behind Habit Master is to provide users with the ability to keep track of good and bad habits in an easy and intuitive way.  Add a habit, "check in" daily and report your compliance, view your weekly and long term consistency/streaks, motivate yourself to become better.
 
-#### Watch this video to see Habit Tracker at work
+#### Video Walkthrough
 
 
 <a href="https://youtu.be/f7f0sLH3yOU">![][login]</a>
 
 
-#### Track Your Habits
-Habit Tracker makes it easy to track the days you follow or break a habit.  This way you prepare for those days that are the hardest to keep a habit on.
+#### Your personal profile
+See an overview of how you're doing with all your habits in one place when you log in.
 
 ![][track]
 
 
-#### Creating Habits
-Create good/bad habits and work on improving or stoping them.  Set the frequency of each habit to track.
+#### Add New Habits
+Add habits you'd like to master, select whether you want to do them more or less, commit to a daily or weekly frequency.
 
 ![][create]
 
 
 #### Log Your Habits
-Logging your habits is a simple screen tap.
+Log your habits with a simple tap.
 
 ![][track2]
 
-#### Streak
-Habit Tracker allows you to track your good and bad habits for each month.
+#### View Your Streaks
+Habit Master automatically calculates your current/longest streak and populates a detailed calendar view of your  history with each habit.
 
 ![][streak2]
 

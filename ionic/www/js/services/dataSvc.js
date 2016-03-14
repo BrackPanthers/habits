@@ -26,6 +26,16 @@ habitApp.service('dataSvc', function() {
     })
   };
 
+  this.setLoggedForToday = function(dayBoxArr, bool) {
+    var dow = moment().day();
+
+    if (dow === 7) {
+      dow = 0; // change day of week index for sunday
+    }
+
+    dayBoxArr[dow].logged = bool;
+  }
+
   this.removeLocalLogsForDay = function(logsArr, dateToRemove) {
     var startOfDay = moment(dateToRemove).startOf('day');
     var endOfDay = moment(dateToRemove).endOf('day');

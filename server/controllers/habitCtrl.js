@@ -31,7 +31,8 @@ module.exports = {
       if (moment(logDate) > moment()) {
         res.status(406).send('Cannot log in the future.');
       }
-    } else {
+    }
+    else {
       logDate = new Date();
     }
 
@@ -64,11 +65,16 @@ module.exports = {
   },
 
   delete: function(req, res) {
-    Habit.remove({_id: req.params.habitId}, function(err, result) {
+    Habit.findByIdAndRemove( req.query.habitId, function(err, result) {
       if (err) {
-        res.json(err);
+        res.status(500).json(err);
       } else {
-        res.json(result);
+        User.findByIdAndUpdate(req.query.userId, {$pull: {habits: req.query.habitId}}, function(err, userRespnse){
+            if (err) {
+                res.status(500).send(err)
+            }
+            res.send(userRespnse)
+        })
       }
     })
   },

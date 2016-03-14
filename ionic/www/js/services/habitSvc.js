@@ -6,6 +6,7 @@ habitApp.service('habitService', function($http, constants, $state) {
     if (logDate) {
       reqBody.logDate = logDate;
     }
+
     return $http({
       method: 'PUT',
       url: constants.baseServerUrl +'/loghabit/' + habitId,
@@ -46,7 +47,7 @@ habitApp.service('habitService', function($http, constants, $state) {
   }
 
   this.deleteHabit = function(habitData) {
-    return $http.delete(constants.baseServerUrl +'/deletehabit/' + habitData._id)
+    return $http.delete(constants.baseServerUrl +'/deletehabit?habitId=' + habitData._id + '&userId=' + habitData.user_id)
       .then(function(result) {
         console.log('Habit has been deleted.');
         return result;

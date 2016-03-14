@@ -17,7 +17,7 @@
           </div>
         </div>
       </div>
-      <!--Commented tabs out for not -->
+      <!--Commented tabs out for now -->
       <!-- <div class="profile-tabs">
         <div ng-click="toggleContent('mainContent')" class="profile-tab">
           <div ng-show="habitTab" id="habit-tab-bar" class="profile-tab-bar"></div>
@@ -31,7 +31,7 @@
       <day-of-week></day-of-week>
 
       <div class="profile-main-content" ng-hide="showAccomps">
-        <habit-week ng-repeat="habit in profileData.habits | orderBy: '-created_at'" habit-data="habit"></habit-week>
+        <habit-week ng-repeat="habit in profileData.habits | orderBy: '-created_at'" habit-data="habit" habits-arr="profileData.habits"></habit-week>
       </div>
       <!-- <div class="accomplishments-content" ng-show="showAccomps">
         <h3>Overall Records</h3>
@@ -42,7 +42,6 @@
         <h6>Total Habits: {{accompData.challenges_won}}</h6>
 
       </div> -->
-
     </div>
 
   </ion-content>

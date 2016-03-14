@@ -7,7 +7,7 @@ habitApp.service("streakSvc", function() {
     var streak = 0;
     if (habitData.kind == 'more') {
       if (logs.length === 0 ) {
-        highestStreak = '0';
+        highestStreak = 0;
         return highestStreak;
       }
       if (logs.length === 1 ) {
@@ -28,7 +28,7 @@ habitApp.service("streakSvc", function() {
       }
         else {
           // console.log('streak ended');
-          streak = 1;
+          highestStreak = 1;
         }
       }
 

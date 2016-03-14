@@ -1,4 +1,4 @@
-habitApp.controller('profileCtrl', function($scope, authSvc) {
+habitApp.controller('profileCtrl', function($scope, authSvc, $ionicPopup) {
   $scope.profileData = $scope.authedUser; // this comes from parent scope
   // console.log("profile", $scope.profileData.habits);
 
